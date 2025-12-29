@@ -1,0 +1,174 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&family=Noto+Sans:wght@400;700&display=swap');
+
+:root {
+    --bg-color: #000000;
+    --text-primary: #e4eef8;
+    --text-secondary: #9fa195;
+    --accent-blue: #1da2d8;
+    --card-bg: #1d1d1d;
+    --font-heading: 'Mochiy Pop One', sans-serif;
+    --font-body: 'Noto Sans', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    padding-bottom: 100px;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* --- HEADER (Global) --- */
+.header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 20px 40px;
+    gap: 20px;
+    min-height: 100px;
+    border-bottom: 1px solid #333;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo {
+    width: 60px;
+    height: auto;
+}
+
+.nama-blog {
+    font-family: var(--font-heading);
+    color: var(--text-secondary);
+    font-size: 2rem;
+    -webkit-text-stroke: 1px rgb(8, 8, 8);
+}
+
+/* Navigasi (Tipe Film) */
+.nav-menu {
+    display: flex;
+    gap: 20px;
+    margin: 0 auto;
+    font-family: var(--font-heading);
+    font-size: 1rem;
+}
+
+.nav-menu a {
+    position: relative;
+    transition: color 0.3s;
+}
+
+.nav-menu a:hover {
+    color: var(--accent-blue);
+    transform: translateY(-3px);
+}
+
+/* Search Box */
+.search-box {
+    display: flex;
+    gap: 8px;
+}
+
+.search-box input {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+}
+
+.search-box button {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    background-color: var(--accent-blue);
+    color: white;
+}
+
+/* --- HOME PAGE GRID --- */
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    margin: 40px 40px 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--accent-blue);
+    display: inline-block;
+}
+
+.kotak-konten {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 30px;
+    padding: 0 40px;
+}
+
+.card {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #333;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(29, 162, 216, 0.2);
+}
+
+.card img {
+    width: 100%;
+    aspect-ratio: 16 / 9; 
+    height: auto;
+	object-fit: cover;
+	display: block;
+}
+
+.card-title {
+    padding: 20px;
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    text-align: center;
+    color: var(--text-primary);
+}
+
+/* --- RESPONSIVE MOBILE --- */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+    
+    .nav-menu {
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 15px 0;
+    }
+    
+    .search-box {
+        width: 100%;
+    }
+    
+    .search-box input {
+        width: 100%;
+    }
+    
+    .kotak-konten {
+        padding: 0 20px;
+    }
+}

@@ -1,0 +1,115 @@
+/* Layout Halaman Detail */
+.movie-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* Judul Halaman Film */
+.movie-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.movie-header h2 {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+}
+
+.movie-header p {
+    color: var(--text-secondary);
+}
+
+/* Layout Gambar & Deskripsi */
+.movie-content {
+    display: flex;
+    gap: 50px;
+    align-items: flex-start;
+    margin-bottom: 60px;
+}
+
+.movie-poster {
+    flex: 1;
+    max-width: 350px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+.movie-desc {
+    flex: 2;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #cccccc;
+    text-align: justify;
+    text-indent: 1em;
+    cursor: default;
+}
+
+/* Area Trailer & Download */
+.media-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.section-label {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    border-bottom: 2px solid var(--accent-blue);
+    padding-bottom: 5px;
+}
+
+/* Responsive Iframe Wrapper */
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    aspect-ratio: 16 / 9;
+    background: #000;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.video-wrapper iframe {
+    width: 100%;
+    height: 100%;
+}
+
+.btn-download {
+    background-color: var(--accent-blue);
+    color: #fff;
+    padding: 15px 40px;
+    border-radius: 50px;
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    transition: background 0.3s, transform 0.2s;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.btn-download:hover {
+    background-color: #148bbd;
+    transform: scale(1.05);
+}
+
+/* RESPONSIVE UNTUK SUB-PAGE */
+@media (max-width: 768px) {
+    .movie-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .movie-poster {
+        width: 80%;
+        max-width: none;
+    }
+
+    .movie-desc {
+        width: 100%;
+    }
+}
