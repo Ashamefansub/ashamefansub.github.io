@@ -52,13 +52,45 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 30px;
+    gap: 10px;
 }
 
+.media-section-series {
+    display: inline-block;
+    gap: 100px;
+}
+
+.button-series {
+    gap: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px; 
+}
+
+.btn-download-series {
+    background-color: var(--accent-blue);
+    color: #fff;
+    padding: 0px;
+    border-radius: 20px;
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    transition: background 0.3s, transform 0.2s;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    margin-top: 20px;
+    height: 70px;
+    width: 70px;
+}
+
+.btn-download-series:hover {
+    background-color: var(--color-nogi);
+    transform: scale(1.05);
+}
 .section-label {
     font-family: var(--font-heading);
     font-size: 1.5rem;
-    border-bottom: 2px solid var(--accent-blue);
+    
     padding-bottom: 5px;
 }
 
@@ -92,10 +124,29 @@
     margin-top: 20px;
 }
 
+.btn-download-trakteer {
+    background-color: var(--color-trakteer);
+    color: #fff;
+    padding: 15px 40px;
+    border-radius: 50px;
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    transition: background 0.3s, transform 0.2s;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    margin-top: 20px;
+}
+
 .btn-download:hover {
-    background-color: #148bbd;
+    background-color: var(--color-nogi);
     transform: scale(1.05);
 }
+
+.btn-download-trakteer:hover {
+    transform: scale(1.05);
+}
+
 
 /* RESPONSIVE UNTUK SUB-PAGE */
 @media (max-width: 768px) {
