@@ -147,6 +147,12 @@
     transform: scale(1.05);
 }
 
+#disqus_thread {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 150px;
+}
 
 /* RESPONSIVE UNTUK SUB-PAGE */
 @media (max-width: 768px) {
@@ -162,5 +168,9 @@
 
     .movie-desc {
         width: 100%;
+    }
+
+    #disqus_thread {
+        max-width: 310px;
     }
 }
