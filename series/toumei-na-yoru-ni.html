@@ -106,14 +106,33 @@
 <div id="cusdis_thread"
   data-host="https://cusdis.com"
   data-app-id="07dcecc9-8ea6-476c-8d3f-9938cdf2ede1"
-  data-theme="dark">
-</div>
-<script>
-    var cusdis_config = function () {
-  this.page.id = "tomuei-na-yoru";
-  this.page.url = window.location.href;
-  this.page.title = "toumei-na-yoru";
-};
+  data-page-id="toumei-na-yoru"
+  data-page-url="https://ashamefansub.github.io/series/toumei-na-yoru-ni.html"
+  data-page-title="Toumei na Yoru"
+  data-theme="auto">
+  </div>   
+  
+  <!-- Setting Warna Teks Komentar -->
+  <script>
+window.addEventListener("load", function () {
+  const iframe = document.querySelector("#cusdis_thread iframe");
+  if (!iframe) return;
+  const style = document.createElement("style");
+  style.innerHTML = `
+    body, label, span, p, a, button {
+      color: #ffff !important;
+    }
+    textarea, input {
+      color: #ffff !important;
+      background: transparent !important;
+    }
+      button {
+      color: #000000 !important;
+      background: #e0e0e0 !important;
+    }
+  `;
+  iframe.contentWindow.document.head.appendChild(style);
+});
 </script>
 
 <script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
