@@ -210,4 +210,8 @@ transition: opacity .25s;
     .kotak-konten {
         padding: 0 20px;
     }
+
+    .kotak-partner {
+        padding: 0 20px;
+    }
 }
