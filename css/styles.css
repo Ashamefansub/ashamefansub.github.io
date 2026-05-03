@@ -112,9 +112,24 @@ a {
     display: inline-block;
 }
 
+.section-title-partner {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    margin: 40px 40px 20px;
+    padding-bottom: 10px;
+    display: block;
+}
+
 .kotak-konten {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 30px;
+    padding: 0 40px;
+}
+
+.kotak-partner {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     gap: 30px;
     padding: 0 40px;
 }
@@ -130,6 +145,11 @@ a {
 
 .card:hover {
     transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(29, 162, 216, 0.2);
+}
+
+.kotak-partner .card:hover {
+    transform: scale(1.1);
     box-shadow: 0 10px 20px rgba(29, 162, 216, 0.2);
 }
 
