@@ -85,7 +85,7 @@
 
 .btn-download-series:hover {
     background-color: var(--color-nogi);
-    transform: scale(1.05);
+    transform: scale(1.2);
 }
 .section-label {
     font-family: var(--font-heading);
@@ -140,7 +140,7 @@
 
 .btn-download:hover {
     background-color: var(--color-nogi);
-    transform: scale(1.05);
+    transform: scale(1.1);
 }
 
 .btn-download-trakteer:hover {

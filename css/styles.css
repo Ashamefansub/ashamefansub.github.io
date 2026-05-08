@@ -43,6 +43,10 @@ a {
     border-bottom: 1px solid #333;
 }
 
+#header {
+    min-height: 100px;
+}
+
 .logo-container {
     display: flex;
     align-items: center;
