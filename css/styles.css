@@ -41,7 +41,12 @@ a {
     gap: 20px;
     min-height: 100px;
     border-bottom: 1px solid #333;
-}
+    position: fixed;
+    z-index: 100;
+    box-sizing: border-box;
+    background-color: #000000;
+    width: 100%;
+    }
 
 #header {
     min-height: 100px;
@@ -195,6 +200,7 @@ transition: opacity .25s;
         flex-direction: column;
         align-items: center;
         padding: 20px;
+        position: relative;
     }
     
     .nav-menu {
