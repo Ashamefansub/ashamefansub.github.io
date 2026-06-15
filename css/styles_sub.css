@@ -47,7 +47,7 @@
     cursor: default;
 }
 
-/* Area Trailer & Download */
+/* Info, Trailer & Download */
 .media-section {
     display: flex;
     flex-direction: column;
@@ -93,6 +93,32 @@
     
     padding-bottom: 5px;
 }
+
+.button-info {
+    font-family: var(--font-heading);
+    font-size: 1 rem;
+    padding-bottom: 5px;
+    background-color: var(--text-secondary);
+    color: var(--bg-color);
+    padding: 0px;
+    border-radius: 30px;
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    transition: background 0.3s, transform 0.2s;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    height: 50px;
+    width: 300px;
+}
+
+.button-info:hover {
+    background-color: var(--text-primary);
+    transform: scale(1.2);
+}
+
 
 /* Responsive Iframe Wrapper */
 .video-wrapper {
@@ -170,6 +196,7 @@
     .movie-content {
         flex-direction: column;
         align-items: center;
+        padding: 0 20px;
     }
 
     .movie-poster {
@@ -179,9 +206,19 @@
 
     .movie-desc {
         width: 100%;
+        padding: 0 20px;
+    }
+
+    .button-info {
+        width: 80%;
+        max-width: 200%;
+        margin-left: 40px;
     }
 
     #cusdis_thread {
         max-width: 310px;
+        padding: 0 20px;
     }
+
+
 }
