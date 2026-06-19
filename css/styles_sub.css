@@ -45,6 +45,8 @@
     text-align: justify;
     text-indent: 1em;
     cursor: default;
+    font-family: UD Digi Kyokasho NP-B;
+    color: #F6F4E8;
 }
 
 /* Info, Trailer & Download */
@@ -68,7 +70,7 @@
 }
 
 .btn-download-series {
-    background-color: var(--accent-blue);
+    background-color: #7897AB;
     color: #fff;
     padding: 0px;
     border-radius: 20px;
@@ -84,8 +86,9 @@
 }
 
 .btn-download-series:hover {
-    background-color: var(--color-nogi);
+    background-color: var(--color-hover-button);
     transform: scale(1.2);
+    box-shadow: 0px 0px 15px #1da2d8;
 }
 .section-label {
     font-family: var(--font-heading);
@@ -116,7 +119,7 @@
 
 .button-info:hover {
     background-color: var(--text-primary);
-    transform: scale(1.2);
+    transform: scale(1.1);
 }
 
 
@@ -165,12 +168,62 @@
 }
 
 .btn-download:hover {
-    background-color: var(--color-nogi);
+    background-color: var (--color-hover-button);
     transform: scale(1.1);
 }
 
 .btn-download-trakteer:hover {
     transform: scale(1.05);
+    box-shadow: 0px 0px 15px #e03e3e;
+}
+
+.about-me {
+    justify-self: center;
+    margin-top: 50px;
+    cursor: default;
+}
+
+.opening-about-me {
+    margin-top: 10px;
+    justify-content: center;
+    justify-self: center;
+    width: 80%;    
+}
+
+.opening-about-me :hover {
+    cursor: default;
+}
+
+.gambar-about-me {
+    width: 25%;
+    max-width: 30%;
+    margin-left: 50px;
+    float: left;
+    margin-right: 30px;
+}
+
+.gambar-about-me-2 {
+    float: right;
+    width: 30%;
+    max-width: 35%;
+    margin-left: 30px;
+    margin-right: 0px;
+}
+
+.teks-about-me {
+    margin-left: 20px;
+    text-indent: 1rem;
+    font-size: 20px;
+    font-family: UD Digi Kyokasho NP-B;
+    color: #F6F4E8;
+    
+    
+}
+
+@font-face {
+    font-family: 'UD Digi Kyokasho NP-B';
+    src: url('/font/UD\ Digi\ Kyokasho\ NP-B.woff2');
+    
 }
 
 /* Setting Style Komentar */
@@ -186,7 +239,7 @@
 
 #cusdis_thread iframe{
   width:100%;
-  min-height:1000px;
+  min-height:500px;
   border: none;
   background-color: transparent !important;
 }
@@ -213,6 +266,26 @@
         width: 80%;
         max-width: 200%;
         margin-left: 40px;
+    }
+
+    .opening-about-me {
+        display: flex;
+        flex-direction:column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .gambar-about-me {
+        float: none;
+        width: 250px;
+        max-width: 100%;
+        margin-bottom: 05px;
+
+    }
+
+    .teks-about-me {
+        font-size: 15px;
+        padding: 10px;
     }
 
     #cusdis_thread {

@@ -1,5 +1,6 @@
 /* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&family=Noto+Sans:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&family=Noto+Sans:wght@400;700&family=Nunito:wght@400;600;700&display=swap');
+
 
 :root {
     --bg-color: #000000;
@@ -11,6 +12,10 @@
     --font-body: 'Noto Sans', sans-serif;
     --color-trakteer: #ff0000;
     --color-nogi: #800080;
+    --font-footer: 'Nunito', sans-serif;
+    --color-hover-button: #BFDDF0;
+    --color-dasar-1: #0b1647;
+    --color-dasar-2: #4f51a0;
 }
 
 * {
@@ -20,11 +25,13 @@
 }
 
 body {
-    background-color: var(--bg-color);
+    background-color: #0b1647;
     color: var(--text-primary);
     font-family: var(--font-body);
-    padding-bottom: 100px;
+    padding-bottom: 10px;
     overflow-x: hidden;
+
+    
 }
 
 a {
@@ -37,16 +44,28 @@ a {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    padding: 20px 40px;
+    padding: 5px 20px;
     gap: 20px;
-    min-height: 100px;
+    min-height: 70px;
     border-bottom: 1px solid #333;
     position: fixed;
     z-index: 100;
     box-sizing: border-box;
-    background-color: #000000;
-    width: 100%;
+    background-color: #f8fafc;
+    width: 80%;
+    left: 50%;
+    border-radius: 20px;
+    color: #000000;
+    top: 40px;
+    transform: translateX(-50%);
+    transition: top 0.3s ease;
+    box-shadow: 0px 0px 15px #1da2d8;
     }
+    
+
+.header.hide {
+    top: -100px
+}
 
 #header {
     min-height: 100px;
@@ -66,8 +85,8 @@ a {
 .nama-blog {
     font-family: var(--font-heading);
     color: var(--text-secondary);
-    font-size: 2rem;
-    -webkit-text-stroke: 1px rgb(8, 8, 8);
+    font-size: 1.5rem;
+    -webkit-text-stroke: 0.5px rgb(8, 8, 8);
 }
 
 /* Navigasi (Tipe Film) */
@@ -77,15 +96,18 @@ a {
     margin: 0 auto;
     font-family: var(--font-heading);
     font-size: 1rem;
+    color: #4f51a0;
+    
 }
 
 .nav-menu a {
     position: relative;
     transition: color 0.3s;
+    
 }
 
 .nav-menu a:hover {
-    color: var(--accent-blue);
+    color: #020708;
     transform: translateY(-3px);
 }
 
@@ -98,7 +120,7 @@ a {
 .search-box input {
     padding: 8px 12px;
     border-radius: 8px;
-    border: none;
+    border: 1px solid #1da2d8;
     outline: none;
 }
 
@@ -111,6 +133,11 @@ a {
     color: white;
 }
 
+.mode-search {
+    display: flex;
+    gap: 15px;
+}
+
 /* --- HOME PAGE GRID --- */
 .section-title {
     font-family: var(--font-heading);
@@ -119,6 +146,7 @@ a {
     padding-bottom: 10px;
     border-bottom: 2px solid var(--accent-blue);
     display: inline-block;
+
 }
 
 .section-title-partner {
@@ -134,6 +162,7 @@ a {
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     gap: 30px;
     padding: 0 40px;
+    padding-bottom: 50px;
 }
 
 .kotak-partner {
@@ -194,6 +223,36 @@ transition: opacity .25s;
     opacity: 1;
 }
 
+/* Footer Area */
+.footer {
+    margin-top: 90px;
+    border-top: 2px solid #9fa195;
+    padding-top: 10px;
+    padding-bottom: 1px;
+    font-family: var(--font-footer);
+    font-size: 13px;
+}
+
+.isi-footer {
+    display: flex;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    width: 100%;
+    padding: 0 70px;
+    justify-content: space-between;
+    color: #9fa195;
+}
+.judul-web-footer{
+    justify-self: start;
+   
+}
+
+
+.design {
+    justify-self: end;
+    cursor: default;
+}
+
 /* --- RESPONSIVE MOBILE --- */
 @media (max-width: 768px) {
     .header {
@@ -201,16 +260,33 @@ transition: opacity .25s;
         align-items: center;
         padding: 20px;
         position: relative;
+        background-color: #0b1647;
+        border-bottom: none;
+        box-shadow: none;
     }
+
+    .header.hide {
+    top: 0px
+}
     
+    .kotak-konten {
+        padding: 25px 40px;
+    }
+
     .nav-menu {
         flex-wrap: wrap;
         justify-content: center;
         margin: 15px 0;
+        color: #e4eef8;
     }
     
+    .mode-search {
+        display: flex;
+        gap: 10px;
+    }
+
     .search-box {
-        width: 100%;
+        width: 80%;
     }
     
     .search-box input {
@@ -218,10 +294,15 @@ transition: opacity .25s;
     }
     
     .kotak-konten {
-        padding: 0 20px;
+        padding: 10 50px;
     }
 
     .kotak-partner {
-        padding: 0 10px;
+        padding: 15px 35px;
+    }
+
+
+    .footer {
+        font-size: 10px;
     }
 }

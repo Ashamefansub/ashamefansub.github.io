@@ -1,0 +1,100 @@
+/* Sosial Media Link */
+.link-sosmed {
+    display: flex;
+    margin-top: 70px;
+    justify-content: center;
+    gap: 45px;
+}
+
+.link-sosmed img {
+    width: 250px;
+    border-radius: 25px;
+    box-shadow: 0 6px 12px rgba (0,0,0,0.3);
+    border: none;
+}
+
+.link-sosmed img:hover {
+    transform: perspective(500px) rotateX(10deg)
+    
+}
+
+#themeBtn {
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+#themeBtn :hover {
+    transform: scale(1.1);
+}
+
+.SwitchMode {
+        background-color: var(--text-primary)
+        color black;
+    }
+
+.SwitchMode .header {
+    background-color: var(--color-dasar-1);
+}
+
+.SwitchMode .section-title {
+    color: var(--color-dasar-1);
+}
+
+.SwitchMode .nav-menu {
+    color: var(--text-primary);
+}
+
+.SwitchMode .movie-header h1 {
+    color: var(--color-dasar-1);
+}
+
+.SwitchMode .movie-header p {
+    color: var(--color-dasar-1);
+}
+
+.SwitchMode .movie-desc {
+    color: var(--color-dasar-1);
+}
+
+.SwitchMode .teks-about-me {
+    color: var(--color-dasar-1);
+}
+
+.SwitchMode .card {
+    box-shadow: 0px 0px 45px var(--color-dasar-1);
+}
+
+/* Reponsive Mobile */
+@media (max-width: 768px) {
+
+
+    .link-sosmed {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 70px;
+    justify-content: center;
+    gap: 10px;
+}
+
+   .link-sosmed img {
+    width: 170px;
+    max-width: 100%;
+    border-radius: 25px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+    border: none;
+}
+
+
+    .SwitchMode .header {
+        background-color: white
+    }
+
+    .SwitchMode .nav-menu {
+    color: var(--color-dasar-1);
+}
+
+   
+ 
+}
