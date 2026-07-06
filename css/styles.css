@@ -243,10 +243,7 @@ transition: opacity .25s;
     justify-content: space-between;
     color: #9fa195;
 }
-.judul-web-footer{
-    justify-self: start;
-   
-}
+
 
 
 .design {
@@ -304,6 +301,11 @@ transition: opacity .25s;
 
 
     .footer {
-        font-size: 10px;
+        font-size: 10px; 
     }
+
+    .isi-footer {
+        padding: 0 20px;
+    }
+    
 }
