@@ -143,10 +143,12 @@ a {
 .section-title {
     font-family: var(--font-heading);
     font-size: 1.5rem;
-    margin: 90px 40px 40px 20px;
+    margin: 30px 40px 40px 20px;
     padding-bottom: 10px;
     border-bottom: 2px solid var(--accent-blue);
     display: inline-block;
+    width: max-content;
+    align-self: self-start;
 
 }
 
@@ -224,9 +226,11 @@ transition: opacity .25s;
     opacity: 1;
 }
 
+
+
 /* Footer Area */
 .footer {
-    margin-top: 90px;
+    margin-top: 150px;
     border-top: 2px solid #9fa195;
     padding-top: 10px;
     padding-bottom: 1px;
@@ -243,7 +247,6 @@ transition: opacity .25s;
     justify-content: space-between;
     color: #9fa195;
 }
-
 
 
 .design {
@@ -306,6 +309,11 @@ transition: opacity .25s;
 
     .isi-footer {
         padding: 0 20px;
+    }
+
+    .section-title {
+        margin-top: 60px;
+        font-size: 20px;
     }
     
 }
