@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ashame Admin — Moderasi Chat</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            padding: 24px 16px;
+            background: #0f172a;
+            color: #f8fafc;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .card {
+            padding: 24px;
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 14px;
+        }
+
+        h1 {
+            margin-top: 0;
+            font-size: 26px;
+        }
+
+        h2 {
+            font-size: 20px;
+        }
+
+        .description,
+        .muted {
+            color: #94a3b8;
+            line-height: 1.6;
+        }
+
+        label {
+            display: block;
+            margin: 18px 0 8px;
+            font-size: 14px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #475569;
+            border-radius: 8px;
+            background: #0f172a;
+            color: #f8fafc;
+            font-size: 15px;
+        }
+
+        button {
+            padding: 11px 16px;
+            border: 0;
+            border-radius: 8px;
+            background: #38bdf8;
+            color: #082f49;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .primary-button {
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .danger-button {
+            background: #dc2626;
+            color: white;
+        }
+
+        .secondary-button {
+            background: #334155;
+            color: white;
+        }
+
+        .topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .topbar h1 {
+            margin-bottom: 6px;
+        }
+
+        .message-card {
+            margin-top: 14px;
+            padding: 18px;
+            border: 1px solid #334155;
+            border-radius: 10px;
+            background: #0f172a;
+            overflow-wrap: anywhere;
+        }
+
+        .message-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .username {
+            color: #7dd3fc;
+            font-weight: bold;
+        }
+
+        .message-time {
+            color: #94a3b8;
+            font-size: 12px;
+        }
+
+        .message-text {
+            margin: 16px 0;
+            line-height: 1.7;
+            white-space: pre-wrap;
+            overflow-wrap: anywhere;
+        }
+
+        .message-actions {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .status {
+            font-size: 14px;
+            line-height: 1.6;
+            overflow-wrap: anywhere;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: #7dd3fc;
+            text-decoration: none;
+        }
+
+        [hidden] {
+            display: none !important;
+        }
+
+        @media (max-width: 520px) {
+            .card {
+                padding: 18px;
+            }
+
+            .topbar {
+                align-items: flex-start;
+            }
+
+            .message-header {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="container">
+        <section class="card" id="login-panel">
+            <h1>Ashame Admin</h1>
+
+            <p class="description">
+                Login untuk mengelola pesan dan memoderasi chat Ashame.
+            </p>
+
+            <form id="login-form">
+                <label for="email">Email admin</label>
+                <input id="email" type="email" autocomplete="username" required>
+
+                <label for="password">Password</label>
+                <input id="password" type="password" autocomplete="current-password" required>
+
+                <button class="primary-button" id="login-button" type="submit">
+                    Login
+                </button>
+            </form>
+
+            <p class="status" id="login-status" role="status"></p>
+
+            <a class="back-link" href="../index.html">
+                ← Kembali ke Ashame
+            </a>
+        </section>
+
+        <section class="card" id="dashboard-panel" hidden>
+            <div class="topbar">
+                <div>
+                    <h1>Moderasi Chat</h1>
+                    <p class="muted">Panel admin Ashame</p>
+                </div>
+
+                <button class="secondary-button" id="logout-button" type="button">
+                    Logout
+                </button>
+            </div>
+
+            <p class="status" id="dashboard-status" role="status">
+                Memuat pesan...
+            </p>
+
+            <div id="message-list"></div>
+
+            <a class="back-link" href="../index.html">
+                ← Kembali ke Ashame
+            </a>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script>
+        // 1. Konfigurasi Supabase
+        const SUPABASE_URL =
+            'https://iywjshpafijejskmzmlm.supabase.co';
+
+        const SUPABASE_PUBLISHABLE_KEY =
+            'sb_publishable_COC1AvWTh_wid0XOvf2v0Q_SZtcZdGp';
+
+        const supabaseClient = window.supabase.createClient(
+            SUPABASE_URL,
+            SUPABASE_PUBLISHABLE_KEY
+        );
+
+        // 2. Elemen HTML
+        const loginPanel = document.getElementById('login-panel');
+        const dashboardPanel = document.getElementById('dashboard-panel');
+
+        const loginForm = document.getElementById('login-form');
+        const loginButton = document.getElementById('login-button');
+        const loginStatus = document.getElementById('login-status');
+
+        const logoutButton = document.getElementById('logout-button');
+        const dashboardStatus = document.getElementById('dashboard-status');
+        const messageList = document.getElementById('message-list');
+
+        let currentAdminId = null;
+        let realtimeChannel = null;
+
+        // 3. Format waktu
+        function formatTime(value) {
+            return new Date(value).toLocaleString('id-ID', {
+                dateStyle: 'medium',
+                timeStyle: 'short'
+            });
+        }
+
+        // 4. Membuat kartu pesan dengan textContent
+        function createMessageCard(message) {
+            const card = document.createElement('article');
+            card.className = 'message-card';
+            card.dataset.messageId = String(message.id);
+
+            const header = document.createElement('div');
+            header.className = 'message-header';
+
+            const username = document.createElement('span');
+            username.className = 'username';
+            username.textContent = message.username;
+
+            const time = document.createElement('time');
+            time.className = 'message-time';
+            time.dateTime = message.created_at;
+            time.textContent = formatTime(message.created_at);
+
+            header.append(username, time);
+
+            const text = document.createElement('p');
+            text.className = 'message-text';
+            text.textContent = message.message;
+
+            const actions = document.createElement('div');
+            actions.className = 'message-actions';
+
+            const deleteButton = document.createElement('button');
+            deleteButton.className = 'danger-button';
+            deleteButton.textContent = 'Hapus pesan';
+            deleteButton.type = 'button';
+
+            deleteButton.addEventListener('click', async () => {
+                const confirmed = window.confirm(
+                    `Hapus pesan dari "${message.username}"?`
+                );
+
+                if (!confirmed) return;
+
+                deleteButton.disabled = true;
+                dashboardStatus.textContent = 'Menghapus pesan...';
+
+                try {
+                    const { data, error } = await supabaseClient
+                        .from('chat_messages')
+                        .delete()
+                        .eq('id', message.id)
+                        .select('id');
+
+                    if (error) {
+                        console.error('Gagal menghapus pesan:', error);
+                        dashboardStatus.textContent =
+                            'Pesan gagal dihapus. Periksa izin RLS dan Console.';
+                        deleteButton.disabled = false;
+                        return;
+                    }
+
+                    if (!data || data.length === 0) {
+                        dashboardStatus.textContent =
+                            'Tidak ada pesan yang terhapus. Periksa izin admin dan kebijakan RLS.';
+                        deleteButton.disabled = false;
+                        return;
+                    }
+
+                    card.remove();
+
+                    dashboardStatus.textContent =
+                        'Pesan berhasil dihapus.';
+                } catch (error) {
+                    console.error(error);
+                    dashboardStatus.textContent =
+                        'Terjadi kesalahan saat menghapus pesan.';
+                    deleteButton.disabled = false;
+                }
+            });
+
+            actions.appendChild(deleteButton);
+            card.append(header, text, actions);
+
+            return card;
+        }
+
+        // 5. Memuat pesan
+        async function loadMessages() {
+            dashboardStatus.textContent = 'Memuat pesan...';
+
+            const { data, error } = await supabaseClient
+                .from('chat_messages')
+                .select('id, username, message, created_at')
+                .order('created_at', { ascending: false })
+                .limit(100);
+
+            if (error) {
+                console.error('Gagal memuat pesan:', error);
+                dashboardStatus.textContent =
+                    'Pesan gagal dimuat. Periksa izin SELECT dan Console.';
+                return;
+            }
+
+            messageList.replaceChildren();
+
+            if (!data || data.length === 0) {
+                dashboardStatus.textContent = 'Belum ada pesan.';
+                return;
+            }
+
+            data.forEach(message => {
+                messageList.appendChild(createMessageCard(message));
+            });
+
+            dashboardStatus.textContent =
+                `Menampilkan ${data.length} pesan terbaru.`;
+        }
+
+        // 6. Menyambungkan Realtime
+        function subscribeToMessages() {
+            if (realtimeChannel) {
+                supabaseClient.removeChannel(realtimeChannel);
+            }
+
+            realtimeChannel = supabaseClient
+                .channel('ashame-admin-chat')
+                .on(
+                    'postgres_changes',
+                    {
+                        event: 'INSERT',
+                        schema: 'public',
+                        table: 'chat_messages'
+                    },
+                    payload => {
+                        const existing = messageList.querySelector(
+                            `[data-message-id="${String(payload.new.id)}"]`
+                        );
+
+                        if (existing) return;
+
+                        const emptyMessage = messageList.querySelector(
+                            '.empty-message'
+                        );
+
+                        if (emptyMessage) emptyMessage.remove();
+
+                        messageList.prepend(
+                            createMessageCard(payload.new)
+                        );
+
+                        dashboardStatus.textContent =
+                            'Pesan baru diterima.';
+                    }
+                )
+                .on(
+                    'postgres_changes',
+                    {
+                        event: 'DELETE',
+                        schema: 'public',
+                        table: 'chat_messages'
+                    },
+                    payload => {
+                        const id = payload.old && payload.old.id;
+
+                        if (id !== undefined) {
+                            const card = messageList.querySelector(
+                                `[data-message-id="${String(id)}"]`
+                            );
+
+                            if (card) card.remove();
+                        }
+                    }
+                )
+                .subscribe(status => {
+                    console.log('Status admin realtime:', status);
+                });
+        }
+
+        // 7. Memeriksa apakah pengguna adalah admin
+        async function checkAdmin(user) {
+            const { data, error } = await supabaseClient
+                .from('chat_admins')
+                .select('user_id')
+                .eq('user_id', user.id)
+                .maybeSingle();
+
+            if (error) {
+                console.error('Gagal memeriksa admin:', error);
+                throw new Error(
+                    'Tidak bisa memeriksa hak admin. Periksa RLS tabel chat_admins.'
+                );
+            }
+
+            if (!data) {
+                throw new Error('Akun ini tidak memiliki akses admin.');
+            }
+
+            currentAdminId = user.id;
+        }
+
+        // 8. Membuka dashboard
+        async function showDashboard(user) {
+            await checkAdmin(user);
+
+            loginPanel.hidden = true;
+            dashboardPanel.hidden = false;
+
+            await loadMessages();
+            subscribeToMessages();
+        }
+
+        // 9. Login
+        loginForm.addEventListener('submit', async event => {
+            event.preventDefault();
+
+            loginButton.disabled = true;
+            loginStatus.textContent = 'Memeriksa akun...';
+
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value;
+
+            try {
+                const { data, error } =
+                    await supabaseClient.auth.signInWithPassword({
+                        email,
+                        password
+                    });
+
+                if (error) {
+                    loginStatus.textContent =
+                        'Login gagal. Periksa email dan password.';
+                    return;
+                }
+
+                await showDashboard(data.user);
+
+                loginStatus.textContent = '';
+            } catch (error) {
+                console.error('Login/admin error:', error);
+
+                await supabaseClient.auth.signOut();
+
+                loginStatus.textContent =
+                    error.message || 'Gagal membuka dashboard.';
+            } finally {
+                loginButton.disabled = false;
+            }
+        });
+
+        // 10. Logout
+        logoutButton.addEventListener('click', async () => {
+            logoutButton.disabled = true;
+
+            if (realtimeChannel) {
+                await supabaseClient.removeChannel(realtimeChannel);
+                realtimeChannel = null;
+            }
+
+            const { error } = await supabaseClient.auth.signOut();
+
+            currentAdminId = null;
+            messageList.replaceChildren();
+
+            dashboardPanel.hidden = true;
+            loginPanel.hidden = false;
+
+            loginForm.reset();
+
+            loginStatus.textContent = error
+                ? 'Logout lokal selesai. Periksa Console jika terjadi masalah.'
+                : 'Kamu sudah logout.';
+
+            logoutButton.disabled = false;
+        });
+
+        // 11. Pulihkan sesi jika halaman di-refresh
+        async function restoreSession() {
+            const { data, error } = await supabaseClient.auth.getSession();
+
+            if (error) {
+                console.error('Gagal memeriksa sesi:', error);
+                return;
+            }
+
+            if (!data.session) return;
+
+            try {
+                await showDashboard(data.session.user);
+            } catch (error) {
+                console.error('Pemulihan sesi gagal:', error);
+                await supabaseClient.auth.signOut();
+                loginPanel.hidden = false;
+                dashboardPanel.hidden = true;
+                loginStatus.textContent =
+                    'Sesi tidak memiliki akses admin atau pemeriksaan gagal. Silakan login kembali.';
+            }
+        }
+
+        restoreSession();
+    </script>
+</body>
+
+</html>

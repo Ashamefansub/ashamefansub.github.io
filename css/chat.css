@@ -1,0 +1,335 @@
+/* Floating Chat Button */
+#ashame-chat-button {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    width: 58px;
+    height: 58px;
+    border: none;
+    border-radius: 50%;
+    background: var(--accent-blue, #4285f4);
+    color: #fff;
+    font-size: 25px;
+    cursor: pointer;
+    z-index: 9999;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease;
+}
+
+#ashame-chat-button:hover {
+    transform: scale(1.08);
+}
+
+/* Chat Window */
+#ashame-chat-window {
+    position: fixed;
+    right: 24px;
+    bottom: 94px;
+    width: 340px;
+    height: 460px;
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid var(--border-color, #ddd);
+    border-radius: 16px;
+    background: var(--bg-color, #000);
+    color: var(--text-primary, #ededed);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.18);
+    z-index: 9999;
+    font-family: inherit;
+}
+
+#ashame-chat-window.is-open {
+    display: flex;
+}
+
+/* Chat Header */
+.ashame-chat-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    background: var(--accent-blue, #4285f4);
+    color: #fff;
+}
+
+.ashame-chat-header h3 {
+    margin: 0;
+    font-size: 16px;
+}
+
+#ashame-chat-close {
+    border: none;
+    background: transparent;
+    color: #fff;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+/* Messages */
+#ashame-chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 12px;
+    overflow-wrap: anywhere;
+}
+
+.ashame-chat-message {
+    margin-bottom: 12px;
+    padding: 4px 5px;
+    border-radius: 10px;
+    background: var(--surface-color, #0f0f12);
+}
+
+.ashame-chat-username {
+    margin-bottom: 4px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--accent-blue, #4285f4);
+}
+
+.ashame-chat-text {
+    font-size: 12px;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    color: var(--text-primary);
+}
+
+.ashame-chat-time {
+    margin-top: 5px;
+    font-size: 10px;
+    opacity: 0.65;
+}
+
+/* Chat Form */
+.ashame-chat-form {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 7px;
+    border-top: 1px solid var(--border-color, #ddd);
+}
+
+.ashame-chat-form input {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 5px 8px;
+    border: 1px solid var(--border-color, #ddd);
+    border-radius: 8px;
+    background: var(--bg-color, #000);
+    color: var(--text-primary, #ededed);
+    font: inherit;
+    font-size: 12px;
+}
+
+/* Ukuran teks placeholder */
+.ashame-chat-form input::placeholder {
+    font-size: 12px;
+    color: var(--text-secondary, #9ca3af);
+    opacity: 1;
+}
+
+.ashame-chat-input-row {
+    display: flex;
+    gap: 8px;
+}
+
+.ashame-chat-input-row input {
+    min-width: 0;
+    flex: 1;
+}
+
+.ashame-chat-input-row button {
+    padding: 0 10px;
+    border: none;
+    border-radius: 8px;
+    background: var(--accent-blue, #4285f4);
+    color: #fff;
+    cursor: pointer;
+}
+
+.ashame-chat-input-row button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.ashame-chat-status {
+    font-size: 11px;
+    opacity: 0.7;
+}
+
+body:not(.SwitchMode) .ashame-chat-form input {
+    color: #ededed;
+}
+
+body.SwitchMode .ashame-chat-form input {
+    color: #0f172a;
+}
+
+/* ========================================
+   REPLY PREVIEW - PANEL SEBELUM MENGIRIM
+======================================== */
+
+#ashame-chat-reply-preview {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+
+    padding: 9px 10px;
+    margin-top: 6px;
+
+    border-left: 3px solid #38bdf8;
+    border-radius: 7px;
+
+    background: var(--surface-color, #0f0f12);
+}
+
+#ashame-chat-reply-preview[hidden] {
+    display: none !important;
+}
+
+.ashame-chat-reply-preview-content {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+
+    min-width: 0;
+    overflow: hidden;
+}
+
+#ashame-chat-reply-username {
+    color: #38bdf8;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+#ashame-chat-reply-text {
+    overflow: hidden;
+
+    color: var(--text-secondary, #9ca3af);
+    font-size: 12px;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+#ashame-chat-reply-cancel {
+    flex-shrink: 0;
+
+    width: 27px;
+    height: 27px;
+    padding: 0;
+
+    border: none;
+    border-radius: 50%;
+
+    background: transparent;
+    color: var(--text-secondary, #9ca3af);
+
+    font-size: 21px;
+    line-height: 1;
+
+    cursor: pointer;
+}
+
+#ashame-chat-reply-cancel:hover {
+    background: var(--bg-color, #000);
+}
+
+
+/* ========================================
+   TOMBOL BALAS PADA GELEMBUNG PESAN
+======================================== */
+
+.ashame-chat-reply-button {
+    display: block;
+
+    margin-top: 5px;
+    padding: 3px 0;
+
+    border: none;
+    background: transparent;
+
+    color: #38bdf8;
+    font-size: 11px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.ashame-chat-reply-button:hover {
+    text-decoration: underline;
+}
+
+
+/* ========================================
+   KUTIPAN PESAN DI DALAM GELEMBUNG
+======================================== */
+
+.ashame-chat-reply-quote {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+
+    margin-bottom: 7px;
+    padding: 7px 9px;
+
+    border-left: 3px solid #38bdf8;
+    border-radius: 5px;
+
+    background: var(--bg-color, #000);
+
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.ashame-chat-reply-quote-username {
+    color: #38bdf8;
+
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.ashame-chat-reply-quote-text {
+    color: var(--text-secondary, #9ca3af);
+
+    font-size: 11px;
+    line-height: 1.4;
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.ashame-chat-reply-quote:hover {
+    filter: brightness(1.15);
+}
+
+
+/* ========================================
+   SOROTAN PESAN ASLI
+======================================== */
+
+.ashame-chat-message-highlight {
+    outline: 2px solid #38bdf8;
+    outline-offset: 2px;
+
+    transition: outline-color 0.2s ease;
+}
+
+
+/* Mobile */
+@media (max-width: 480px) {
+    #ashame-chat-button {
+        right: 16px;
+        bottom: 16px;
+    }
+
+    #ashame-chat-window {
+        right: 12px;
+        bottom: 84px;
+        width: calc(100vw - 24px);
+        height: min(460px, 70dvh);
+    }
+}

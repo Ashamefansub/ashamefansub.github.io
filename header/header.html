@@ -1,25 +1,25 @@
-<header class="header">
-        <a href="../index.html" class="logo-container">
-            <img src="../img/logo.png" alt="Ashame Logo" class="logo">
-            <h1 class="nama-blog">Ashame</h1>
-        </a>
+<header class="header" id="navbar">
+    <a href="/index.html" class="logo-container" aria-label="Ashame Fansub Home">
+        <img src="/img/logo.png" alt="Ashame Logo" class="logo">
+        <h1 class="nama-blog">Ashame</h1>
+    </a>
 
-        <card class="nav-menu">
-            <a href="../series/index.html">Series</a>
-            <a href="../film/index.html">Movie</a>
-            <a href="../showroom/index.html">Showroom</a>
-            <a href="../partner/index.html">Partner</a>
-            <a href="javascript:alert('Comming Soon')">List</a>
-            <a href="../header/about-me.html">About Me</a>
-        </card>
+    <nav class="nav-menu" aria-label="Main Navigation">
+        <a href="/series/index.html">Series</a>
+        <a href="/film/index.html">Movie</a>
+        <a href="/showroom/index.html">Showroom</a>
+        <a href="/partner/index.html">Partner</a>
+        <a href="/header/about-me.html">About Me</a>
+    </nav>
 
-        <div class="mode-search">
-        <img id="themeBtn" src="/img/sub-image/daymode.png" alt="mode" onclick="henshinTema()">
+    <div class="header-actions">
+        <button type="button" class="theme-toggle-btn" id="themeToggleBtn" onclick="henshinTema()" aria-label="Ubah Tema Gelap atau Terang" title="Ubah Tema">
+            <img id="themeBtn" src="/img/sub-image/daymode.png" alt="Mode Tema">
+        </button>
 
-
-        <form class="search-box">
-            <input type="search" placeholder="Pencarian...">
-            <button type="submit" >🔍</button>
+        <form class="search-box" onsubmit="event.preventDefault(); alert('Fitur pencarian segera hadir!');">
+            <span class="search-icon">🔍</span>
+            <input type="search" id="headerSearchInput" placeholder="Pencarian ... " aria-label="Pencarian">
         </form>
-        </div>
-    </header>
+    </div>
+</header>

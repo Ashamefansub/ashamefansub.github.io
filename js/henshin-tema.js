@@ -1,34 +1,39 @@
+// Henshin Tema: Toggle Dark Mode (True Black) & Light Mode (Clean White)
 function henshinTema() {
     document.body.classList.toggle("SwitchMode");
-    const btn =
-    document.getElementById("themeBtn");
-    if
-    (document.body.classList.contains("SwitchMode")) {
-        btn.src="/img/sub-image/nightmode.png";
+    const btn = document.getElementById("themeBtn");
+    const isLight = document.body.classList.contains("SwitchMode");
+
+    if (isLight) {
+        if (btn) btn.src = "/img/sub-image/nightmode.png";
         localStorage.setItem("theme", "light");
-    }
-    else {
-        btn.src="/img/sub-image/daymode.png";
+    } else {
+        if (btn) btn.src = "/img/sub-image/daymode.png";
         localStorage.setItem("theme", "dark");
     }
 }
 
-    window.addEventListener("load", function() {
-        const theme = localStorage.getItem("theme");
-        const btn = document.getElementById("themeBtn");
-
-        if (theme === "light") {
-            document.body.classList.add("SwitchMode");
-
-            if (btn) {
-                btn.src = "../img/sub-image/daymode.png";
-            }
-
-        else {
-
-            if (btn) {
-                btn.src = "/img/sub-image/daymode.png";
-            }
+// Apply theme as early as possible to avoid flash
+(function () {
+    try {
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme === "light") {
+            document.documentElement.classList.add("SwitchMode");
+            if (document.body) document.body.classList.add("SwitchMode");
         }
-        }
-    });
+    } catch (e) {}
+})();
+
+// Re-check after DOM is ready to sync button icon
+document.addEventListener("DOMContentLoaded", function () {
+    const savedTheme = localStorage.getItem("theme");
+    const btn = document.getElementById("themeBtn");
+
+    if (savedTheme === "light") {
+        document.body.classList.add("SwitchMode");
+        if (btn) btn.src = "/img/sub-image/nightmode.png";
+    } else {
+        document.body.classList.remove("SwitchMode");
+        if (btn) btn.src = "/img/sub-image/daymode.png";
+    }
+});
