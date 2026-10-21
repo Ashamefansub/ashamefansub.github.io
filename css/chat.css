@@ -75,10 +75,11 @@
 }
 
 .ashame-chat-message {
-    margin-bottom: 12px;
-    padding: 4px 5px;
+    margin-bottom: 10px;
+    padding: 4x 6px;
     border-radius: 10px;
     background: var(--surface-color, #0f0f12);
+    margin-right: 30px;
 }
 
 .ashame-chat-username {
