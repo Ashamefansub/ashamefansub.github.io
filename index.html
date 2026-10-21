@@ -1,256 +1,616 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
-    <title>Ashame Fansub</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/styles_sub2.css">
+    <meta name="description"
+        content="Ashame Fansub — Website takarir (subtitle) Bahasa Indonesia untuk Dorama/Series Jepang, Movie, dan Konten Idol Nogizaka46.">
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+    <title>Ashame Fansub — Subtitle Indonesia Drama & Movie Jepang</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/styles_sub2.css">
+    <link rel="stylesheet" href="/css/chat.css">
 </head>
+
 <body>
-    
-   <div id="header"></div>
-   <script src="/header/header.js"></script>
 
+    <!-- Header Container (Dynamic Fetch) -->
+    <div id="header"></div>
+    <script src="/header/header.js"></script>
 
-    <h2 class="section-title">Terbaru</h2>
-    </div>
-    
-    <div class="kotak-konten">
-         
-        <article class="card" title="On Going">
-            <a href="/series/izayoi-zenbou.html">
-                <img src="../img/izayoi.jpg" alt="izayoi" loading="lazy">
-                <span class="tag">Series</span>
-                <div class="card-title">
-                    Izayoi Zenbou (2026)
+    <main class="main-wrapper">
+
+        <!-- 🔥 HERO SPOTLIGHT (Rilis Paling Baru & Menonjol) -->
+        <section class="hero-spotlight" aria-label="Rilis Terbaru">
+            <div class="hero-banner-inner">
+                <div class="hero-thumbnail-wrap">
+                    <img src="/img/dekiai-kareshi.jpeg" alt="Dekiai Kareshi no Tsukurikata" fetchpriority="high">
+                    <div class="hero-badge-overlay">
+                        <span class="badge-featured">🔥Rilis Terbaru</span>
+                        <span class="badge-episode">Eps 03</span>
+                    </div>
                 </div>
-            </a>
-        </article>
-        <article class="card" title="On Going">
-            <a href="/series/dekiai-kareshi-no-tsukurikata.html">
-                <img src="../img/dekiai-kareshi.jpeg" alt="dekiai-kareshi" loading="lazy">
-                <span class="tag">Series</span>
-                <div class="card-title">
-                    Dekiai Kareshi no Tsukurikata (2026)
+                <div class="hero-content">
+                    <span class="hero-category">Series / Dorama • 2026</span>
+                    <h2 class="hero-title">Dekiai Kareshi no Tsukurikata</h2>
+                    <p class="hero-sub-title">溺愛彼氏の作り方</p>
+                    <p class="hero-synopsis">
+                        Sakura, seorang pegawai balai kota, memendam rasa pada rekan kerjanya yang lebih senior,
+                        Keisuke. Suatu malam, karena serangkaian kejadian tak terduga, Keisuke akhirnya berada di rumah
+                        Sakura, dan mereka pun menjalin ikatan—baik secara emosional maupun fisik... atau begitulah
+                        sangkaan Sakura.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="/series/dekiai-kareshi-no-tsukurikata.html" class="btn-primary">
+                            ▶ Tonton / Download Ep. 03
+                        </a>
+                        <a href="https://trakteer.id/ashame" target="_blank" rel="noopener" class="btn-secondary"
+                            title="Streaming/download tanpa ribet tanpa iklan">
+                            Support Trakteer
+                        </a>
+                        <a href="javascript:alert('Belum dibuat')" class="btn-tutorial"
+                            title="Tutorial unduh/download melewati iklan">
+                            Tutorial Unduh
+                        </a>
+                    </div>
                 </div>
-            </a>
-        </article>
-        <article class="card" title="On Going">
-            <a href="/series/mame-to-mugi.html">
-                <img src="../img/mame-to-mugi.jpg" alt="mame-to-mugi" loading="lazy">
-                <span class="tag">Series</span>
-                <div class="card-title">
-                    Mame to Mugi (2026)
-                </div>
-            </a>
-        </article>        
-         <article class="card" title="On Going">
-            <a href="/series/jigoku-wa-zeni-de-dekiteiru.html">
-                <img src="../img/jigoku-wa-zeni.png" alt="jigoku-wa-zeni" loading="lazy">
-                <span class="tag">Series</span>
-                <div class="card-title">
-                    Jigoku wa Zen'i de Dekiteiru (2026)
-                </div>
-            </a>
-        </article>
-        <article class="card">
-            <a href="film/mission-kageki.html">
-                <img src="img/mission.jpeg" alt="Mission kageki" loading="lazy">
-                <span class="tag">Movie</span>
-                <div class="card-title">
-                    M.I.S.S.I.O.N Kageki na Senyuu Sousakan (2026)
-                </div>
-            </a>
-        </article>
-        <article class="card" title="Tamat">
-            <a href="/series/death-seishun-game.html">
-                <img src="../img/death-seishun-game.jpg" alt="onna-no-ko" loading="lazy">
-                <span class="tag">Series</span>
-                <div class="card-title">
-                    Death (Seishun) Game (2026)
-                </div>
-            </a>
-        </article>
-        <article class="card" title="Tamat">
-            <a href="/series/onna-no-ko-ga-daicha-dame-desuka.html">
-                <img src="../img/onna-no-ko-ga-daicha-dame-desuka.jpeg" alt="onna-no-ko" loading="lazy">
-                <span class="tag">Series</span>
-                <div class="card-title">
-                    Onna no Ko ga Daicha Dame Desuka? (2026)
-                </div>
-            </a>
-        </article>
-        <article class="card" title="Tamat">
-            <a href="series/35-sai-ima-sara-koi-toka-arienai.html">
-                <img src="img/35-sai-ima-sara.jpg" alt="35-sai" loading="lazy">
-                <span class="tag">Series</span>
-                <div class="card-title">
-                    35 Sai, Ima sara Koi toka Arienai (2026)
-                </div>
-            </a>
-        </article>
-        <article class="card" title="Tamat">
-            <a href="series/strange-ito-junji-no-yoru-mo-nemurenu-kimyou-na-hanashi.html">
-                <img src="img/strange-ito-junji.jpg" alt="strange-ito-junji" loading="lazy">
-                <span class="tag">Series</span>
-                <div class="card-title">
-                    Ito Junji no Yoru mo Nemurenu Kimyou na Hanashi (2026)
-                </div>
-            </a>
-        </article>
-        <article class="card">
-            <a href="film/sunset-sunrise.html">
-                <img src="img/sunset-sunrise.jpg" alt="Sunset Sunrise" loading="lazy">
-                <span class="tag">Movie</span>
-                <div class="card-title">
-                    Sunset Sunrise (2024)
-                </div>
-            </a>
-        </article>
-        <article class="card" title="Tamat">
-            <a href="series/momo-no-uta.html">
-                <img src="img/momo-no-uta.jpeg" alt="momo-no-uta" loading="lazy">
-                <span class="tag">Series</span>
-                <div class="card-title">
-                    Momo no Uta (2025)
-                </div>
-            </a>
-        </article>
-        <article class="card" title="Tamat">
-            <a href="series/inukai-san-wa-kakure-dekiai-joushi.html">
-                <img src="img/inukai-san.jpg" alt="inukai-san" loading="lazy">
-                <span class="tag">Series</span>
-                <div class="card-title">
-                    Inukai-san wa Kakure Dekiai Joushi (2026)
-                </div>
-            </a>
-        </article>
-        <article class="card">
-            <a href="film/yakin-jiken.html">
-                <img src="img/yakin-jiken.jpg" alt="Yakin Jiken" loading="lazy">
-                <span class="tag">Movie</span>
-                <div class="card-title">
-                    Yakin Jiken The Convenience Store (2026)
-                </div>
-            </a>
-        </article>
-        <article class="card" title="Tamat">
-            <a href="series/otto-wo-shakaiteki-ni-massatsu-suru-itsutsu-no-houhou-revenge.html">
-                <img src="img/otto-wo-shakaiteki-ni-massatsu-suru-itsutsu-no-houhou-revenge.jpg" alt="deep-revenge" loading="lazy">
-                <span class="tag">Series</span>
-                <div class="card-title">
-                    Otto wo Shakaiteki ni ... Re:venge (2025)
-                </div>
-            </a>
-        </article>
-         <article class="card" title="Tamat">
-            <a href="series/deep-revenge.html">
-                <img src="img/deep-revenge.jpg" alt="deep-revenge" loading="lazy">
-                <span class="tag">Series</span>
-                <div class="card-title">
-                    Deep Revenge (2026)
-                </div>
-            </a>
-        </article>
-         <article class="card">
-            <a href="series/shitsuren-karuta.html" title="Tamat">
-                <img src="img/shitsuren-karuta.jpg" alt="shitsuren-karuta" loading="lazy">
-                <span class="tag">Series</span>
-                <div class="card-title">
-                    Shitsuren Karuta (2026)
-                </div>
-            </a>
-        </article>
-        <article class="card" title="Tamat">
-            <a href="series/motokare-no-neko-wo-azukarimashite.html">
-                <img src="img/motokare-no-neko.jpeg" alt="motokare-no-neko" loading="lazy">
-                <span class="tag">Series</span>
-                <div class="card-title">
-                    Motokare no Neko wo, Azukarimashite (2026)
-                </div>
-            </a>
-        </article>
-        <article class="card">
-            <a href="film/yano-kun-no-futsuu-no-hibi.html">
-                <img src="img/yano-kun-no-futsuu-no-hibi.png" alt="Yano-kun futsuu no hibi" loading="lazy">
-                <span class="tag">Movie</span>
-                <div class="card-title">
-                    Yano-kun no Futsuu no Hibi (2024)
-                </div>
-            </a>
-        </article>
-         <article class="card" title="Tamat">
-            <a href="series/rojiura-hotel.html">
-                <img src="img/rojiura-hotel.jpeg" alt="Rojiura Hotel" loading="lazy">
-                <span class="tag">Series</span>
-                <div class="card-title">
-                    Rojiura Hotel (2026)
-                </div>
-            </a>
-        </article>
-         <article class="card">
-            <a href="film/deguchi-8.html">
-                <img src="img/deguchi-8.png" alt="Exit 8" loading="lazy">
-                <span class="tag">Movie</span>
-                <div class="card-title">
-                    Exit 8 (2025)
-                </div>
-            </a>
-        </article>
-         <article class="card">
-            <a href="series/sukui-sukuware.html" title="Tamat">
-                <img src="img/sukui-sukuware.jpg" alt="Sukui sukuware" loading="lazy">
-                <span class="tag">Series</span>
-                <div class="card-title">
-                    Sukui, sukuware (2026)
-                </div>
-            </a>
-        </article>
-          <article class="card">
-            <a href="film/karada-sagashi-the-last-night.html">
-                <img src="img/karada-sagashi-the-last-night.jpg" alt="Karada sagashi the last night" loading="lazy">
-                <span class="tag">Movie</span>
-                <div class="card-title">
-                    Karada Sagashi The Last Night (2025)
-                </div>
-            </a>
-        </article>
-        <article class="card" title="Tamat">
-            <a href="series/honmei-janakya.html">
-                <img src="img/honmei-janakkya.jpeg" alt="Honmei Janakya" loading="lazy">
-                <span class="tag">Series</span>
-                <div class="card-title">
-                    Honmei Janakya Yokatta Noni (2026)
-                </div>
-            </a>
-        </article>
-        <article class="card" title="Tamat">
-            <a href="series/toumei-na-yoru-ni.html">
-                <img src="img/toumei-na-yoru-ni.jpg" alt="Toumei na Yoru ni" loading="lazy">
-                <span class="tag">Series</span>
-                <div class="card-title">
-                    Toumei na Yoru ni Kakeru Kimi to (2025)
-                </div>
-            </a>
-        </article>
-         <article class="card">
-            <a href="film/isho-kokai.html">
-                <img src="img/isho-kokai.jpg" alt="Isho, Kokai" loading="lazy">
-                <span class="tag">Movie</span>
-                <div class="card-title">
-                    Isho, Koukai (2025)
-                </div>
-            </a>
-        </article>
-        
+            </div>
+        </section>
+
+        <!-- 🏷️ CATEGORY FILTER CHIPS (Ala YouTube) -->
+        <section class="filter-bar" aria-label="Filter Kategori">
+            <button type="button" class="filter-chip active" data-filter="all">Semua</button>
+            <button type="button" class="filter-chip" data-filter="series">Series</button>
+            <button type="button" class="filter-chip" data-filter="movie">Movie</button>
+            <button type="button" class="filter-chip" data-filter="ongoing">On Going</button>
+            <button type="button" class="filter-chip" data-filter="tamat">Tamat</button>
+        </section>
+
+        <!-- 📺 GRID KONTEN 16:9 YOUTUBE-STYLE -->
+        <section aria-label="Katalog Konten">
+            <div class="section-header">
+                <h3 class="section-title">Terbaru</h3>
+            </div>
+
+            <div class="kotak-konten-beranda" id="contentGrid">
+
+                <!-- 1. Izayoi Zenbou -->
+                <article class="card" data-category="series" data-status="ongoing">
+                    <a href="/series/izayoi-zenbou.html">
+                        <div class="card-thumbnail-container">
+                            <img src="/img/izayoi.jpg" alt="Izayoi Zenbou" loading="lazy">
+                            <div class="card-badge-top">
+                                <span class="badge-tag tag-series">Series</span>
+                            </div>
+                            <div class="card-badge-bottom">
+                                <span class="badge-status ongoing">On Going</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">Izayoi Zenbou (2026)</h4>
+                        </div>
+                    </a>
+                </article>
+
+                <!-- 2. Dekiai Kareshi no Tsukurikata -->
+                <article class="card" data-category="series" data-status="ongoing">
+                    <a href="/series/dekiai-kareshi-no-tsukurikata.html">
+                        <div class="card-thumbnail-container">
+                            <img src="/img/dekiai-kareshi.jpeg" alt="Dekiai Kareshi no Tsukurikata" loading="lazy">
+                            <div class="card-badge-top">
+                                <span class="badge-tag tag-series">Series</span>
+                            </div>
+                            <div class="card-badge-bottom">
+                                <span class="badge-status ongoing">On Going</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">Dekiai Kareshi no Tsukurikata (2026)</h4>
+                        </div>
+                    </a>
+                </article>
+
+                <!-- 3. Mame to Mugi -->
+                <article class="card" data-category="series" data-status="ongoing">
+                    <a href="/series/mame-to-mugi.html">
+                        <div class="card-thumbnail-container">
+                            <img src="/img/mame-to-mugi.jpg" alt="Mame to Mugi" loading="lazy">
+                            <div class="card-badge-top">
+                                <span class="badge-tag tag-series">Series</span>
+                            </div>
+                            <div class="card-badge-bottom">
+                                <span class="badge-status ongoing">On Going</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">Mame to Mugi (2026)</h4>
+                        </div>
+                    </a>
+                </article>
+
+                <!-- 4. Jigoku wa Zen'i de Dekiteiru -->
+                <article class="card" data-category="series" data-status="ongoing">
+                    <a href="/series/jigoku-wa-zeni-de-dekiteiru.html">
+                        <div class="card-thumbnail-container">
+                            <img src="/img/jigoku-wa-zeni.png" alt="Jigoku wa Zen'i de Dekiteiru" loading="lazy">
+                            <div class="card-badge-top">
+                                <span class="badge-tag tag-series">Series</span>
+                            </div>
+                            <div class="card-badge-bottom">
+                                <span class="badge-status ongoing">On Going</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">Jigoku wa Zen'i de Dekiteiru (2026)</h4>
+                        </div>
+                    </a>
+                </article>
+
+                <!-- 5. M.I.S.S.I.O.N Kageki na Senyuu Sousakan -->
+                <article class="card" data-category="movie" data-status="tamat">
+                    <a href="/film/mission-kageki.html">
+                        <div class="card-thumbnail-container">
+                            <img src="/img/mission.jpeg" alt="Mission kageki" loading="lazy">
+                            <div class="card-badge-top">
+                                <span class="badge-tag tag-movie">Movie</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">M.I.S.S.I.O.N Kageki na Senyuu Sousakan (2026)</h4>
+                        </div>
+                    </a>
+                </article>
+
+                <!-- 6. Death (Seishun) Game -->
+                <article class="card" data-category="series" data-status="tamat">
+                    <a href="/series/death-seishun-game.html">
+                        <div class="card-thumbnail-container">
+                            <img src="/img/death-seishun-game.jpg" alt="Death (Seishun) Game" loading="lazy">
+                            <div class="card-badge-top">
+                                <span class="badge-tag tag-series">Series</span>
+                            </div>
+                            <div class="card-badge-bottom">
+                                <span class="badge-status tamat">Tamat</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">Death (Seishun) Game (2026)</h4>
+                        </div>
+                    </a>
+                </article>
+
+                <!-- 7. Onna no Ko ga Daicha Dame Desuka? -->
+                <article class="card" data-category="series" data-status="tamat">
+                    <a href="/series/onna-no-ko-ga-daicha-dame-desuka.html">
+                        <div class="card-thumbnail-container">
+                            <img src="/img/onna-no-ko-ga-daicha-dame-desuka.jpeg" alt="Onna no Ko ga Daicha Dame Desuka"
+                                loading="lazy">
+                            <div class="card-badge-top">
+                                <span class="badge-tag tag-series">Series</span>
+                            </div>
+                            <div class="card-badge-bottom">
+                                <span class="badge-status tamat">Tamat</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">Onna no Ko ga Daicha Dame Desuka? (2026)</h4>
+                        </div>
+                    </a>
+                </article>
+
+                <!-- 8. 35 Sai, Ima sara Koi toka Arienai -->
+                <article class="card" data-category="series" data-status="tamat">
+                    <a href="/series/35-sai-ima-sara-koi-toka-arienai.html">
+                        <div class="card-thumbnail-container">
+                            <img src="/img/35-sai-ima-sara.jpg" alt="35-sai" loading="lazy">
+                            <div class="card-badge-top">
+                                <span class="badge-tag tag-series">Series</span>
+                            </div>
+                            <div class="card-badge-bottom">
+                                <span class="badge-status tamat">Tamat</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">35 Sai, Ima sara Koi toka Arienai (2026)</h4>
+                        </div>
+                    </a>
+                </article>
+
+                <!-- 9. Ito Junji no Yoru mo Nemurenu Kimyou na Hanashi -->
+                <article class="card" data-category="series" data-status="tamat">
+                    <a href="/series/strange-ito-junji-no-yoru-mo-nemurenu-kimyou-na-hanashi.html">
+                        <div class="card-thumbnail-container">
+                            <img src="/img/strange-ito-junji.jpg" alt="Strange Ito Junji" loading="lazy">
+                            <div class="card-badge-top">
+                                <span class="badge-tag tag-series">Series</span>
+                            </div>
+                            <div class="card-badge-bottom">
+                                <span class="badge-status tamat">Tamat</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">Ito Junji no Yoru mo Nemurenu Kimyou na Hanashi (2026)</h4>
+                        </div>
+                    </a>
+                </article>
+
+                <!-- 10. Sunset Sunrise -->
+                <article class="card" data-category="movie" data-status="tamat">
+                    <a href="/film/sunset-sunrise.html">
+                        <div class="card-thumbnail-container">
+                            <img src="/img/sunset-sunrise.jpg" alt="Sunset Sunrise" loading="lazy">
+                            <div class="card-badge-top">
+                                <span class="badge-tag tag-movie">Movie</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">Sunset Sunrise (2024)</h4>
+                        </div>
+                    </a>
+                </article>
+
+                <!-- 11. Momo no Uta -->
+                <article class="card" data-category="series" data-status="tamat">
+                    <a href="/series/momo-no-uta.html">
+                        <div class="card-thumbnail-container">
+                            <img src="/img/momo-no-uta.jpeg" alt="Momo no Uta" loading="lazy">
+                            <div class="card-badge-top">
+                                <span class="badge-tag tag-series">Series</span>
+                            </div>
+                            <div class="card-badge-bottom">
+                                <span class="badge-status tamat">Tamat</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">Momo no Uta (2025)</h4>
+                        </div>
+                    </a>
+                </article>
+
+                <!-- 12. Inukai-san wa Kakure Dekiai Joushi -->
+                <article class="card" data-category="series" data-status="tamat">
+                    <a href="/series/inukai-san-wa-kakure-dekiai-joushi.html">
+                        <div class="card-thumbnail-container">
+                            <img src="/img/inukai-san.jpg" alt="Inukai-san" loading="lazy">
+                            <div class="card-badge-top">
+                                <span class="badge-tag tag-series">Series</span>
+                            </div>
+                            <div class="card-badge-bottom">
+                                <span class="badge-status tamat">Tamat</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">Inukai-san wa Kakure Dekiai Joushi (2026)</h4>
+                        </div>
+                    </a>
+                </article>
+
+                <!-- 13. Yakin Jiken The Convenience Store -->
+                <article class="card" data-category="movie" data-status="tamat">
+                    <a href="/film/yakin-jiken.html">
+                        <div class="card-thumbnail-container">
+                            <img src="/img/yakin-jiken.jpg" alt="Yakin Jiken" loading="lazy">
+                            <div class="card-badge-top">
+                                <span class="badge-tag tag-movie">Movie</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">Yakin Jiken The Convenience Store (2026)</h4>
+                        </div>
+                    </a>
+                </article>
+
+                <!-- 14. Otto wo Shakaiteki ni ... Re:venge -->
+                <article class="card" data-category="series" data-status="tamat">
+                    <a href="/series/otto-wo-shakaiteki-ni-massatsu-suru-itsutsu-no-houhou-revenge.html">
+                        <div class="card-thumbnail-container">
+                            <img src="/img/otto-wo-shakaiteki-ni-massatsu-suru-itsutsu-no-houhou-revenge.jpg"
+                                alt="Otto wo Shakaiteki ni" loading="lazy">
+                            <div class="card-badge-top">
+                                <span class="badge-tag tag-series">Series</span>
+                            </div>
+                            <div class="card-badge-bottom">
+                                <span class="badge-status tamat">Tamat</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">Otto wo Shakaiteki ni ... Re:venge (2025)</h4>
+                        </div>
+                    </a>
+                </article>
+
+                <!-- 15. Deep Revenge -->
+                <article class="card" data-category="series" data-status="tamat">
+                    <a href="/series/deep-revenge.html">
+                        <div class="card-thumbnail-container">
+                            <img src="/img/deep-revenge.jpg" alt="Deep Revenge" loading="lazy">
+                            <div class="card-badge-top">
+                                <span class="badge-tag tag-series">Series</span>
+                            </div>
+                            <div class="card-badge-bottom">
+                                <span class="badge-status tamat">Tamat</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">Deep Revenge (2026)</h4>
+                        </div>
+                    </a>
+                </article>
+
+                <!-- 16. Shitsuren Karuta -->
+                <article class="card" data-category="series" data-status="tamat">
+                    <a href="/series/shitsuren-karuta.html">
+                        <div class="card-thumbnail-container">
+                            <img src="/img/shitsuren-karuta.jpg" alt="Shitsuren Karuta" loading="lazy">
+                            <div class="card-badge-top">
+                                <span class="badge-tag tag-series">Series</span>
+                            </div>
+                            <div class="card-badge-bottom">
+                                <span class="badge-status tamat">Tamat</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">Shitsuren Karuta (2026)</h4>
+                        </div>
+                    </a>
+                </article>
+
+                <!-- 17. Motokare no Neko wo, Azukarimashite -->
+                <article class="card" data-category="series" data-status="tamat">
+                    <a href="/series/motokare-no-neko-wo-azukarimashite.html">
+                        <div class="card-thumbnail-container">
+                            <img src="/img/motokare-no-neko.jpeg" alt="Motokare no Neko" loading="lazy">
+                            <div class="card-badge-top">
+                                <span class="badge-tag tag-series">Series</span>
+                            </div>
+                            <div class="card-badge-bottom">
+                                <span class="badge-status tamat">Tamat</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">Motokare no Neko wo, Azukarimashite (2026)</h4>
+                        </div>
+                    </a>
+                </article>
+
+                <!-- 18. Yano-kun no Futsuu no Hibi -->
+                <article class="card" data-category="movie" data-status="tamat">
+                    <a href="/film/yano-kun-no-futsuu-no-hibi.html">
+                        <div class="card-thumbnail-container">
+                            <img src="/img/yano-kun-no-futsuu-no-hibi.png" alt="Yano-kun" loading="lazy">
+                            <div class="card-badge-top">
+                                <span class="badge-tag tag-movie">Movie</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">Yano-kun no Futsuu no Hibi (2024)</h4>
+                        </div>
+                    </a>
+                </article>
+
+                <!-- 19. Rojiura Hotel -->
+                <article class="card" data-category="series" data-status="tamat">
+                    <a href="/series/rojiura-hotel.html">
+                        <div class="card-thumbnail-container">
+                            <img src="/img/rojiura-hotel.jpeg" alt="Rojiura Hotel" loading="lazy">
+                            <div class="card-badge-top">
+                                <span class="badge-tag tag-series">Series</span>
+                            </div>
+                            <div class="card-badge-bottom">
+                                <span class="badge-status tamat">Tamat</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">Rojiura Hotel (2026)</h4>
+                        </div>
+                    </a>
+                </article>
+
+                <!-- 20. Exit 8 -->
+                <article class="card" data-category="movie" data-status="tamat">
+                    <a href="/film/deguchi-8.html">
+                        <div class="card-thumbnail-container">
+                            <img src="/img/deguchi-8.png" alt="Exit 8" loading="lazy">
+                            <div class="card-badge-top">
+                                <span class="badge-tag tag-movie">Movie</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">Exit 8 (2025)</h4>
+                        </div>
+                    </a>
+                </article>
+
+                <!-- 21. Sukui, sukuware -->
+                <article class="card" data-category="series" data-status="tamat">
+                    <a href="/series/sukui-sukuware.html">
+                        <div class="card-thumbnail-container">
+                            <img src="/img/sukui-sukuware.jpg" alt="Sukui sukuware" loading="lazy">
+                            <div class="card-badge-top">
+                                <span class="badge-tag tag-series">Series</span>
+                            </div>
+                            <div class="card-badge-bottom">
+                                <span class="badge-status tamat">Tamat</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">Sukui, sukuware (2026)</h4>
+                        </div>
+                    </a>
+                </article>
+
+                <!-- 22. Karada Sagashi The Last Night -->
+                <article class="card" data-category="movie" data-status="tamat">
+                    <a href="/film/karada-sagashi-the-last-night.html">
+                        <div class="card-thumbnail-container">
+                            <img src="/img/karada-sagashi-the-last-night.jpg" alt="Karada Sagashi The Last Night"
+                                loading="lazy">
+                            <div class="card-badge-top">
+                                <span class="badge-tag tag-movie">Movie</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">Karada Sagashi The Last Night (2025)</h4>
+                        </div>
+                    </a>
+                </article>
+
+                <!-- 23. Honmei Janakya Yokatta Noni -->
+                <article class="card" data-category="series" data-status="tamat">
+                    <a href="/series/honmei-janakya.html">
+                        <div class="card-thumbnail-container">
+                            <img src="/img/honmei-janakkya.jpeg" alt="Honmei Janakya" loading="lazy">
+                            <div class="card-badge-top">
+                                <span class="badge-tag tag-series">Series</span>
+                            </div>
+                            <div class="card-badge-bottom">
+                                <span class="badge-status tamat">Tamat</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">Honmei Janakya Yokatta Noni (2026)</h4>
+                        </div>
+                    </a>
+                </article>
+
+                <!-- 24. Toumei na Yoru ni Kakeru Kimi to -->
+                <article class="card" data-category="series" data-status="tamat">
+                    <a href="/series/toumei-na-yoru-ni.html">
+                        <div class="card-thumbnail-container">
+                            <img src="/img/toumei-na-yoru-ni.jpg" alt="Toumei na Yoru ni" loading="lazy">
+                            <div class="card-badge-top">
+                                <span class="badge-tag tag-series">Series</span>
+                            </div>
+                            <div class="card-badge-bottom">
+                                <span class="badge-status tamat">Tamat</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">Toumei na Yoru ni Kakeru Kimi to (2025)</h4>
+                        </div>
+                    </a>
+                </article>
+
+                <!-- 25. Isho, Koukai -->
+                <article class="card" data-category="movie" data-status="tamat">
+                    <a href="/film/isho-kokai.html">
+                        <div class="card-thumbnail-container">
+                            <img src="/img/isho-kokai.jpg" alt="Isho, Koukai" loading="lazy">
+                            <div class="card-badge-top">
+                                <span class="badge-tag tag-movie">Movie</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">Isho, Koukai (2025)</h4>
+                        </div>
+                    </a>
+                </article>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Theme Switcher Script -->
+    <script src="/js/henshin-tema.js"></script>
+
+    <!-- Interactive Category Filter Script -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const filterChips = document.querySelectorAll(".filter-chip");
+            const cards = document.querySelectorAll("#contentGrid .card");
+
+            filterChips.forEach(chip => {
+                chip.addEventListener("click", () => {
+                    filterChips.forEach(c => c.classList.remove("active"));
+                    chip.classList.add("active");
+
+                    const filter = chip.getAttribute("data-filter");
+
+                    cards.forEach(card => {
+                        const category = card.getAttribute("data-category");
+                        const status = card.getAttribute("data-status");
+
+                        if (filter === "all") {
+                            card.style.display = "flex";
+                        } else if (filter === "series" && category === "series") {
+                            card.style.display = "flex";
+                        } else if (filter === "movie" && category === "movie") {
+                            card.style.display = "flex";
+                        } else if (filter === "ongoing" && status === "ongoing") {
+                            card.style.display = "flex";
+                        } else if (filter === "tamat" && status === "tamat") {
+                            card.style.display = "flex";
+                        } else {
+                            card.style.display = "none";
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+
+    <!-- Footer Container (Dynamic Fetch) -->
+    <div id="footer"></div>
+    <script src="/footer/footer.js"></script>
+
+    <!-- Ashame Floating Chat -->
+    <button id="ashame-chat-button" type="button" aria-label="Buka chat Ashame" aria-expanded="false">
+        💬
+    </button>
+
+    <section id="ashame-chat-window" aria-label="Chat publik Ashame" aria-hidden="true">
+        <header class="ashame-chat-header">
+            <div>
+                <h3>Ashame Fansub</h3>
+                <small>Ruang chat</small>
+            </div>
+
+            <button id="ashame-chat-close" type="button" aria-label="Tutup chat">
+                ×
+            </button>
+        </header>
+
+        <div id="ashame-chat-messages" role="log" aria-live="polite" aria-label="Pesan chat">
+            <p>Memuat pesan...</p>
         </div>
 
-        <script src="/js/henshin-tema.js"></script>
+        <form id="ashame-chat-form" class="ashame-chat-form">
+            <input id="ashame-chat-username" type="text" maxlength="30" placeholder="Nama panggilan"
+                autocomplete="nickname" required>
 
-        <div id="footer"></div>
-   <script src="/footer/footer.js"></script>
+            <!-- Panel kutipan pesan yang akan dibalas -->
+            <div id="ashame-chat-reply-preview" hidden>
+                <div class="ashame-chat-reply-preview-content">
+                    <strong id="ashame-chat-reply-username"></strong>
+                    <span id="ashame-chat-reply-text"></span>
+                </div>
+
+                <button id="ashame-chat-reply-cancel" type="button" aria-label="Batalkan balasan"
+                    title="Batalkan balasan">
+                    ×
+                </button>
+            </div>
+
+            <div class="ashame-chat-input-row">
+                <input id="ashame-chat-input" type="text" maxlength="500" placeholder="Tulis pesan..."
+                    autocomplete="off" required>
+
+                <button id="ashame-chat-send" type="submit">
+                    Kirim
+                </button>
+            </div>
+
+            <div id="ashame-chat-status" class="ashame-chat-status" role="status">
+                Menghubungkan...
+            </div>
+        </form>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/js/chat.js"></script>
 
 </body>
+
 </html>
