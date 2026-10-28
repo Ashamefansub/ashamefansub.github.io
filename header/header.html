@@ -17,9 +17,9 @@
             <img id="themeBtn" src="/img/sub-image/daymode.png" alt="Mode Tema">
         </button>
 
-        <form class="search-box" onsubmit="event.preventDefault(); alert('Fitur pencarian segera hadir!');">
-            <span class="search-icon">🔍</span>
-            <input type="search" id="headerSearchInput" placeholder="Pencarian ... " aria-label="Pencarian">
+        <form class="search-box" id="headerSearchForm" role="search">
+            <span class="search-icon" aria-hidden="true">🔍</span>
+            <input type="search" id="headerSearchInput" placeholder="Pencarian ... " aria-label="Pencarian" autocomplete="off">
         </form>
     </div>
 </header>
