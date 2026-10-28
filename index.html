@@ -25,25 +25,26 @@
         <section class="hero-spotlight" aria-label="Rilis Terbaru">
             <div class="hero-banner-inner">
                 <div class="hero-thumbnail-wrap">
-                    <img src="/img/jigoku-wa-zeni.png" alt="Jigoku wa Zen'i de Dekiteiru" fetchpriority="high">
+                    <img src="/img/dekiai-kareshi.jpeg" alt="Dekiai Kareshi no Tsukurikata" fetchpriority="high">
                     <div class="hero-badge-overlay">
                         <span class="badge-featured">🔥Rilis Terbaru</span>
-                        <span class="badge-episode">Eps 05</span>
+                        <span class="badge-episode">Eps 04</span>
                     </div>
                 </div>
                 <div class="hero-content">
                     <span class="hero-category">Series / Dorama • 2026</span>
-                    <h2 class="hero-title">Jigoku wa Zen'i de Dekiteiru</h2>
-                    <p class="hero-sub-title">地獄は銭で作られている</p>
+                    <h2 class="hero-title">Dekiai Kareshi no Tsukurikata</h2>
+                    <p class="hero-sub-title">溺愛彼氏の作り方</p>
                     <p class="hero-synopsis">
-                        Sebuah "Program Dukungan Khusus Mantan Narapidana" mempertemukan orang-orang yang memiliki
-                        catatan kriminal. Mereka yang berhasil lolos dijanjikan bantuan penuh untuk kembali berintegrasi
-                        ke dalam masyarakat. Para peserta yang memandang ini sebagai kesempatan untuk mengubah hidup
-                        mereka pun memulai kehidupan bersama selama satu bulan di sebuah fasilitas tertentu.
+                        Sakura, seorang pegawai balai kota, memendam rasa pada rekan kerjanya yang lebih senior,
+                        Keisuke.
+                        Suatu malam, karena serangkaian kejadian tak terduga, Keisuke akhirnya berada di rumah Sakura,
+                        dan
+                        mereka pun menjalin ikatan—baik secara emosional maupun fisik... atau begitulah sangkaan Sakura.
                     </p>
                     <div class="hero-actions">
-                        <a href="/series/jigoku-wa-zeni-de-dekiteiru.html" class="btn-primary">
-                            ▶ Tonton / Download Ep. 05
+                        <a href="/series/dekiai-kareshi-no-tsukurikata.html" class="btn-primary">
+                            ▶ Tonton / Download Ep. 04
                         </a>
                         <a href="https://trakteer.id/ashame" target="_blank" rel="noopener" class="btn-secondary"
                             title="Streaming/download tanpa ribet tanpa iklan">
@@ -527,8 +528,12 @@
                     filterChips.forEach(c => c.classList.remove("active"));
                     chip.classList.add("active");
 
-                    const filter = chip.getAttribute("data-filter");
+                    if (typeof window.__ashameApplyFilter === "function") {
+                        window.__ashameApplyFilter();
+                        return;
+                    }
 
+                    const filter = chip.getAttribute("data-filter");
                     cards.forEach(card => {
                         const category = card.getAttribute("data-category");
                         const status = card.getAttribute("data-status");
