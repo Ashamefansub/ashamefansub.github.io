@@ -4,7 +4,8 @@
                        window.location.pathname.includes('/film/') ||
                        window.location.pathname.includes('/partner/') ||
                        window.location.pathname.includes('/showroom/') ||
-                       window.location.pathname.includes('/header/')
+                       window.location.pathname.includes('/header/') ||
+                       window.location.pathname.toLowerCase().includes('/tutorial/')
                        ? "../footer/footer.html"
                        : "footer/footer.html";
 
