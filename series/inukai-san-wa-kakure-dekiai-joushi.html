@@ -94,45 +94,31 @@
 
     </main>
 
-    <!-- Setting Komentar -->
-<div id="cusdis_thread"
-  data-host="https://cusdis.com"
-  data-app-id="07dcecc9-8ea6-476c-8d3f-9938cdf2ede1"
-  data-page-id="inukai-san"
-  data-page-url="https://ashamefansub.github.io/series/inukai-san-wa-kakure-dekiai-joushi.html"
-  data-page-title="Inukai-san-wa-kakure-dekiai-joushi"
-  data-theme="auto">
-  </div>   
-  
-  <!-- Setting Warna Teks Komentar -->
-  <script>
-window.addEventListener("load", function () {
-  const iframe = document.querySelector("#cusdis_thread iframe");
-  if (!iframe) return;
-  const style = document.createElement("style");
-  style.innerHTML = `
-    body, label, span, p, a, button {
-      color: #black !important;
-    }
-    textarea, input {
-      color: #ffff !important;
-      background: transparent !important;
-    }
-      button {
-      color: #000000 !important;
-      background: #e0e0e0 !important;
-    }
-  `;
-  iframe.contentWindow.document.head.appendChild(style);
-});
-</script>
-
-
-<script src="/js/henshin-tema.js"></script>
-
- <div id="footer"></div>
-   <script src="/footer/footer.js"></script>
-
-<script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+    <!-- Daftar Pemeran (Cast) -->
+    <div class="cast-box">
+        <h3 class="cast-heading">Daftar Pemeran</h3>
+        <div class="cast-grid">
+            <a href="https://mydramalist.com/people/119755-miyazawa-yu" target="_blank" rel="noopener" class="cast-card" title="Miyazawa Yu">
+                <div class="cast-photo-wrapper">
+                    <img src="https://i.mydramalist.com/rNVDK2_5s.jpg" alt="Miyazawa Yu" class="cast-photo" loading="lazy" referrerpolicy="no-referrer">
+                </div>
+                <div class="cast-info">
+                    <p class="nama-pemeran">Miyazawa Yu</p>
+                    <p class="cast-karakter">-</p>
+                    <p class="cast-role role-main">Main Role</p>
+                </div>
+            </a>
+            <a href="https://mydramalist.com/people/95893-yokono-sumire" target="_blank" rel="noopener" class="cast-card" title="Yokono Sumire">
+                <div class="cast-photo-wrapper">
+                    <img src="https://i.mydramalist.com/mOQgLm_5s.jpg" alt="Yokono Sumire" class="cast-photo" loading="lazy" referrerpolicy="no-referrer">
+                </div>
+                <div class="cast-info">
+                    <p class="nama-pemeran">Yokono Sumire</p>
+                    <p class="cast-karakter">-</p>
+                    <p class="cast-role role-main">Main Role</p>
+                </div>
+            </a>
+        </div>
+    </div>
 </body>
 </html>

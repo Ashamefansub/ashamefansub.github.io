@@ -56,40 +56,62 @@
 
     </main>
 
-    <!-- Setting Komentar -->
-<div id="cusdis_thread"
-  data-host="https://cusdis.com"
-  data-app-id="07dcecc9-8ea6-476c-8d3f-9938cdf2ede1"
-  data-page-id="deguchi-8i"
-  data-page-url="https://ashamefansub.github.io/film/deguchi-8.html"
-  data-page-title="Deguchi 8"
-  data-theme="auto">
-  </div>   
-  
-  <!-- Setting Warna Teks Komentar -->
-  <script>
-window.addEventListener("load", function () {
-  const iframe = document.querySelector("#cusdis_thread iframe");
-  if (!iframe) return;
-  const style = document.createElement("style");
-  style.innerHTML = `
-    body, label, span, p, a, button {
-      color: #black !important;
-    }
-    textarea, input {
-      color: #ffff !important;
-      background: transparent !important;
-    }
-      button {
-      color: #000000 !important;
-      background: #e0e0e0 !important;
-    }
-  `;
-  iframe.contentWindow.document.head.appendChild(style);
-});
-</script>
-
-<script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+    <!-- Daftar Pemeran (Cast) -->
+    <div class="cast-box">
+        <h3 class="cast-heading">Daftar Pemeran</h3>
+        <div class="cast-grid">
+            <a href="https://mydramalist.com/people/243-ninomiya-kazunari" target="_blank" rel="noopener" class="cast-card" title="Ninomiya Kazunari">
+                <div class="cast-photo-wrapper">
+                    <img src="https://i.mydramalist.com/l0zRkv_5s.jpg" alt="Ninomiya Kazunari" class="cast-photo" loading="lazy" referrerpolicy="no-referrer">
+                </div>
+                <div class="cast-info">
+                    <p class="nama-pemeran">Ninomiya Kazunari</p>
+                    <p class="cast-karakter">[Lost Man]</p>
+                    <p class="cast-role role-main">Main Role</p>
+                </div>
+            </a>
+            <a href="https://mydramalist.com/people/121141-kochi-yamato" target="_blank" rel="noopener" class="cast-card" title="Kochi Yamato">
+                <div class="cast-photo-wrapper">
+                    <img src="https://i.mydramalist.com/60yEzd_5s.jpg" alt="Kochi Yamato" class="cast-photo" loading="lazy" referrerpolicy="no-referrer">
+                </div>
+                <div class="cast-info">
+                    <p class="nama-pemeran">Kochi Yamato</p>
+                    <p class="cast-karakter">[Walking Man]</p>
+                    <p class="cast-role role-side">Side Role</p>
+                </div>
+            </a>
+            <a href="https://mydramalist.com/people/7591-komatsu-nana" target="_blank" rel="noopener" class="cast-card" title="Komatsu Nana">
+                <div class="cast-photo-wrapper">
+                    <img src="https://i.mydramalist.com/lB07n6_5s.jpg" alt="Komatsu Nana" class="cast-photo" loading="lazy" referrerpolicy="no-referrer">
+                </div>
+                <div class="cast-info">
+                    <p class="nama-pemeran">Komatsu Nana</p>
+                    <p class="cast-karakter">[Lost Man&#x27;s partner]</p>
+                    <p class="cast-role role-side">Side Role</p>
+                </div>
+            </a>
+            <a href="https://mydramalist.com/people/161520-asanuma-naru" target="_blank" rel="noopener" class="cast-card" title="Asanuma Naru">
+                <div class="cast-photo-wrapper">
+                    <img src="https://i.mydramalist.com/zBLKrO_5s.jpg" alt="Asanuma Naru" class="cast-photo" loading="lazy" referrerpolicy="no-referrer">
+                </div>
+                <div class="cast-info">
+                    <p class="nama-pemeran">Asanuma Naru</p>
+                    <p class="cast-karakter">[Boy]</p>
+                    <p class="cast-role role-side">Side Role</p>
+                </div>
+            </a>
+            <a href="https://mydramalist.com/people/117847-hanase-kotone" target="_blank" rel="noopener" class="cast-card" title="Hanase Kotone">
+                <div class="cast-photo-wrapper">
+                    <img src="https://i.mydramalist.com/yWnwZ3_5s.jpg" alt="Hanase Kotone" class="cast-photo" loading="lazy" referrerpolicy="no-referrer">
+                </div>
+                <div class="cast-info">
+                    <p class="nama-pemeran">Hanase Kotone</p>
+                    <p class="cast-karakter">[Highschool student]</p>
+                    <p class="cast-role role-guest">Guest Role</p>
+                </div>
+            </a>
+        </div>
+    </div>
 
 <script src="/js/henshin-tema.js"></script>
 

@@ -52,40 +52,112 @@
 
     </main>
 
-    <!-- Setting Komentar -->
-<div id="cusdis_thread"
-  data-host="https://cusdis.com"
-  data-app-id="07dcecc9-8ea6-476c-8d3f-9938cdf2ede1"
-  data-page-id="yakin-jiken"
-  data-page-url="https://ashamefansub.github.io/film/yakin-jiken.html"
-  data-page-title="Yakin Jiken"
-  data-theme="auto">
-  </div>   
-  
-  <!-- Setting Warna Teks Komentar -->
-  <script>
-window.addEventListener("load", function () {
-  const iframe = document.querySelector("#cusdis_thread iframe");
-  if (!iframe) return;
-  const style = document.createElement("style");
-  style.innerHTML = `
-    body, label, span, p, a, button {
-      color: #black !important;
-    }
-    textarea, input {
-      color: #ffff !important;
-      background: transparent !important;
-    }
-      button {
-      color: #000000 !important;
-      background: #e0e0e0 !important;
-    }
-  `;
-  iframe.contentWindow.document.head.appendChild(style);
-});
-</script>
-
-<script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+    <!-- Daftar Pemeran (Cast) -->
+    <div class="cast-box">
+        <h3 class="cast-heading">Daftar Pemeran</h3>
+        <div class="cast-grid">
+            <a href="https://mydramalist.com/people/115215-minami-kotona" target="_blank" rel="noopener" class="cast-card" title="Minami Kotona">
+                <div class="cast-photo-wrapper">
+                    <img src="https://i.mydramalist.com/LwLP07_5s.jpg" alt="Minami Kotona" class="cast-photo" loading="lazy" referrerpolicy="no-referrer">
+                </div>
+                <div class="cast-info">
+                    <p class="nama-pemeran">Minami Kotona</p>
+                    <p class="cast-karakter">Tazuru Yukino</p>
+                    <p class="cast-role role-main">Main Role</p>
+                </div>
+            </a>
+            <a href="https://mydramalist.com/people/1403-takezai-terunosuke" target="_blank" rel="noopener" class="cast-card" title="Takezai Terunosuke">
+                <div class="cast-photo-wrapper">
+                    <img src="https://i.mydramalist.com/xbQzX_5s.jpg" alt="Takezai Terunosuke" class="cast-photo" loading="lazy" referrerpolicy="no-referrer">
+                </div>
+                <div class="cast-info">
+                    <p class="nama-pemeran">Takezai Terunosuke</p>
+                    <p class="cast-karakter">Saruwatari Shinji</p>
+                    <p class="cast-role role-side">Side Role</p>
+                </div>
+            </a>
+            <a href="https://mydramalist.com/people/56961-seki-tetta" target="_blank" rel="noopener" class="cast-card" title="Seki Tetta">
+                <div class="cast-photo-wrapper">
+                    <img src="https://i.mydramalist.com/krmJw_5s.jpg" alt="Seki Tetta" class="cast-photo" loading="lazy" referrerpolicy="no-referrer">
+                </div>
+                <div class="cast-info">
+                    <p class="nama-pemeran">Seki Tetta</p>
+                    <p class="cast-karakter">Funabashi Takuya</p>
+                    <p class="cast-role role-side">Side Role</p>
+                </div>
+            </a>
+            <a href="https://mydramalist.com/people/14066-tanaka-shunsuke" target="_blank" rel="noopener" class="cast-card" title="Tanaka Shunsuke">
+                <div class="cast-photo-wrapper">
+                    <img src="https://i.mydramalist.com/2Womd_5s.jpg" alt="Tanaka Shunsuke" class="cast-photo" loading="lazy" referrerpolicy="no-referrer">
+                </div>
+                <div class="cast-info">
+                    <p class="nama-pemeran">Tanaka Shunsuke</p>
+                    <p class="cast-karakter">Kondo Kazuki</p>
+                    <p class="cast-role role-side">Side Role</p>
+                </div>
+            </a>
+            <a href="https://mydramalist.com/people/2101-sakamoto-makoto" target="_blank" rel="noopener" class="cast-card" title="Sakamoto Makoto">
+                <div class="cast-photo-wrapper">
+                    <img src="https://i.mydramalist.com/zBmq4A_5s.jpg" alt="Sakamoto Makoto" class="cast-photo" loading="lazy" referrerpolicy="no-referrer">
+                </div>
+                <div class="cast-info">
+                    <p class="nama-pemeran">Sakamoto Makoto</p>
+                    <p class="cast-karakter">Matsuura Yukio</p>
+                    <p class="cast-role role-side">Side Role</p>
+                </div>
+            </a>
+            <a href="https://mydramalist.com/people/1000-sakurai-atsuko" target="_blank" rel="noopener" class="cast-card" title="Sakurai Atsuko">
+                <div class="cast-photo-wrapper">
+                    <img src="https://i.mydramalist.com/mO44E0_5s.jpg" alt="Sakurai Atsuko" class="cast-photo" loading="lazy" referrerpolicy="no-referrer">
+                </div>
+                <div class="cast-info">
+                    <p class="nama-pemeran">Sakurai Atsuko</p>
+                    <p class="cast-karakter">Ikuno Tamayo</p>
+                    <p class="cast-role role-side">Side Role</p>
+                </div>
+            </a>
+            <a href="https://mydramalist.com/people/1227-kato-natsuki" target="_blank" rel="noopener" class="cast-card" title="Kato Natsuki">
+                <div class="cast-photo-wrapper">
+                    <img src="https://i.mydramalist.com/prl6e_5s.jpg" alt="Kato Natsuki" class="cast-photo" loading="lazy" referrerpolicy="no-referrer">
+                </div>
+                <div class="cast-info">
+                    <p class="nama-pemeran">Kato Natsuki</p>
+                    <p class="cast-karakter">Saruwatari Kaho</p>
+                    <p class="cast-role role-side">Side Role</p>
+                </div>
+            </a>
+            <a href="https://mydramalist.com/people/15019-tedzuka-mai" target="_blank" rel="noopener" class="cast-card" title="Tezuka Mai">
+                <div class="cast-photo-wrapper">
+                    <img src="https://i.mydramalist.com/Dk4YEz_5s.jpg" alt="Tezuka Mai" class="cast-photo" loading="lazy" referrerpolicy="no-referrer">
+                </div>
+                <div class="cast-info">
+                    <p class="nama-pemeran">Tezuka Mai</p>
+                    <p class="cast-karakter">-</p>
+                    <p class="cast-role role-side">Side Role</p>
+                </div>
+            </a>
+            <a href="https://mydramalist.com/people/157182-yoshioka-yuki" target="_blank" rel="noopener" class="cast-card" title="Yoshioka Yuki">
+                <div class="cast-photo-wrapper">
+                    <img src="https://i.mydramalist.com/814jeD_5s.jpg" alt="Yoshioka Yuki" class="cast-photo" loading="lazy" referrerpolicy="no-referrer">
+                </div>
+                <div class="cast-info">
+                    <p class="nama-pemeran">Yoshioka Yuki</p>
+                    <p class="cast-karakter">-</p>
+                    <p class="cast-role role-side">Side Role</p>
+                </div>
+            </a>
+            <a href="https://mydramalist.com/people/160578-mizuno-chiharu" target="_blank" rel="noopener" class="cast-card" title="Mizuno Chiharu">
+                <div class="cast-photo-wrapper">
+                    <img src="https://i.mydramalist.com/O8QrYg_5s.jpg" alt="Mizuno Chiharu" class="cast-photo" loading="lazy" referrerpolicy="no-referrer">
+                </div>
+                <div class="cast-info">
+                    <p class="nama-pemeran">Mizuno Chiharu</p>
+                    <p class="cast-karakter">Onodera Kazuko</p>
+                    <p class="cast-role role-side">Side Role</p>
+                </div>
+            </a>
+        </div>
+    </div>
 
 <script src="/js/henshin-tema.js"></script>
 

@@ -74,40 +74,42 @@
 
     </main>
 
-    <!-- Setting Komentar -->
-<div id="cusdis_thread"
-  data-host="https://cusdis.com"
-  data-app-id="07dcecc9-8ea6-476c-8d3f-9938cdf2ede1"
-  data-page-id="momo-no-uta"
-  data-page-url="https://ashamefansub.github.io/series/momo-no-uta.html"
-  data-page-title="Momo no Uta"
-  data-theme="auto">
-  </div>   
-  
-  <!-- Setting Warna Teks Komentar -->
-  <script>
-window.addEventListener("load", function () {
-  const iframe = document.querySelector("#cusdis_thread iframe");
-  if (!iframe) return;
-  const style = document.createElement("style");
-  style.innerHTML = `
-    body, label, span, p, a, button {
-      color: #black !important;
-    }
-    textarea, input {
-      color: #ffff !important;
-      background: transparent !important;
-    }
-      button {
-      color: #000000 !important;
-      background: #e0e0e0 !important;
-    }
-  `;
-  iframe.contentWindow.document.head.appendChild(style);
-});
-</script>
-
-<script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+    <!-- Daftar Pemeran (Cast) -->
+    <div class="cast-box">
+        <h3 class="cast-heading">Daftar Pemeran</h3>
+        <div class="cast-grid">
+            <a href="https://mydramalist.com/people/44063-kashio-atsuki" target="_blank" rel="noopener" class="cast-card" title="Kashio Atsuki">
+                <div class="cast-photo-wrapper">
+                    <img src="https://i.mydramalist.com/QARZv_5s.jpg" alt="Kashio Atsuki" class="cast-photo" loading="lazy" referrerpolicy="no-referrer">
+                </div>
+                <div class="cast-info">
+                    <p class="nama-pemeran">Kashio Atsuki</p>
+                    <p class="cast-karakter">Masamura Kennichi</p>
+                    <p class="cast-role role-main">Main Role</p>
+                </div>
+            </a>
+            <a href="https://mydramalist.com/people/158866-hozaki-rei" target="_blank" rel="noopener" class="cast-card" title="Hozaki Rei">
+                <div class="cast-photo-wrapper">
+                    <img src="https://i.mydramalist.com/VXPJXQ_5s.jpg" alt="Hozaki Rei" class="cast-photo" loading="lazy" referrerpolicy="no-referrer">
+                </div>
+                <div class="cast-info">
+                    <p class="nama-pemeran">Hozaki Rei</p>
+                    <p class="cast-karakter">Umino Yasuko</p>
+                    <p class="cast-role role-main">Main Role</p>
+                </div>
+            </a>
+            <a href="https://mydramalist.com/people/429-park-yoo-chun" target="_blank" rel="noopener" class="cast-card" title="Park Yoo Chun">
+                <div class="cast-photo-wrapper">
+                    <img src="https://i.mydramalist.com/QXb5vs.jpg" alt="Park Yoo Chun" class="cast-photo" loading="lazy" referrerpolicy="no-referrer">
+                </div>
+                <div class="cast-info">
+                    <p class="nama-pemeran">Park Yoo Chun</p>
+                    <p class="cast-karakter">-</p>
+                    <p class="cast-role role-guest">Guest Role</p>
+                </div>
+            </a>
+        </div>
+    </div>
 
 <script src="/js/henshin-tema.js"></script>
 

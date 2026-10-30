@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
+    <title>Tutorial Cara Unduh & Melewati Iklan - Ashame Fansub</title>
+    <meta name="description"
+        content="Panduan video streaming lengkap cara download episode dorama dan film di Ashame Fansub % tips melewati shortlink iklan.">
+
+    <!-- CSS Global Ashame Fansub -->
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/styles_sub.css">
+    <link rel="stylesheet" href="../css/styles_sub2.css">
+
+    <style>
+        /* ========================================================
+           🎬 TUTORIAL STREAMING PAGE STYLES
+           ======================================================== */
+
+        .tutorial-container {
+            max-width: 1100px;
+            margin: 24px auto 60px;
+            padding: 0 20px;
+        }
+
+        /* --- Breadcrumb Navigation --- */
+        .tutorial-breadcrumb {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+
+        .tutorial-breadcrumb a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color var(--transition-fast);
+        }
+
+        .tutorial-breadcrumb a:hover {
+            color: var(--accent-blue);
+        }
+
+        .tutorial-breadcrumb .separator {
+            opacity: 0.5;
+            font-size: 0.8rem;
+        }
+
+        .tutorial-breadcrumb .current {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        /* --- Header Intro --- */
+        .tutorial-header {
+            margin-bottom: 24px;
+        }
+
+        .tutorial-badge-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+            display: none;
+        }
+
+        .pill-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 5px 12px;
+            border-radius: var(--radius-full);
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+
+        .pill-live {
+            background: rgba(236, 72, 153, 0.15);
+            border: 1px solid rgba(236, 72, 153, 0.35);
+            color: var(--accent-pink);
+        }
+
+        .pill-live .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--accent-pink);
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 8px var(--accent-pink);
+            animation: pulseGlow 1.8s infinite ease-in-out;
+        }
+
+        @keyframes pulseGlow {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.4;
+                transform: scale(0.85);
+            }
+        }
+
+        .pill-quality {
+            background: rgba(14, 165, 233, 0.15);
+            border: 1px solid rgba(14, 165, 233, 0.35);
+            color: var(--accent-blue);
+        }
+
+        .tutorial-title {
+            font-family: var(--font-heading);
+            font-size: 2.1rem;
+            color: var(--text-primary);
+            line-height: 1.3;
+            margin-bottom: 10px;
+        }
+
+        .tutorial-subtitle {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            max-width: 850px;
+            text-indent: 1.2rem;
+        }
+
+        /* --- Streaming Theater Box --- */
+        .streaming-theater {
+            position: relative;
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+            margin-bottom: 24px;
+            transition: border-color var(--transition-smooth), box-shadow var(--transition-smooth);
+        }
+
+        .streaming-theater::before {
+            content: "";
+            position: absolute;
+            top: -20px;
+            left: 5%;
+            right: 5%;
+            height: 80px;
+            background: radial-gradient(ellipse at center, rgba(14, 165, 233, 0.22), transparent 70%);
+            z-index: -1;
+            filter: blur(25px);
+            pointer-events: none;
+        }
+
+        /* Top Bar of the Player */
+        .theater-topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px 12px 14px;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 12px;
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .theater-topbar .source-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+        }
+
+        .theater-topbar .source-label .gdrive-icon {
+            display: inline-block;
+            font-size: 1rem;
+            animation: pulseGlow 1.8s infinite ease-in-out;
+        }
+
+        /* 16:9 Responsive Player Frame */
+        .player-viewport {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%;
+            /* 16:9 Aspect Ratio */
+            background: #000000;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.8);
+        }
+
+        .player-viewport iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+        }
+
+        /* Theater Action Toolbar */
+        .theater-actions {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 14px;
+            padding: 16px 8px 4px;
+        }
+
+        .theater-actions-left,
+        .theater-actions-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .btn-stream {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 9px 16px;
+            border-radius: var(--radius-md);
+            font-size: 0.88rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all var(--transition-fast);
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        .btn-stream-drive {
+            background: rgba(14, 165, 233, 0.12);
+            color: var(--accent-blue);
+            border-color: rgba(14, 165, 233, 0.28);
+        }
+
+        .btn-stream-drive:hover {
+            background: var(--accent-blue);
+            color: #ffffff;
+            box-shadow: 0 4px 15px rgba(14, 165, 233, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .btn-stream-trakteer {
+            background: rgba(224, 36, 36, 0.12);
+            color: #f87171;
+            border-color: rgba(224, 36, 36, 0.3);
+        }
+
+        .btn-stream-trakteer:hover {
+            background: var(--color-trakteer);
+            color: #ffffff;
+            box-shadow: 0 4px 15px rgba(224, 36, 36, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .btn-stream-neutral {
+            background: var(--surface-color-elevated);
+            color: var(--text-secondary);
+            border-color: var(--border-color);
+        }
+
+        .btn-stream-neutral:hover {
+            color: var(--text-primary);
+            border-color: var(--border-color-hover);
+            transform: translateY(-2px);
+        }
+
+        /* --- Step By Step Guide Cards --- */
+        .tutorial-steps-section {
+            margin: 44px 0;
+        }
+
+        .section-headline {
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 16px;
+        }
+
+        .step-card {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            position: relative;
+            transition: all var(--transition-fast);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .step-card:hover {
+            border-color: var(--border-color-hover);
+            transform: translateY(-3px);
+            box-shadow: var(--card-shadow);
+        }
+
+        .step-number {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            color: #ffffff;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.95rem;
+            margin-bottom: 12px;
+        }
+
+        .step-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .step-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* --- Tips & Notice Card --- */
+        .tutorial-tips-card {
+            background: linear-gradient(145deg, var(--surface-color), var(--surface-color-elevated));
+            border: 1px solid rgba(14, 165, 233, 0.25);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            margin: 36px 0;
+            box-shadow: var(--card-shadow);
+        }
+
+        .tips-card-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--accent-blue);
+            margin-bottom: 14px;
+        }
+
+        .tips-list {
+            margin: 0;
+            padding-left: 20px;
+            color: var(--text-secondary);
+            font-size: 0.94rem;
+            line-height: 1.8;
+        }
+
+        .tips-list li {
+            margin-bottom: 8px;
+        }
+
+        .tips-list strong {
+            color: var(--text-primary);
+        }
+
+        /* --- Share Toast Notification --- */
+        #toastMessage {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #10b981;
+            color: #ffffff;
+            padding: 12px 20px;
+            border-radius: var(--radius-md);
+            font-size: 0.9rem;
+            font-weight: 600;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        #toastMessage.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ========================================================
+           📱 RESPONSIVE MEDIA QUERIES (@media)
+           ======================================================== */
+
+        /* Desktop Medium & Tablet Landscape */
+        @media (max-width: 1024px) {
+            .tutorial-title {
+                font-size: 1.85rem;
+            }
+
+            .steps-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Tablet Portrait & Large Smartphones */
+        @media (max-width: 768px) {
+            .tutorial-container {
+                margin: 16px auto 40px;
+                padding: 0 14px;
+            }
+
+            .tutorial-title {
+                font-size: 1.55rem;
+            }
+
+            .tutorial-subtitle {
+                font-size: 0.95rem;
+            }
+
+            .streaming-theater {
+                padding: 8px;
+                border-radius: var(--radius-md);
+            }
+
+            .theater-topbar {
+                padding: 4px 6px 10px;
+                font-size: 0.82rem;
+            }
+
+            .theater-actions {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 10px;
+                padding-top: 12px;
+            }
+
+            .theater-actions-left,
+            .theater-actions-right {
+                width: 100%;
+                justify-content: stretch;
+            }
+
+            .btn-stream {
+                flex: 1;
+                justify-content: center;
+                padding: 10px 12px;
+                font-size: 0.85rem;
+            }
+
+            .steps-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .tutorial-tips-card {
+                padding: 18px 16px;
+            }
+        }
+
+        /* Small Smartphones */
+        @media (max-width: 480px) {
+            .tutorial-title {
+                font-size: 1.35rem;
+            }
+
+            .theater-actions-left,
+            .theater-actions-right {
+                flex-direction: column;
+            }
+
+            .btn-stream {
+                width: 100%;
+            }
+
+            .step-card {
+                padding: 16px;
+            }
+
+            #toastMessage {
+                left: 20px;
+                right: 20px;
+                bottom: 20px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 🌐 FLOATING HEADER -->
+    <div id="header"></div>
+    <script src="/header/header.js"></script>
+
+    <!-- 🎬 MAIN STREAMING CONTAINER -->
+    <main class="tutorial-container">
+
+
+        <!-- 🏷️ Header Intro & Badges -->
+        <header class="tutorial-header">
+            <div class="tutorial-badge-row">
+                <span class="pill-tag pill-live">
+                    <span class="pulse-dot"></span> Streaming Tutorial
+                </span>
+                <span class="pill-tag pill-quality">
+                    🎬 1080p Full HD
+                </span>
+                <span class="pill-tag"
+                    style="background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(16, 185, 129, 0.35); color: #10b981;">
+                    ✓ Resmi Ashame Fansub
+                </span>
+            </div>
+            <h1 class="tutorial-title">Tutorial Download Melewati Iklan</h1>
+            <p class="tutorial-subtitle">
+                Untuk mengunduh atau stream secara online (via Google Drive) secara <b>gratis</b>, video di bawah adalah
+                tutorial cara melewati shortlink-nya. Support/subs via <a href="https://trakteer.id/ashame"
+                    target="_blank" rel="noopener">Trakteer</a> bebas iklan. <br><b>INGAT, KARENA GRATIS JADI EFFORT,
+                    KALAU
+                    NGGAK MAU RIBET PAKAI VIA TRAKTEER (BERBAYAR).</b>
+            </p>
+        </header>
+
+        <!-- 📺 STREAMING THEATER & GOOGLE DRIVE IFRAME -->
+        <section class="streaming-theater" aria-label="Streaming Video Tutorial">
+            <div class="theater-topbar">
+                <div class="source-label">
+                    <span class="gdrive-icon">▶</span>
+                    <span class="dot-video">Video Tutorial</span>
+                </div>
+                <div>
+                    <span>Simak dengan <strong>teliti</strong></span>
+                </div>
+            </div>
+
+            <!-- Responsive 16:9 Video Frame -->
+            <div class="player-viewport">
+                <iframe src="https://drive.google.com/file/d/18I7cdo1eZWyiaFJ5keCFSMq1q7whHet6/preview"
+                    title="Video Tutorial Cara Unduh di Ashame Fansub" allow="autoplay; fullscreen" allowfullscreen
+                    loading="lazy">
+                </iframe>
+            </div>
+
+            <!-- Player Action Bar -->
+            <div class="theater-actions">
+                <div class="theater-actions-left">
+
+                    <a href="https://trakteer.id/ashame" target="_blank" rel="noopener"
+                        class="btn-stream btn-stream-trakteer" title="Dukung mimin untuk link langsung tanpa iklan">
+                        Support Trakteer (Direct Link)
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 📝 RINGKASAN LANGKAH-LANGKAH -->
+        <section class="tutorial-steps-section" aria-label="Langkah-Langkah Unduh">
+            <h2 class="section-headline">
+                <span>📌</span> Ringkasan
+            </h2>
+
+            <div class="steps-grid">
+                <!-- Step 1 -->
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Pilih Episode / link</h3>
+                    <p class="step-desc">
+                        Buka halaman series atau movie, lalu klik tombol download yang ada
+                    </p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Fase Shortlink</h3>
+                    <p class="step-desc">
+                        Di halaman perantara shortlink, tunggu hitungan mundur (timer 5–10 detik) hingga tombol
+                        verifikasi atau tombol unduh berubah menjadi aktif.
+                    </p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Tutup Tab / Pop-up Iklan</h3>
+                    <p class="step-desc">
+                        Jika ada tab baru atau pop-up yang terbuka tiba-tiba, segera tutup tab tersebut dan kembali ke
+                        tab utama. Jangan klik "Allow" pada notifikasi browser.
+                    </p>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">Get Link & Download</h3>
+                    <p class="step-desc">
+                        Klik tombol <strong>"Get Link"</strong> atau <strong>"Menuju Tautan"</strong> akan diarahkan ke
+                        link streaming / download via Google Drive.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 💡 TIPS & TRIK TAMBAHAN -->
+        <section class="tutorial-tips-card" aria-label="Tips dan Saran Penting">
+            <div class="tips-card-header">
+                <span>💡</span> Tips
+            </div>
+            <ul class="tips-list">
+                <li>
+                    <strong>Gunakan Ekstensi Adblocker:</strong> Di PC/Laptop, gunakan ekstensi seperti <em>uBlock
+                        Origin</em> atau sejenisnya untuk mengurangi pop-up iklan liar.
+                </li>
+                <li>
+                    <strong>Pengguna Ponsel:</strong> Gunakan browser yang menurut kalian efektif mencegah pop-up iklan
+                    (1dm, Brave dan sejenisnya).
+                </li>
+                <li>
+                    <strong>Solusi Limit Google Drive:</strong> Jika Google Drive mengalami <em>"Download quota
+                        exceeded"</em>, pastikan kamu sudah login ke akun Google pribadimu atau tunggu beberapa saat.
+                </li>
+                <li>
+                    <strong>Ribet? Susah? Mau langsung Instan?</strong> silakan lewat <a
+                        href="https://trakteer.id/ashame" target="_blank" rel="noopener"
+                        style="color: var(--color-trakteer); font-weight: 600; text-decoration: underline;">Trakteer</a>
+                    untuk mendapatkan akses VIP tanpa perlu melewati shortlink sama sekali.
+                </li>
+            </ul>
+        </section>
+
+    </main>
+
+    <!-- 🍞 Toast Notifikasi Salin Link -->
+    <div id="toastMessage" role="alert">Link tutorial berhasil disalin! 📋</div>
+    <script>
+        function copyPageUrl() {
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                const toast = document.getElementById("toastMessage");
+                if (toast) {
+                    toast.classList.add("show");
+                    setTimeout(() => toast.classList.remove("show"), 2500);
+                }
+            }).catch(() => {
+                alert("Tautan: " + window.location.href);
+            });
+        }
+    </script>
+
+    <!-- 🌓 Theme Switcher Script -->
+    <script src="/js/henshin-tema.js"></script>
+
+    <!-- 🔻 FOOTER -->
+    <div id="footer"></div>
+    <script src="/footer/footer.js"></script>
+
+</body>
+
+</html>

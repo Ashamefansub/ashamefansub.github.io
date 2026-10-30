@@ -86,40 +86,62 @@
 
     </main>
 
-    <!-- Setting Komentar -->
- <div id="cusdis_thread"
-  data-host="https://cusdis.com"
-  data-app-id="07dcecc9-8ea6-476c-8d3f-9938cdf2ede1"
-  data-page-id="honmei-janakya"
-  data-page-url="https://ashamefansub.github.io/series/honmei-janakya.html"
-  data-page-title="Honmei Janakya"
-  data-theme="auto">
-  </div>   
-  
-  <!-- Setting Warna Teks Komentar -->
-  <script>
-window.addEventListener("load", function () {
-  const iframe = document.querySelector("#cusdis_thread iframe");
-  if (!iframe) return;
-  const style = document.createElement("style");
-  style.innerHTML = `
-    body, label, span, p, a, button {
-      color: #black !important;
-    }
-    textarea, input {
-      color: #ffff !important;
-      background: transparent !important;
-    }
-      button {
-      color: #000000 !important;
-      background: #e0e0e0 !important;
-    }
-  `;
-  iframe.contentWindow.document.head.appendChild(style);
-});
-</script>
-
-<script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+    <!-- Daftar Pemeran (Cast) -->
+    <div class="cast-box">
+        <h3 class="cast-heading">Daftar Pemeran</h3>
+        <div class="cast-grid">
+            <a href="https://mydramalist.com/people/20125-higuchi-hina" target="_blank" rel="noopener" class="cast-card" title="Higuchi Hina">
+                <div class="cast-photo-wrapper">
+                    <img src="https://i.mydramalist.com/zBpk7d_5s.jpg" alt="Higuchi Hina" class="cast-photo" loading="lazy" referrerpolicy="no-referrer">
+                </div>
+                <div class="cast-info">
+                    <p class="nama-pemeran">Higuchi Hina</p>
+                    <p class="cast-karakter">Onuma Mihono</p>
+                    <p class="cast-role role-main">Main Role</p>
+                </div>
+            </a>
+            <a href="https://mydramalist.com/people/81649-ikeda-masashi" target="_blank" rel="noopener" class="cast-card" title="Ikeda Masashi">
+                <div class="cast-photo-wrapper">
+                    <img src="https://i.mydramalist.com/mOX5KJ_5s.jpg" alt="Ikeda Masashi" class="cast-photo" loading="lazy" referrerpolicy="no-referrer">
+                </div>
+                <div class="cast-info">
+                    <p class="nama-pemeran">Ikeda Masashi</p>
+                    <p class="cast-karakter">Ureshino Eisei</p>
+                    <p class="cast-role role-main">Main Role</p>
+                </div>
+            </a>
+            <a href="https://mydramalist.com/people/38537-naoya-kusakawa" target="_blank" rel="noopener" class="cast-card" title="Kusakawa Naoya">
+                <div class="cast-photo-wrapper">
+                    <img src="https://i.mydramalist.com/pd2YqQ_5s.jpg" alt="Kusakawa Naoya" class="cast-photo" loading="lazy" referrerpolicy="no-referrer">
+                </div>
+                <div class="cast-info">
+                    <p class="nama-pemeran">Kusakawa Naoya</p>
+                    <p class="cast-karakter">Kusaka Makoto</p>
+                    <p class="cast-role role-side">Side Role</p>
+                </div>
+            </a>
+            <a href="https://mydramalist.com/people/120275-mito-yuna" target="_blank" rel="noopener" class="cast-card" title="Mito Yuna">
+                <div class="cast-photo-wrapper">
+                    <img src="https://i.mydramalist.com/60r3jO_5s.jpg" alt="Mito Yuna" class="cast-photo" loading="lazy" referrerpolicy="no-referrer">
+                </div>
+                <div class="cast-info">
+                    <p class="nama-pemeran">Mito Yuna</p>
+                    <p class="cast-karakter">Yoshiki Yuri</p>
+                    <p class="cast-role role-side">Side Role</p>
+                </div>
+            </a>
+            <a href="https://mydramalist.com/people/22456-hibi-mikoto" target="_blank" rel="noopener" class="cast-card" title="Hibi Mikoto">
+                <div class="cast-photo-wrapper">
+                    <img src="https://i.mydramalist.com/g0dvd1_5s.jpg" alt="Hibi Mikoto" class="cast-photo" loading="lazy" referrerpolicy="no-referrer">
+                </div>
+                <div class="cast-info">
+                    <p class="nama-pemeran">Hibi Mikoto</p>
+                    <p class="cast-karakter">Eto Maki</p>
+                    <p class="cast-role role-side">Side Role</p>
+                </div>
+            </a>
+        </div>
+    </div>
 
 <script src="/js/henshin-tema.js"></script>
 

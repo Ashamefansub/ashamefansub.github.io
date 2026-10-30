@@ -241,78 +241,272 @@
     text-indent: 1.2em;
 }
 
-/* Cusdis Comment Box */
-#cusdis_thread {
-    max-width: 980px;
-    width: 100%;
-    margin: 60px auto 40px;
-    background: var(--surface-color);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-lg);
-    padding: 24px;
-    box-shadow: var(--card-shadow);
-}
 
-#cusdis_thread iframe {
-    width: 100%;
-    min-height: 480px;
-    border: none;
-    background: transparent !important;
-}
-
-/* Responsive Sub-Pages */
-@media (max-width: 820px) {
-    .movie-content {
+    /* ========================================================
+   🎭 Cast & Character Section (Kotak Pemeran)
+   ======================================================== */
+    .cast-box {
+        max-width: 980px;
+        width: 100%;
+        margin: 60px auto 40px;
+        background: var(--surface-color);
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius-lg);
         padding: 24px;
+        box-shadow: var(--card-shadow);
+        box-sizing: border-box;
     }
 
-    .movie-poster {
-        float: none;
-        display: block;
-        width: 220px;
-        margin: 0 auto 20px;
-    }
+        .cast-heading {
+            font-family: var(--font-heading);
+            font-size: 1.35rem;
+            color: var(--text-primary);
+            margin-top: 0;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            letter-spacing: 0.5px;
+        }
 
-    .movie-desc {
-        text-align: left;
-    }
+        .cast-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(135px, 1fr));
+            gap: 16px;
+        }
 
-    .gambar-about-me {
-        float: none;
-        display: block;
-        margin: 0 auto 20px;
-    }
+        .cast-card {
+            display: flex;
+            flex-direction: column;
+            background: var(--surface-color-elevated, #141416);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+            transition: transform var(--transition-fast, 0.2s ease),
+                border-color var(--transition-fast, 0.2s ease),
+                box-shadow var(--transition-fast, 0.2s ease);
+            cursor: pointer;
+        }
 
-    .teks-about-me {
-        text-align: left;
-    }
+        .cast-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--border-color-hover, rgba(255, 255, 255, 0.25));
+            box-shadow: var(--card-shadow-hover, 0 8px 24px rgba(0, 0, 0, 0.45));
+        }
 
-    .movie-header h1 {
-        font-family: var(--font-heading);
-        font-size: 1rem;
-        color: var(--text-primary);
-        line-height: 1.3;
-        margin-bottom: 8px;
-        margin-top: 5px;
-    }
+        .cast-photo-wrapper {
+            width: 100%;
+            aspect-ratio: 3 / 4;
+            overflow: hidden;
+            background: rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
 
-    .video-wrapper {
-        position: relative;
-        width: 100%;
-        padding-bottom: 56.25%;
-        /* rasio 16:9 */
-        height: 0;
-        overflow: hidden;
-    }
+        .cast-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+            display: block;
+            transition: transform var(--transition-smooth, 0.3s ease);
+        }
 
-    .video-wrapper iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-    }
+        .cast-card:hover .cast-photo {
+            transform: scale(1.05);
+        }
 
+        .cast-info {
+            padding: 10px 8px 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            flex-grow: 1;
+            text-align: center;
+        }
 
+        .nama-pemeran {
+            font-family: var(--font-body);
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.3;
+            margin: 0;
+            word-break: break-word;
+            transition: color var(--transition-fast, 0.2s ease);
+        }
 
-}
+        .cast-card:hover .nama-pemeran {
+            color: var(--accent-blue, #0ea5e9);
+        }
+
+        .cast-karakter {
+            font-size: 0.78rem;
+            color: var(--text-secondary);
+            line-height: 1.3;
+            margin: 0;
+            word-break: break-word;
+        }
+
+        .cast-role {
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: auto;
+            padding-top: 6px;
+        }
+
+        .cast-role.role-main {
+            color: #38bdf8;
+        }
+
+        .cast-role.role-side {
+            color: #a78bfa;
+        }
+
+        .cast-role.role-guest {
+            color: var(--text-muted, #9ca3af);
+        }
+
+        /* Day Mode Tweaks */
+        body.SwitchMode .cast-card {
+            background: #ffffff;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        body.SwitchMode .cast-card:hover {
+            border-color: #94a3b8;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        body.SwitchMode .cast-photo-wrapper {
+            background: #f1f5f9;
+        }
+
+        body.SwitchMode .cast-role.role-main {
+            color: #0284c7;
+        }
+
+        body.SwitchMode .cast-role.role-side {
+            color: #7c3aed;
+        }
+
+        body.SwitchMode .cast-role.role-guest {
+            color: #64748b;
+        }
+
+        /* Responsive Sub-Pages */
+        @media (max-width: 820px) {
+            .movie-content {
+                padding: 24px;
+            }
+
+            .movie-poster {
+                float: none;
+                display: block;
+                width: 220px;
+                margin: 0 auto 20px;
+            }
+
+            .movie-desc {
+                text-align: left;
+            }
+
+            .gambar-about-me {
+                float: none;
+                display: block;
+                margin: 0 auto 20px;
+            }
+
+            .teks-about-me {
+                text-align: left;
+            }
+
+            .movie-header h1 {
+                font-family: var(--font-heading);
+                font-size: 1rem;
+                color: var(--text-primary);
+                line-height: 1.3;
+                margin-bottom: 8px;
+                margin-top: 5px;
+            }
+
+            .video-wrapper {
+                position: relative;
+                width: 100%;
+                padding-bottom: 56.25%;
+                /* rasio 16:9 */
+                height: 0;
+                overflow: hidden;
+            }
+
+            .video-wrapper iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+
+            .cast-box {
+                margin: 40px auto 30px;
+                padding: 20px 16px;
+                width: 92%;
+            }
+
+            .cast-heading {
+                font-size: 1.2rem;
+                margin-bottom: 16px;
+            }
+
+            .cast-grid {
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+                gap: 12px;
+            }
+        }
+
+        @media (max-width: 520px) {
+            .cast-box {
+                margin: 30px auto 20px;
+                padding: 16px 10px;
+                width: 95%;
+                border-radius: var(--radius-md);
+            }
+
+            .cast-heading {
+                font-size: 1.05rem;
+                margin-bottom: 12px;
+            }
+
+            .cast-grid {
+                grid-template-columns: repeat(auto-fill, minmax(95px, 1fr));
+                gap: 8px;
+            }
+
+            .cast-info {
+                padding: 8px 4px 10px;
+                gap: 2px;
+            }
+
+            .nama-pemeran {
+                font-size: 0.78rem;
+            }
+
+            .cast-karakter {
+                font-size: 0.7rem;
+            }
+
+            .cast-role {
+                font-size: 0.65rem;
+                padding-top: 4px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .cast-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 6px;
+            }
+        }

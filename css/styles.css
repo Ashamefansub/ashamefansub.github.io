@@ -7,7 +7,7 @@
 /* --- DESIGN TOKENS --- */
 :root {
     /* Night Mode (Default: OLED True Black) */
-    --bg-color: #000000;
+    --bg-color: #0f1a2f;
     --surface-color: #0f0f12;
     --surface-color-elevated: #16161a;
     --border-color: rgba(255, 255, 255, 0.08);
