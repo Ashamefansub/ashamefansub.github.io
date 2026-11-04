@@ -248,8 +248,8 @@ body.SwitchMode .nav-menu a.active {
 
 /* Theme Toggle Button */
 .theme-toggle-btn {
-    width: 32px;
-    height: 32px;
+    width: 36px;
+    height: 36px;
     border-radius: var(--radius-full);
     border: 1px solid var(--border-color);
     background: var(--surface-color);
@@ -258,20 +258,43 @@ body.SwitchMode .nav-menu a.active {
     justify-content: center;
     cursor: pointer;
     padding: 0;
-    overflow: hidden;
-    transition: transform var(--transition-smooth), border-color var(--transition-fast), background-color var(--transition-fast);
+    transition: transform var(--transition-smooth), border-color var(--transition-fast), background-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .theme-toggle-btn:hover {
     transform: rotate(20deg) scale(1.08);
     border-color: var(--border-color-hover);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
 }
 
-.theme-toggle-btn img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.theme-icon {
     display: block;
+    transition: transform var(--transition-smooth), opacity var(--transition-fast);
+}
+
+/* Night Mode (Default): Tampilkan Matahari Amber, Sembunyikan Bulan */
+.theme-icon.icon-sun {
+    display: block;
+    color: #fbbf24;
+}
+
+.theme-icon.icon-moon {
+    display: none;
+    color: #6366f1;
+}
+
+/* Day Mode (body.SwitchMode): Sembunyikan Matahari, Tampilkan Bulan */
+body.SwitchMode .theme-icon.icon-sun {
+    display: none;
+}
+
+body.SwitchMode .theme-icon.icon-moon {
+    display: block;
+    color: #4f46e5;
+}
+
+body.SwitchMode .theme-toggle-btn:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 /* ========================================================
@@ -866,16 +889,13 @@ body.SwitchMode .nav-menu a.active {
     .section-title {
         margin-top: 20px;
         margin-left: 35px;
-
     }
 
     .kotak-partner {
-
         grid-template-columns: 1fr;
         max-width: 480px;
         padding: 0 16px;
     }
-
 }
 
 @media (max-width: 768px) {
