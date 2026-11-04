@@ -37,14 +37,6 @@
                 }
             });
 
-            // Sync theme button icon
-            const currentTheme = localStorage.getItem("theme");
-            const btn = document.getElementById("themeBtn");
-            if (btn) {
-                btn.src = (currentTheme === "light")
-                    ? "/img/sub-image/nightmode.png"
-                    : "/img/sub-image/daymode.png";
-            }
 
             // Scroll behavior: Hide when scrolling down, show when scrolling up
             function handleScroll() {
