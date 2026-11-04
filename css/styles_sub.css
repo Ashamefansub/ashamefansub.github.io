@@ -101,6 +101,14 @@
     gap: 8px;
 }
 
+.detail-actions-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+}
+
 .button-info {
     display: inline-flex;
     align-items: center;
@@ -122,6 +130,91 @@
     color: var(--accent-blue);
     transform: translateY(-2px);
     box-shadow: 0 6px 18px rgba(14, 165, 233, 0.2);
+}
+
+.button-share {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: var(--surface-color-elevated);
+    border: 2px solid var(--border-color);
+    color: var(--text-primary);
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    padding: 12px 26px;
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    transition: all var(--transition-smooth);
+}
+
+.button-share:hover {
+    border-color: var(--accent-purple, #8b5cf6);
+    color: var(--accent-purple, #8b5cf6);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(139, 92, 246, 0.25);
+}
+
+.button-share svg {
+    transition: transform var(--transition-fast);
+}
+
+.button-share:hover svg {
+    transform: rotate(-15deg) scale(1.1);
+}
+
+/* Toast Notifikasi Salin Link */
+#shareToast {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #10b981;
+    color: #ffffff;
+    padding: 12px 24px;
+    border-radius: var(--radius-md);
+    font-family: var(--font-body);
+    font-size: 0.92rem;
+    font-weight: 600;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    pointer-events: none;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#shareToast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Day Mode Tweaks */
+body.SwitchMode .button-share:hover {
+    border-color: #7c3aed;
+    color: #7c3aed;
+}
+
+@media (max-width: 520px) {
+    .detail-actions-row {
+        gap: 8px;
+    }
+
+    .button-info,
+    .button-share {
+        padding: 10px 20px;
+        font-size: 0.88rem;
+    }
+
+    #shareToast {
+        left: 20px;
+        right: 20px;
+        bottom: 24px;
+        text-align: center;
+        justify-content: center;
+    }
 }
 
 /* Episode Buttons */
@@ -154,6 +247,82 @@
     border-color: var(--accent-blue);
     transform: translateY(-3px) scale(1.05);
     box-shadow: 0 8px 20px rgba(14, 165, 233, 0.35);
+}
+
+/* --- Episode Tracker State (Sudah Diunduh/Ditonton) --- */
+.tracker-status-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 8px 0 14px;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.tracker-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(16, 185, 129, 0.12);
+    color: #10b981;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    padding: 4px 12px;
+    border-radius: var(--radius-full);
+    font-weight: 600;
+    font-size: 0.82rem;
+    letter-spacing: 0.2px;
+}
+
+.tracker-reset-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-size: 0.78rem;
+    cursor: pointer;
+    text-decoration: underline;
+    transition: color var(--transition-fast);
+}
+
+.tracker-reset-btn:hover {
+    color: var(--color-trakteer, #ef4444);
+}
+
+.btn-download-series.is-downloaded {
+    position: relative;
+    border-color: rgba(16, 185, 129, 0.45);
+    background: rgba(16, 185, 129, 0.08);
+    color: #94a3b8;
+}
+
+.btn-download-series.is-downloaded::after {
+    content: "✓";
+    position: absolute;
+    top: 3px;
+    right: 5px;
+    font-size: 0.65rem;
+    font-weight: 800;
+    color: #10b981;
+    font-family: system-ui, sans-serif;
+}
+
+.btn-download-series.is-downloaded:hover {
+    background: rgba(16, 185, 129, 0.2);
+    border-color: #10b981;
+    color: #ffffff;
+    box-shadow: 0 6px 18px rgba(16, 185, 129, 0.3);
+}
+
+/* Day Mode untuk Tracker */
+body.SwitchMode .btn-download-series.is-downloaded {
+    background: #f0fdf4;
+    border-color: #86efac;
+    color: #15803d;
+}
+
+body.SwitchMode .tracker-badge {
+    background: #dcfce7;
+    color: #166534;
+    border-color: #bbf7d0;
 }
 
 /* Movie Single Download & Trakteer */
