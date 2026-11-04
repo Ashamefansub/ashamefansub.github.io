@@ -13,14 +13,24 @@
     </nav>
 
     <div class="header-actions">
-        <button type="button" class="theme-toggle-btn" id="themeToggleBtn" onclick="henshinTema()" aria-label="Ubah Tema Gelap atau Terang" title="Ubah Tema">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="theme-icon icon-sun"><circle cx="12" cy="12" r="4"/><path d="M12 3v1"/><path d="M12 20v1"/><path d="M3 12h1"/><path d="M20 12h1"/><path d="m18.364 5.636-.707.707"/><path d="m6.343 17.657-.707.707"/><path d="m5.636 5.636.707.707"/><path d="m17.657 17.657.707.707"/></svg>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="theme-icon icon-moon"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+        <button type="button" class="theme-toggle-btn" id="themeToggleBtn" onclick="henshinTema()"
+            aria-label="Ubah Tema Gelap atau Terang" title="Ubah Tema">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" class="theme-icon icon-sun">
+                <path d="M17.5 12a1 1 0 1 1 0 9H9.006a7 7 0 1 1 6.702-9z" />
+                <path d="M21.832 9A3 3 0 0 0 19 7h-2.207a5.5 5.5 0 0 0-10.72.61" />
+            </svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" class="theme-icon icon-moon">
+                <path
+                    d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401" />
+            </svg>
         </button>
 
         <form class="search-box" id="headerSearchForm" role="search">
             <span class="search-icon" aria-hidden="true">🔍</span>
-            <input type="search" id="headerSearchInput" placeholder="Pencarian ... " aria-label="Pencarian" autocomplete="off">
+            <input type="search" id="headerSearchInput" placeholder="Pencarian ... " aria-label="Pencarian"
+                autocomplete="off">
         </form>
     </div>
 </header>
