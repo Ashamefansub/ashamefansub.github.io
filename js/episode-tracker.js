@@ -56,7 +56,7 @@
             if (trackedData.last) {
                 statusBar.style.display = 'flex';
                 statusBar.innerHTML = `
-                    <span class="tracker-badge">✓ Terakhir diunduh: Ep. ${escapeHtml(trackedData.last)}</span>
+                    <span class="tracker-badge">Terakhir diunduh: Ep. ${escapeHtml(trackedData.last)}</span>
                     <button type="button" class="tracker-reset-btn" id="resetTrackerBtn" title="Reset tanda unduhan dorama ini">Reset tanda</button>
                 `;
 
@@ -68,7 +68,7 @@
                             trackedData = { episodes: [], last: null };
                             try {
                                 localStorage.removeItem(storageKey);
-                            } catch (err) {}
+                            } catch (err) { }
                             updateUI();
                         }
                     });
@@ -93,7 +93,7 @@
 
                 try {
                     localStorage.setItem(storageKey, JSON.stringify(trackedData));
-                } catch (e) {}
+                } catch (e) { }
 
                 updateUI();
             });
