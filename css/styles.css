@@ -383,6 +383,54 @@ body.SwitchMode .theme-toggle-btn:hover {
     flex-direction: column;
     justify-content: center;
     position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    background: var(--surface-color);
+}
+
+/* ========================================================
+   ✨ Ambient Light / Glow Effect untuk Hero Content
+   ======================================================== */
+.hero-ambient-backdrop {
+    position: absolute;
+    inset: -30px;
+    width: calc(100% + 60px);
+    height: calc(100% + 60px);
+    background-size: cover;
+    background-position: center;
+    filter: blur(65px) saturate(200%);
+    opacity: 0.38;
+    pointer-events: none;
+    z-index: 0;
+    transform: translate3d(0, 0, 0);
+    transition: opacity var(--transition-smooth, 0.3s ease);
+}
+
+.hero-content::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(15, 15, 18, 0.45) 0%, rgba(15, 15, 18, 0.2) 100%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+body.SwitchMode .hero-ambient-backdrop {
+    opacity: 0.20;
+    filter: blur(75px) saturate(160%);
+}
+
+body.SwitchMode .hero-content::before {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.3) 100%);
+}
+
+.hero-category,
+.hero-title,
+.hero-sub-title,
+.hero-synopsis,
+.hero-actions {
+    position: relative;
+    z-index: 1;
 }
 
 .hero-category {
@@ -459,12 +507,34 @@ body.SwitchMode .theme-toggle-btn:hover {
     padding: 10px 20px;
     border-radius: var(--radius-full);
     transition: all var(--transition-fast);
+    animation-name: kedut-kedut;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+@keyframes kedut-kedut {
+
+    0%,
+    40% {
+        transform: rotate(0deg) scale(1);
+    }
+
+    50%,
+    90% {
+        transform: rotate(0deg) scale(1.05);
+    }
+
+    100% {
+        transform: rotate(0deg) scale(1);
+    }
 }
 
 .btn-secondary:hover {
     border-color: var(--border-color-hover);
     transform: translateY(-2px);
     background-color: var(--color-trakteer);
+    animation: none;
 }
 
 .btn-tutorial {
@@ -851,7 +921,7 @@ body.SwitchMode .theme-toggle-btn:hover {
 }
 
 .isi-footer {
-    max-width: 1200px;
+    max-width: 100%;
     margin: 0 auto;
     padding: 0 24px;
     display: flex;
@@ -943,6 +1013,7 @@ body.SwitchMode .theme-toggle-btn:hover {
         flex-direction: column;
         text-align: center;
         gap: 8px;
+        font-size: 10px;
     }
 }
 
@@ -959,4 +1030,103 @@ body.SwitchMode .theme-toggle-btn:hover {
         display: flex;
         /* Compact on very small screens */
     }
+}
+
+/* ========================================================
+   🚀 Auto Scroll-To-Top Button (Hides when Idle)
+   ======================================================== */
+.scroll-top-btn {
+    position: fixed;
+    bottom: 110px;
+    right: 32px;
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-full);
+    background: var(--header-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+    color: var(--text-primary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 995;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(12px) scale(0.9);
+    pointer-events: none;
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), border-color var(--transition-fast), color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.scroll-top-btn.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+}
+
+.scroll-top-btn:hover {
+    border-color: var(--accent-pink);
+    color: var(--accent-pink);
+    box-shadow: 0 10px 28px rgba(236, 72, 153, 0.3);
+    transform: translateY(-2px) scale(1.05);
+}
+
+.scroll-top-btn:active {
+    transform: translateY(0) scale(0.95);
+}
+
+body.SwitchMode .scroll-top-btn {
+    background: rgba(255, 255, 255, 0.9);
+    border-color: #cbd5e1;
+    color: #0f172a;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+body.SwitchMode .scroll-top-btn:hover {
+    border-color: var(--accent-pink);
+    color: #db2777;
+    background: #ffffff;
+    box-shadow: 0 10px 25px rgba(236, 72, 153, 0.2);
+}
+
+@media (max-width: 768px) {
+    .scroll-top-btn {
+        bottom: 22px;
+        right: 22px;
+        width: 42px;
+        height: 42px;
+    }
+}
+
+@media (max-width: 480px) {
+    .scroll-top-btn {
+        bottom: 18px;
+        right: 18px;
+        width: 38px;
+        height: 38px;
+    }
+
+    .scroll-top-btn svg {
+        width: 19px;
+        height: 19px;
+    }
+}
+
+/* ========================================================
+   🟣 Reading Progress Bar (Top Scroll Indicator)
+   ======================================================== */
+.reading-progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 8px;
+    width: 0%;
+    background: #812990;
+    box-shadow: 0 0 10px rgba(129, 41, 144, 0.9), 0 0 4px #812990;
+    z-index: 100000;
+    pointer-events: none;
+    transition: width 0.08s ease-out;
 }

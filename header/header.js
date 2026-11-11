@@ -69,6 +69,18 @@
 
             // Inisialisasi Search Bar Reaktif
             initHeaderSearch();
+
+            // Inisialisasi Tombol Scroll Up
+            initScrollTopButton();
+
+            // Inisialisasi Reading Progress Bar (#812990)
+            initReadingProgressBar();
+
+            // Inisialisasi Ambient Glow Poster (Halaman Detail)
+            initPosterAmbientGlow();
+
+            // Inisialisasi Ambient Glow Hero Spotlight (Beranda)
+            initHeroAmbientGlow();
         })
         .catch(err => console.error("Error loading header:", err));
 
@@ -599,6 +611,94 @@
                     }
                 });
             }
+        }
+    }
+
+    // Inisialisasi Tombol Scroll to Top Otomatis
+    function initScrollTopButton() {
+        const btn = document.getElementById("scrollTopBtn");
+        if (!btn) return;
+
+        let idleTimer = null;
+
+        btn.addEventListener("click", () => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+
+        function onScrollActivity() {
+            const currentY = window.scrollY;
+
+            // Jangan tampilkan jika masih di bagian atas halaman
+            if (currentY <= 150) {
+                btn.classList.remove("visible");
+                if (idleTimer) clearTimeout(idleTimer);
+                return;
+            }
+
+            // Tampilkan tombol saat layar digerakkan (scroll atas/bawah)
+            btn.classList.add("visible");
+
+            // Hilangkan kembali saat idle (tidak ada pergerakan selama 1.8 detik)
+            if (idleTimer) clearTimeout(idleTimer);
+            idleTimer = setTimeout(() => {
+                btn.classList.remove("visible");
+            }, 1800);
+        }
+
+        window.addEventListener("scroll", onScrollActivity, { passive: true });
+    }
+
+    // Inisialisasi Reading Progress Bar (#812990)
+    function initReadingProgressBar() {
+        const bar = document.getElementById("readingProgressBar");
+        if (!bar) return;
+
+        function updateProgress() {
+            const scrollTotal = document.documentElement.scrollHeight - window.innerHeight;
+            if (scrollTotal <= 0) {
+                bar.style.width = "0%";
+                return;
+            }
+            const scrolled = (window.scrollY / scrollTotal) * 100;
+            bar.style.width = Math.min(100, Math.max(0, scrolled)) + "%";
+        }
+
+        window.addEventListener("scroll", updateProgress, { passive: true });
+        window.addEventListener("resize", updateProgress);
+        updateProgress();
+    }
+
+    // Inisialisasi Ambient Glow dari Poster (Halaman Detail Series / Movie)
+    function initPosterAmbientGlow() {
+        function setupAmbient() {
+            const poster = document.querySelector(".movie-poster");
+            const container = document.querySelector(".movie-content");
+            if (!poster || !container) return;
+
+            // Cegah duplikasi elemen backdrop
+            if (container.querySelector(".movie-ambient-backdrop")) return;
+
+            const backdrop = document.createElement("div");
+            backdrop.className = "movie-ambient-backdrop";
+            backdrop.setAttribute("aria-hidden", "true");
+
+            function applyBackdropImage() {
+                const src = poster.currentSrc || poster.src;
+                if (src) {
+                    backdrop.style.backgroundImage = `url("${src}")`;
+                }
+            }
+
+            applyBackdropImage();
+            poster.addEventListener("load", applyBackdropImage);
+
+            container.insertBefore(backdrop, container.firstChild);
+        }
+
+        if (document.readyState === "loading") {
+            document.addEventListener("DOMContentLoaded", setupAmbient);
+        } else {
+            setupAmbient();
         }
     }
 })();
