@@ -31,7 +31,7 @@
         </div>
 
         <div class="movie-content">
-            <img src="../img/jigoku-wa-zeni.png" alt="jigoku-wa-zeni" class="movie-poster">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjmiTPUuqGlf_e4HFM8oZEuRCUeX96RfF7Jks8KYDhm0oUn2dpkvl2dkixuqoo1A4sbxUm9xY4zAu-EaMw8od18Y4pORCTJScryrUp3wsuZBuNQa4SENptKOMmiF_g_ZbhR8OZ18HF3R98x5itHgQXTd30S-QlIpGv3QcS8GaDwdnWkbLRYCf96tJg6LTo/s1600/jigoku-wa-zeni.webp" alt="jigoku-wa-zeni" class="movie-poster">
 
             <div class="movie-desc">
 
@@ -63,6 +63,13 @@
             </div>
         </div>
 
+
+        <div id="no-reupload-box"></div>
+        <script>
+            fetch('/attention/no-reupload')
+                .then(r => r.text())
+                .then(html => { document.getElementById('no-reupload-box').innerHTML = html; });
+        </script>
         <div class="media-section-series">
             <a href="https://mydramalist.com/801294-jigoku-wa-zeni-de-dekite-iru" target="_blank" rel="noopener"
                 title="MyDramaList">

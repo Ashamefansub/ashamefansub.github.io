@@ -25,7 +25,7 @@
         </div>
 
         <div class="movie-content">
-            <img src="../img/isho-kokai.jpg" alt="Poster Isho Kokai" class="movie-poster">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgwcMkvubdlrkP7JSuKph7WPPornHlUeRq4FWFGz6C2UVAhOJD8Xn32g12kvSNKGbPuTbU1kbxkcGrE6MEF8JRHstegjZrO2-crVwTnpRSt-MBflZfhnR00YjE2vgE7Ys0KYQQHVcL5gx7DH5kwwnk7p18iRe8SzGupcRYpTZZ3NAjSzP_I_wTE_QNcXgo/s1600/isho-kokai.webp" alt="Poster Isho Kokai" class="movie-poster">
 
             <div class="movie-desc">
                 <p>
@@ -73,6 +73,14 @@
                         referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
             </div>
+
+
+            <div id="no-reupload-box"></div>
+            <script>
+                fetch('/attention/no-reupload')
+                    .then(r => r.text())
+                    .then(html => { document.getElementById('no-reupload-box').innerHTML = html; });
+            </script>
 
             <a href="https://sfl.gl/eYP1" target="_blank" rel="noopener">
                 <button class="btn-download">Download Movie</button>

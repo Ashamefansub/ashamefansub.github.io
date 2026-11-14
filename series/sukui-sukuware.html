@@ -28,7 +28,7 @@
         </div>
 
         <div class="movie-content">
-            <img src="../img/sukui-sukuware.jpg" alt="Poster Sukui, sukuware" class="movie-poster">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgRwzaBq35pCF41d1CpcjsTggBGBhz5anBlSCIR5u-ixeHdh4S-K1VxstNP4ogeDUyBR5evm7PItNhrp0ZtTAYjXIY5q8C9uHriUktalEJ1P9Ntq3h4H9vPPyAa4gLaU8UjebozzLF69iqO_nHmXKYTiW2vhVtdz0nkpMQWtumYPdWR-4UYskody4xVyqs/s1600/sukui-sukuware.webp" alt="Poster Sukui, sukuware" class="movie-poster">
             
             <div class="movie-desc">
               
@@ -44,6 +44,13 @@
             </div>
         </div>
            
+
+        <div id="no-reupload-box"></div>
+        <script>
+            fetch('/attention/no-reupload')
+                .then(r => r.text())
+                .then(html => { document.getElementById('no-reupload-box').innerHTML = html; });
+        </script>
         <div class="media-section-series">
             <a href="https://mydramalist.com/805666-sukui-sukuware" target="_blank" rel="noopener" title="MyDramaList">
                 <button class="button-info"> Detail Info</button>

@@ -29,7 +29,7 @@
         </div>
 
         <div class="movie-content">
-            <img src="../img/honmei-janakkya.jpeg" alt="Poster Isho Kokai" class="movie-poster">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiljLl3koTva20m03DQdGKwusIQSySAYIwATlK9IlIBNjEWaXHJ5McjannGdjFHsxfg3CD258lmvq0ijZ5MOR0tlxoIVGhmJKIA5Yxcmu1ppu_x-mzu2Ji33FMEAqZ1V1DDxyCu1-gVSwQu2C5g5X6GUO7ymw2cL37YDiwmZq-N-YtJ37IhLNLMeCCyC8M/s1600/honmei-janakkya.webp" alt="Poster Isho Kokai" class="movie-poster">
             
             <div class="movie-desc">
                 <p>
@@ -49,6 +49,13 @@
             </div>
         </div>
            
+
+        <div id="no-reupload-box"></div>
+        <script>
+            fetch('/attention/no-reupload')
+                .then(r => r.text())
+                .then(html => { document.getElementById('no-reupload-box').innerHTML = html; });
+        </script>
         <div class="media-section-series">
             <a href="https://mydramalist.com/804566-honmei-janakya-yokatta-no-ni" target="_blank" rel="noopener" title="MyDramaList">
                 <button class="button-info"> Detail Info</button>

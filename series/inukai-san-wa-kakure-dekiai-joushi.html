@@ -29,7 +29,7 @@
         </div>
 
         <div class="movie-content">
-            <img src="../img/inukai-san.jpg" alt="Inukai-san" class="movie-poster">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgXIgx3lIbb3J_EBSGVlKLFpT8YhKW51e-Dv7RPlNumqQ9gZkj8PovbXy4NqMy_-5oyRDL29AbkXkdBgpHm64L3VBl_v4mZWnmDrpZV5GgYUAKO0vKZnDlbaohXzR5X__AcOVWXU9Zcs14ijm7hCtZbyP90QAyCAI5Tlbr1_y0PmV5KkvJ5JFu-x808PWo/s1600/inukai-san.webp" alt="Inukai-san" class="movie-poster">
             
             <div class="movie-desc">
               
@@ -49,6 +49,13 @@
             </div>
         </div>
            
+
+        <div id="no-reupload-box"></div>
+        <script>
+            fetch('/attention/no-reupload')
+                .then(r => r.text())
+                .then(html => { document.getElementById('no-reupload-box').innerHTML = html; });
+        </script>
         <div class="media-section-series">
             <a href="https://mydramalist.com/808246-inukai-san-wa-kakure-dekiai-joshi" target="_blank" rel="noopener" title="MyDramaList">
                 <button class="button-info"> Detail Info</button>

@@ -29,7 +29,7 @@
         </div>
 
         <div class="movie-content">
-            <img src="../img/toumei-na-yoru-ni.jpg" alt="Poster Isho Kokai" class="movie-poster">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiFfOAg1IZbAi7VrxwPzFyYlzLft-sookZlFFtT-FKUdeLb9ulpZj8XWld0mu_ztjvxlBDlTLWL2lDO60ETKu4YEa_5d51fv1BYuCcVU4-js2VQoPj8SY7h52vUe1y9FenAl87tWxyDh30yLX7hyNJH6oM5mr9Lyl4kXXVFnb71VFSaK1O7vpKEPmspxL4/s1600/toumei-na-yoru-ni.webp" alt="Poster Isho Kokai" class="movie-poster">
             
             <div class="movie-desc">
                 <p>
@@ -52,6 +52,13 @@
             </div>
         </div>
            
+
+        <div id="no-reupload-box"></div>
+        <script>
+            fetch('/attention/no-reupload')
+                .then(r => r.text())
+                .then(html => { document.getElementById('no-reupload-box').innerHTML = html; });
+        </script>
         <div class="media-section-series">
             <a href="https://mydramalist.com/803652-tomeina-yoru-ni-kakeru-kimi-to-me-ni-mienai-koi-wo-shita" target="_blank" rel="noopener" title="MyDramaList">
                 <button class="button-info"> Detail Info</button>

@@ -25,7 +25,7 @@
         </div>
 
         <div class="movie-content">
-            <img src="../img/deguchi-8.png" alt="Exit 8" class="movie-poster">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhz62aRsd4yLOW-4jzR_rwC9yYfs9nB7l7CLVn-MyRkH7ZwZMK2zSuC56-8-c4YR9C9JpzLqWzd0MqiPJQALI3n-b3m2zjsaxLHp_45xL0AHdp3eRbPbNmCuIBSesJ1lORIuwb5SrgoaG8YKeS4IAR1W5CB7wbt9W7CTqvKLTq9pqYo8swImco3wtdbyWE/s1600/deguchi-8.webp" alt="Exit 8" class="movie-poster">
 
             <div class="movie-desc">
                 <p>
@@ -78,6 +78,13 @@
                 </div>
             </div>
 
+
+            <div id="no-reupload-box"></div>
+            <script>
+                fetch('/attention/no-reupload')
+                    .then(r => r.text())
+                    .then(html => { document.getElementById('no-reupload-box').innerHTML = html; });
+            </script>
             <a href="https://sfl.gl/6vKYR" target="_blank" rel="noopener">
                 <button class="btn-download">Download Movie</button>
             </a>

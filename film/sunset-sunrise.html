@@ -25,7 +25,7 @@
         </div>
 
         <div class="movie-content">
-            <img src="../img/sunset-sunrise.jpg" alt="Sunset Sunrise" class="movie-poster">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg4mArBza6L_rldPpf4eunvV0uyiFyq9nxMc31_uKyFzVLhO2e9enUhQdQGXKfkBf3zqtlZiTfPxnN05TFRRgFqdokwCsfFbe-a7nnZRrTF3w3ewSsX4RjLEl9472lqh_P6n0lL8HZhfnjFfmv8vyCQeWb4nvkXQHePJ706HF6tpJpaJ3lNOc-OZd6gUQU/s1600/sunset-sunrise.webp" alt="Sunset Sunrise" class="movie-poster">
 
             <div class="movie-desc">
                 <p>
@@ -70,6 +70,14 @@
                         referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
             </div>
+
+
+            <div id="no-reupload-box"></div>
+            <script>
+                fetch('/attention/no-reupload')
+                    .then(r => r.text())
+                    .then(html => { document.getElementById('no-reupload-box').innerHTML = html; });
+            </script>
 
             <a href="https://sfl.gl/nRs2dGc" target="_blank" rel="noopener">
                 <button class="btn-download">Download Movie</button>

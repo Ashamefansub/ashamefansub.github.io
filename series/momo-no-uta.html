@@ -29,7 +29,7 @@
         </div>
 
         <div class="movie-content">
-            <img src="../img/momo-no-uta.jpeg" alt="momo-no-uta" class="movie-poster">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiJpYgU9AzFCufOxawkduhLJ6RWhrZZyemgxUM2bIgQ9W5AowFeEU_H-P-SScmC_KNSqKYRgloyEXKq146dhCDgeDXDB_3NpTzCEtB1yG4Z7HNVZOJ0DqZ_aUXt6RQnd6L5wA4Tq_ON5Mn6g0EvDnW0pNzPdrAA1uX9h_926AkKl0SI6CDCVsf-nSs0j1w/s1600/momo-no-uta.webp" alt="momo-no-uta" class="movie-poster">
             
             <div class="movie-desc">
               
@@ -45,6 +45,13 @@
             </div>
         </div>
            
+
+        <div id="no-reupload-box"></div>
+        <script>
+            fetch('/attention/no-reupload')
+                .then(r => r.text())
+                .then(html => { document.getElementById('no-reupload-box').innerHTML = html; });
+        </script>
         <div class="media-section-series">
             <a href="https://mydramalist.com/797056-momo-no-uta" target="_blank" rel="noopener" title="MyDramaList">
                 <button class="button-info"> Detail Info</button>

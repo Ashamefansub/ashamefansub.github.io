@@ -29,7 +29,7 @@
         </div>
 
         <div class="movie-content">
-            <img src="../img/deep-revenge.jpg" alt="Deep Revenge" class="movie-poster">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiytyGrlysVBOPOpjDqLT5bPXXgWPQr8COG4lM0RAgiSNU2m2Cq7Jmvq0iw7plfGZ9P7HabfUGv2qeBkEZOG5pqO_YMiwFTnPTJmqSBG8bN0pw2Moxrh30rZPcxXUKo19SSbCt9U-3hWgF6g1-00PVYQ6B0khIzZzZZaeDuV5U9eTgK-jzts2O326p5tyM/s1600/deep-revenge.webp" alt="Deep Revenge" class="movie-poster">
             
             <div class="movie-desc">
               
@@ -45,6 +45,13 @@
             </div>
         </div>
            
+
+        <div id="no-reupload-box"></div>
+        <script>
+            fetch('/attention/no-reupload')
+                .then(r => r.text())
+                .then(html => { document.getElementById('no-reupload-box').innerHTML = html; });
+        </script>
         <div class="media-section-series">
             <a href="https://mydramalist.com/807840-deep-revenge" target="_blank" rel="noopener" title="MyDramaList">
                 <button class="button-info"> Detail Info</button>

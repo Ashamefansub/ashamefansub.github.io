@@ -25,7 +25,7 @@
         </div>
 
         <div class="movie-content">
-            <img src="../img/yakin-jiken.jpg" alt="Yakin Jiken" class="movie-poster">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhDGZkKe6shkEpBJlYxbJrg6R2FL1YhlaYYHIqEnGWoF_Yzo7a8_pKY5To0iyFM3RQlJWP_n7vx8U9fCrXeloSeIcL6b7iKvDORe_UaUKr5SJX-KuWFmv-f3JMFRMkkL1zWtwD4wn0nJ7P35xxieQtBstGvJxybKNU9P1wMT6JCONsqJoNOv3uB-9ODBu0/s1600/yakin-jiken.webp" alt="Yakin Jiken" class="movie-poster">
 
             <div class="movie-desc">
                 <p>
@@ -66,6 +66,14 @@
                         referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
             </div>
+
+
+            <div id="no-reupload-box"></div>
+            <script>
+                fetch('/attention/no-reupload')
+                    .then(r => r.text())
+                    .then(html => { document.getElementById('no-reupload-box').innerHTML = html; });
+            </script>
 
             <a href="https://sfl.gl/wteC2Vc" target="_blank" rel="noopener">
                 <button class="btn-download">Download Movie</button>

@@ -29,7 +29,7 @@
         </div>
 
         <div class="movie-content">
-            <img src="../img/shitsuren-karuta.jpg" alt="Poster Rojiura" class="movie-poster">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjzt0dJe98vtELMhccHbaz_VTZe5Xd239E8gxUbveGH7DIkIpDupOqGGSBBryvV37yRvsS6wcmjQK_OFOOoo-vTIQUwRPAeqgR8nP73jahyphenhypheno-QV_VVTUg17tSaxk_tl2qViAVLnWVFG0KPKL9dQ_8sGAV803y4oToL1HCMwC75aHFoW-u7xbiI4JowNBOE/s1600/shitsuren-karuta.webp" alt="Poster Rojiura" class="movie-poster">
             
             <div class="movie-desc">
               
@@ -53,6 +53,13 @@
             </div>
         </div>
            
+
+        <div id="no-reupload-box"></div>
+        <script>
+            fetch('/attention/no-reupload')
+                .then(r => r.text())
+                .then(html => { document.getElementById('no-reupload-box').innerHTML = html; });
+        </script>
         <div class="media-section-series">
             <a href="https://mydramalist.com/807078-shitsuren-karuta" target="_blank" rel="noopener" title="MyDramaList">
                 <button class="button-info"> Detail Info</button>

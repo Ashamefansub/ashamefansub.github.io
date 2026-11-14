@@ -29,7 +29,7 @@
         </div>
 
         <div class="movie-content">
-            <img src="../img/death-seishun-game.jpg" alt="death-seishun" class="movie-poster">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgSld9qKbVh9kjilstLJCO_NkGx5Mcw10NjCm9rjMFxWAiwld7ZbpSe0G9YXnvMiArTCg6FlbmSHc-P6wvJD5jz6fdQcydyhvmofVpEJ31WEBBguPnh4kOeBsNDjWxOUWlg02YeGgkIEjJg4GANZkMqYKpeiWJ65oYmrptU_4nCpXmH9ZMGPNOxxE6SL8Q/s1600/death-seishun-game.webp" alt="death-seishun" class="movie-poster">
             
             <div class="movie-desc">
               
@@ -49,6 +49,13 @@
             </div>
         </div>
            
+
+        <div id="no-reupload-box"></div>
+        <script>
+            fetch('/attention/no-reupload')
+                .then(r => r.text())
+                .then(html => { document.getElementById('no-reupload-box').innerHTML = html; });
+        </script>
         <div class="media-section-series">
             <a href="https://mydramalist.com/812114-death-seishun-game" target="_blank" rel="noopener" title="MyDramaList">
                 <button class="button-info"> Detail Info</button>

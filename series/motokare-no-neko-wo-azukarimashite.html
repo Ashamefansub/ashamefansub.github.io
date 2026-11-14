@@ -29,7 +29,7 @@
         </div>
 
         <div class="movie-content">
-            <img src="../img/motokare-no-neko.jpeg" alt="Motokare no neko" class="movie-poster">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEguo5lt8-0MIrYwsTESbiQr9PUJxxQLM3z4FJx3lQ2wI1rYdkGWJ2ZB0dySd8pr8reXbVxOYTU9Cc2Aa-KPectCKkEHw4973TnbwN3li6g8cFzw3ijFCqSuQ-3gyygyRV1fQ6EeaYO35rdFW3rOKNwJy2vIUNfoDCznjozxAURZMFCQnmwcpxxZMrGSqP4/s1600/motokare-no-neko.webp" alt="Motokare no neko" class="movie-poster">
             
             <div class="movie-desc">
               
@@ -51,6 +51,13 @@
             </div>
         </div>
            
+
+        <div id="no-reupload-box"></div>
+        <script>
+            fetch('/attention/no-reupload')
+                .then(r => r.text())
+                .then(html => { document.getElementById('no-reupload-box').innerHTML = html; });
+        </script>
         <div class="media-section-series">
             <a href="https://mydramalist.com/807052-moto-kare-no-neko-wo-azukarimashite" target="_blank" rel="noopener" title="MyDramaList">
                 <button class="button-info"> Detail Info</button>

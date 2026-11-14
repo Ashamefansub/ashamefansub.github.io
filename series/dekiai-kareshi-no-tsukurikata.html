@@ -31,7 +31,8 @@
         </div>
 
         <div class="movie-content">
-            <img src="../img/dekiai-kareshi.jpeg" alt="dekiai-kareshi" class="movie-poster">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhICZXyB_39Lv1_PaKukfWqFYMgDAEk7RPjOn-pE2qjPNXzCYDeuhpiJQmV9wy4bvu99eBUjNjmWtnsE3PQTdj0Vw-nh1B5u2lnUiRLXU2pmRQPzgzXBzKaqcjKU_rmGYNwpYgezC7a5b1FuKw89W7mK2m-KRqkzuwVXzc6nMczWhB38GLkMhimR3SvFt8/s1600/dekiai-kareshi.webp"
+                alt="dekiai-kareshi" class="movie-poster">
 
             <div class="movie-desc">
 
@@ -70,6 +71,13 @@
             </div>
         </div>
 
+
+        <div id="no-reupload-box"></div>
+        <script>
+            fetch('/attention/no-reupload')
+                .then(r => r.text())
+                .then(html => { document.getElementById('no-reupload-box').innerHTML = html; });
+        </script>
         <div class="media-section-series">
             <a href="https://mydramalist.com/812156-dekiai-kareshi-no-tsukurikata-se-kara-honmei-ni-naru-onnanoko-no-hanashi"
                 target="_blank" rel="noopener" title="MyDramaList">
