@@ -29,7 +29,7 @@
         </div>
 
         <div class="movie-content">
-            <img src="../img/onna-no-ko-ga-daicha-dame-desuka.jpeg" alt="Onna no Ko" class="movie-poster">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgXs0or2OFFe2gwBiYO0EVK3GFS5glMXtf8R5iuqzbZT_5R9kmknRBnjE-sOInKekfpxtTQnI_gasUSip7a93Rj-2TPBEDITuYz4SfPeEJj_aLCiAKkfrnEL1iW8aMDGVSg8lv31ZKJnHl-vidxqxjdi3wvQEqhcvoH1bO4QVDYQDBUgFBQG0rXCPo2bWI/s1600/onna-no-ko-ga-daicha-dame-desuka.webp" alt="Onna no Ko" class="movie-poster">
             
             <div class="movie-desc">
               
@@ -51,6 +51,13 @@
             </div>
         </div>
            
+
+        <div id="no-reupload-box"></div>
+        <script>
+            fetch('/attention/no-reupload')
+                .then(r => r.text())
+                .then(html => { document.getElementById('no-reupload-box').innerHTML = html; });
+        </script>
         <div class="media-section-series">
             <a href="https://mydramalist.com/805664-ladies-on-top" target="_blank" rel="noopener" title="MyDramaList">
                 <button class="button-info"> Detail Info</button>

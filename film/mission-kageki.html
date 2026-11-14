@@ -25,7 +25,7 @@
         </div>
 
         <div class="movie-content">
-            <img src="../img/mission.jpeg" alt="MISSION Kageki" class="movie-poster">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgJgSP5Io5YFWaMI97KpAb3FJ5aVl0yv9wLTRopUzohPL17JLdYTuH5duLN5CT7AYLrSVFKm1_4kUJURQltIzsbK-EHagj7cHy4Mx94eQTcRennfnJQSmirXhdHCS1PCR6jelLDmHop8GrPZx68Tn8loUev-l1W84dY9zws9rwTVVVVaAnRZV3h7hKk1IU/s1600/mission.webp" alt="MISSION Kageki" class="movie-poster">
 
             <div class="movie-desc">
                 <p>
@@ -87,6 +87,14 @@
                         referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
             </div>
+
+
+            <div id="no-reupload-box"></div>
+            <script>
+                fetch('/attention/no-reupload')
+                    .then(r => r.text())
+                    .then(html => { document.getElementById('no-reupload-box').innerHTML = html; });
+            </script>
 
             <a href="https://sfl.gl/vEOY9p" target="_blank" rel="noopener">
                 <button class="btn-download">Download Movie</button>

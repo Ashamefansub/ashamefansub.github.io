@@ -31,7 +31,8 @@
         </div>
 
         <div class="movie-content">
-            <img src="../img/mame-to-mugi.jpg" alt="mame-to-mugi" class="movie-poster">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhkgIB5FDBUFPNIRBsV5XkHrZWgxl8UsZ90P4M1PlEZdv1eZyDzwiI7ujOfHq0zGCOxeIcOE4nA5NMuQadZmO_2jTz0r2x5NQ_-1ANd6sXeQiy4gBJsR10cOTUre4eIdey7mOhsRjevOsghYJIDS4qAalS5-bIrxxFVEJWmQwzH8_RhVKa4KtdMfyUl5Ow/s1600/mame-to-mugi.webp"
+                alt="mame-to-mugi" class="movie-poster">
 
             <div class="movie-desc">
 
@@ -51,13 +52,20 @@
                     kehidupan masing-masing.
                 </p>
 
-            
+
                 <div class="movie-genres">
                     <span class="genre-tag">Food</span>
                 </div>
             </div>
         </div>
 
+
+        <div id="no-reupload-box"></div>
+        <script>
+            fetch('/attention/no-reupload')
+                .then(r => r.text())
+                .then(html => { document.getElementById('no-reupload-box').innerHTML = html; });
+        </script>
         <div class="media-section-series">
             <a href="https://mydramalist.com/812144-mame-to-mugi" target="_blank" rel="noopener" title="MyDramaList">
                 <button class="button-info"> Detail Info</button>
@@ -80,6 +88,9 @@
                 </a>
                 <a href="https://sfe.ad/yFKzw9Mjz" target="_blank" rel="noopener">
                     <button class="btn-download-series">05</button>
+                </a>
+                <a href="https://sfe.ad/pkeRZZKtg" target="_blank" rel="noopener">
+                    <button class="btn-download-series">06</button>
                 </a>
 
             </div>

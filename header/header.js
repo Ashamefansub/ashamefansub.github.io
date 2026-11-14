@@ -81,6 +81,9 @@
 
             // Inisialisasi Ambient Glow Hero Spotlight (Beranda)
             initHeroAmbientGlow();
+
+            // Inisialisasi Ambient Glow Card Grid (Tab Series & Movie di Beranda)
+            initCardAmbientGlow();
         })
         .catch(err => console.error("Error loading header:", err));
 
@@ -668,6 +671,40 @@
         updateProgress();
     }
 
+    // Inisialisasi Ambient Glow pada Hero Spotlight (Halaman Utama)
+    function initHeroAmbientGlow() {
+        function setupHeroAmbient() {
+            const poster = document.querySelector(".hero-thumbnail-wrap img");
+            const container = document.querySelector(".hero-content");
+            if (!poster || !container) return;
+
+            // Cegah duplikasi elemen backdrop
+            if (container.querySelector(".hero-ambient-backdrop")) return;
+
+            const backdrop = document.createElement("div");
+            backdrop.className = "hero-ambient-backdrop";
+            backdrop.setAttribute("aria-hidden", "true");
+
+            function applyHeroBackdropImage() {
+                const src = poster.currentSrc || poster.src;
+                if (src) {
+                    backdrop.style.backgroundImage = `url("${src}")`;
+                }
+            }
+
+            applyHeroBackdropImage();
+            poster.addEventListener("load", applyHeroBackdropImage);
+
+            container.insertBefore(backdrop, container.firstChild);
+        }
+
+        if (document.readyState === "loading") {
+            document.addEventListener("DOMContentLoaded", setupHeroAmbient);
+        } else {
+            setupHeroAmbient();
+        }
+    }
+
     // Inisialisasi Ambient Glow dari Poster (Halaman Detail Series / Movie)
     function initPosterAmbientGlow() {
         function setupAmbient() {
@@ -699,6 +736,46 @@
             document.addEventListener("DOMContentLoaded", setupAmbient);
         } else {
             setupAmbient();
+        }
+    }
+
+    // Inisialisasi Ambient Glow pada Card Grid (Tab Series & Movie di Beranda)
+    function initCardAmbientGlow() {
+        function setupCardGlow() {
+            const cards = document.querySelectorAll(".card");
+            if (!cards.length) return;
+
+            cards.forEach(function(card) {
+                // Cegah duplikasi
+                if (card.querySelector(".card-glow-backdrop")) return;
+
+                // Cari img: dalam card-thumbnail-container (beranda) atau langsung (katalog series/film)
+                const img = card.querySelector(".card-thumbnail-container img") || card.querySelector("img");
+                if (!img) return;
+
+                const backdrop = document.createElement("div");
+                backdrop.className = "card-glow-backdrop";
+                backdrop.setAttribute("aria-hidden", "true");
+
+                function applyGlowImage() {
+                    const src = img.currentSrc || img.src;
+                    if (src) {
+                        backdrop.style.backgroundImage = `url("${src}")`;
+                    }
+                }
+
+                applyGlowImage();
+                img.addEventListener("load", applyGlowImage);
+
+                // Insert backdrop sebagai child pertama card (di bawah semua konten, z-index: -1)
+                card.insertBefore(backdrop, card.firstChild);
+            });
+        }
+
+        if (document.readyState === "loading") {
+            document.addEventListener("DOMContentLoaded", setupCardGlow);
+        } else {
+            setupCardGlow();
         }
     }
 })();

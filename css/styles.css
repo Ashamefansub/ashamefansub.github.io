@@ -22,6 +22,7 @@
     --color-trakteer: #e02424;
     --color-ongoing: #10b981;
     --color-tamat: #64748b;
+    --color-merah-menyala: #890000;
 
     --header-bg: rgba(12, 12, 15, 0.75);
     --header-border: rgba(255, 255, 255, 0.1);
@@ -689,6 +690,36 @@ body.SwitchMode .hero-content::before {
 
 .card:hover .card-thumbnail-container img {
     transform: scale(1.06);
+}
+
+/* ========================================================
+   ✨ Ambient Light / Glow Effect untuk Card Thumbnail
+   ======================================================== */
+.card {
+    position: relative;
+}
+
+.card-glow-backdrop {
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    background-size: cover;
+    background-position: center;
+    filter: blur(28px) saturate(200%);
+    opacity: 0;
+    pointer-events: none;
+    z-index: -1;
+    transform: scale(1.08) translate3d(0, 0, 0);
+    transition: opacity 0.4s ease;
+}
+
+.card:hover .card-glow-backdrop {
+    opacity: 0.55;
+}
+
+body.SwitchMode .card:hover .card-glow-backdrop {
+    opacity: 0.28;
+    filter: blur(32px) saturate(160%);
 }
 
 /* Badges on Thumbnail */

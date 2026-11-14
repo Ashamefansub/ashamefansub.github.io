@@ -173,6 +173,29 @@ body.SwitchMode .genre-tag:hover {
     box-shadow: var(--card-shadow);
 }
 
+.media-section-attention {
+    margin-top: 30px;
+    background: var(--color-merah-menyala);
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 28px 32px;
+    box-shadow: var(--card-shadow);
+}
+
+.no-reupload {
+    font-family: var(--font-body);
+    text-align: center;
+    color: #ffffff;
+    -webkit-text-stroke: 0.5px #000000;
+    paint-order: stroke fill;
+    text-transform: uppercase;
+}
+
+body.SwitchMode .no-reupload {
+    color: #000000;
+    -webkit-text-stroke: 0.5px #000000;
+}
+
 .media-section {
     display: flex;
     flex-direction: column;
@@ -180,6 +203,15 @@ body.SwitchMode .genre-tag:hover {
     gap: 16px;
     margin-top: 30px;
 }
+
+.media-section-attention {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    margin-top: 30px;
+}
+
 
 .section-label {
     font-family: var(--font-heading);
@@ -352,6 +384,52 @@ body.SwitchMode .cinema-trailer-header {
     transform: rotate(-15deg) scale(1.1);
 }
 
+/* ── Tutorial Unduh Button ───────────────────────── */
+.button-tutorial {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: var(--surface-color-elevated);
+    border: 2px solid var(--border-color);
+    color: var(--text-primary);
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    padding: 12px 26px;
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    transition: all var(--transition-smooth);
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.button-tutorial:hover {
+    border-color: #ec4899;
+    color: #ec4899;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(236, 72, 153, 0.25);
+}
+
+.button-tutorial svg {
+    transition: transform var(--transition-fast);
+}
+
+.button-tutorial:hover svg {
+    transform: scale(1.15);
+}
+
+body.SwitchMode .button-tutorial {
+    background: var(--surface-color-elevated);
+    border-color: var(--border-color);
+    color: var(--text-primary);
+}
+
+body.SwitchMode .button-tutorial:hover {
+    border-color: #db2777;
+    color: #db2777;
+    box-shadow: 0 6px 18px rgba(219, 39, 119, 0.18);
+}
+
 /* Toast Notifikasi Salin Link */
 #shareToast {
     position: fixed;
@@ -392,7 +470,8 @@ body.SwitchMode .button-share:hover {
     }
 
     .button-info,
-    .button-share {
+    .button-share,
+    .button-tutorial {
         padding: 10px 20px;
         font-size: 0.88rem;
     }

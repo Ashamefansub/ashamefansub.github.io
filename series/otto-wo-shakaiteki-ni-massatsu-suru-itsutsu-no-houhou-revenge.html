@@ -29,7 +29,7 @@
         </div>
 
         <div class="movie-content">
-            <img src="../img/otto-wo-shakaiteki-ni-massatsu-suru-itsutsu-no-houhou-revenge.jpg" alt="Otto-revenge" class="movie-poster">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgV4X3alziVu89Ue1WIf4LExGWRv6rOxOjWlVsEJpyfhUJI28NuFr9EeKt7F61jpLSAekiS0-6UOFuJdCMlWuJTvGZ7ku82cFh4MsZlTcpNqpb1MwpAnt-EdohL3j2DzTfYCwhbdfv9YzADcFpNV8Kv8Y2A-Z-G9v42LaIu4dRt4HaWWDezpEiobsXmhLY/s1600/otto-wo-shakaiteki-ni-massatsu-suru-itsutsu-no-houhou-revenge.webp" alt="Otto-revenge" class="movie-poster">
             
             <div class="movie-desc">
               
@@ -51,6 +51,13 @@
             </div>
         </div>
            
+
+        <div id="no-reupload-box"></div>
+        <script>
+            fetch('/attention/no-reupload')
+                .then(r => r.text())
+                .then(html => { document.getElementById('no-reupload-box').innerHTML = html; });
+        </script>
         <div class="media-section-series">
             <a href="https://mydramalist.com/803856-otto-wo-shakaiteki-ni-massatsu-suru-5-tsu-no-hoho-re-venge" target="_blank" rel="noopener" title="MyDramaList">
                 <button class="button-info"> Detail Info</button>

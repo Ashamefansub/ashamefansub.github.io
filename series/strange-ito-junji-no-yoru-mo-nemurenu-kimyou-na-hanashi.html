@@ -29,7 +29,7 @@
         </div>
 
         <div class="movie-content">
-            <img src="../img/strange-ito-junji.jpg" alt="strange-ito-junji" class="movie-poster">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgaSbyOd77XhyckBi5Z7DTmC_t5k8P3XAJ9OCQsPcN5VkkQkyhPnYMA6H15ZwExLZ6fK3zRHVK-xRfDUwDDuthq9FeO9TePW3nW2tazUeUDjHKsAV9Kp5ugL10EhYsETyTglH85Osps_m-Y2md7Al9zjpRBDh7ZnY2DvdqxH-VWqRLIdt_P7HMzDKiLuWA/s1600/strange-ito-junji.webp" alt="strange-ito-junji" class="movie-poster">
             
             <div class="movie-desc">
               
@@ -44,6 +44,13 @@
             </div>
         </div>
            
+
+        <div id="no-reupload-box"></div>
+        <script>
+            fetch('/attention/no-reupload')
+                .then(r => r.text())
+                .then(html => { document.getElementById('no-reupload-box').innerHTML = html; });
+        </script>
         <div class="media-section-series">
             <a href="https://mydramalist.com/809162-strange-ito-junji-no-yoru-mo-nemurenu-kimyona-hanashi" target="_blank" rel="noopener" title="MyDramaList">
                 <button class="button-info"> Detail Info</button>

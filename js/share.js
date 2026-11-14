@@ -42,6 +42,17 @@
 
         actionRow.appendChild(shareBtn);
 
+        // Buat tombol Tutorial Unduh
+        if (!document.querySelector('.button-tutorial')) {
+            const tutorialBtn = document.createElement('a');
+            tutorialBtn.href = '/Tutorial/tutorial-unduh.html';
+            tutorialBtn.className = 'button-tutorial';
+            tutorialBtn.title = 'Cara download episode';
+            tutorialBtn.setAttribute('rel', 'noopener');
+            tutorialBtn.innerHTML = `<span>Tutorial Unduh</span>`;
+            actionRow.appendChild(tutorialBtn);
+        }
+
         // Buat Toast Notification jika belum ada
         let toast = document.getElementById('shareToast');
         if (!toast) {

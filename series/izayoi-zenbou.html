@@ -33,7 +33,7 @@
         </div>
 
         <div class="movie-content">
-            <img src="../img/izayoi.jpg" alt="izayoi" class="movie-poster">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgG1hmOBwTU1g6wRthHljcX5qZxVcszVTE5CW9cffDv_NXQZZP0hryMniEPR72x233GPtcmuS0_NLOdT9vF0WCRw-9rc8S2xsJANZAm5qMJ1gXsAjW56nuQlAwdx8qnlSQilRokrueZ8crpUT-zLZTdh2-yN6xhJ3zgRD-knTJm6iNFG5xM5hHIqjH_erM/s1600/izayoi.webp" alt="izayoi" class="movie-poster">
 
             <div class="movie-desc">
 
@@ -59,6 +59,13 @@
             </div>
         </div>
 
+
+        <div id="no-reupload-box"></div>
+        <script>
+            fetch('/attention/no-reupload')
+                .then(r => r.text())
+                .then(html => { document.getElementById('no-reupload-box').innerHTML = html; });
+        </script>
         <div class="media-section-series">
             <a href="https://mydramalist.com/812446-izayoi-zenbo" target="_blank" rel="noopener" title="MyDramaList">
                 <button class="button-info"> Detail Info</button>

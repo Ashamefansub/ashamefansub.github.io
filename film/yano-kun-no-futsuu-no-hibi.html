@@ -25,7 +25,7 @@
         </div>
 
         <div class="movie-content">
-            <img src="../img/yano-kun-no-futsuu-no-hibi.png" alt="Yano-kun Futsuu no Hibi" class="movie-poster">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhT8tWQnRADmpQBmUs6Wcs6-_rNXofAaPiKjBG_wDKlfs79bG1vwT8kYJUVSnVOe6ltdr72kFJihWojguGNbnH_Kpc0jyRO5R4X6elP-sIypNk2uBGq1YBxD8GPN5gFDktRKlwPh5miu9KlyEgOMr7peHRIBErTBiL0WETQKrcmUvJ4Zu05-4usYjqm1Mc/s1600/yano-kun-no-futsuu-no-hibi.webp" alt="Yano-kun Futsuu no Hibi" class="movie-poster">
 
             <div class="movie-desc">
                 <p>
@@ -80,6 +80,14 @@
                         referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
             </div>
+
+
+            <div id="no-reupload-box"></div>
+            <script>
+                fetch('/attention/no-reupload')
+                    .then(r => r.text())
+                    .then(html => { document.getElementById('no-reupload-box').innerHTML = html; });
+            </script>
 
             <a href="https://sfl.gl/K9v9H1Kb" target="_blank" rel="noopener">
                 <button class="btn-download">Download Movie</button>

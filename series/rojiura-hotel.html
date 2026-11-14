@@ -29,7 +29,7 @@
         </div>
 
         <div class="movie-content">
-            <img src="../img/rojiura-hotel.jpeg" alt="Poster Rojiura" class="movie-poster">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiM35Ro9An-k1V-OgDHL_35g3FzVnuiigbD1BtIngmSMiJgbeIjDTdnIK3r3YuvYGRq1q_B03gCM1VZCRyauGd2DPRXoMRp7NBceREy0h2aeNuu7Rbpg3VKs6TtvuR115YAxW5VEtLYLwHeibY3by7xbtFe8CvoF6PrSvhaqZDOd6IQXG-VIYpb2LtZNYM/s1600/rojiura-hotel.webp" alt="Poster Rojiura" class="movie-poster">
             
             <div class="movie-desc">
               
@@ -45,6 +45,13 @@
             </div>
         </div>
            
+
+        <div id="no-reupload-box"></div>
+        <script>
+            fetch('/attention/no-reupload')
+                .then(r => r.text())
+                .then(html => { document.getElementById('no-reupload-box').innerHTML = html; });
+        </script>
         <div class="media-section-series">
             <a href="https://mydramalist.com/803244-rojiura-hotel" target="_blank" rel="noopener" title="MyDramaList">
                 <button class="button-info"> Detail Info</button>
