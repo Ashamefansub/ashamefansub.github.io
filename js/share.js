@@ -87,7 +87,7 @@
                 try {
                     await navigator.share({
                         title: pageTitle + ' - Ashame Fansub',
-                        text: `Nonton dan download "${pageTitle}" Subtitle Indonesia di Ashame Fansub:`,
+                        text: `Drama jepang "${pageTitle}" Subtitle Indonesia di Ashame Fansub:`,
                         url: pageUrl
                     });
                     return;
