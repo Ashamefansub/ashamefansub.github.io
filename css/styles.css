@@ -46,6 +46,19 @@
     --transition-smooth: 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
+/* Screen Reader Only (Accessible SEO Heading) */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
 /* Day Mode (Clean White) */
 body.SwitchMode {
     --bg-color: #ffffff;
