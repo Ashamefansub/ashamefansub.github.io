@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Jangan indeks file internal/admin
+Disallow: /admin/
+
+Sitemap: https://ashamefansub.github.io/sitemap.xml

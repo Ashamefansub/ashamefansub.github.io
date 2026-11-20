@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Halaman Tidak Ditemukan | Ashame Fansub</title>
+    <meta name="description" content="Halaman yang kamu cari tidak ditemukan atau telah dipindahkan di Ashame Fansub.">
+    <meta name="robots" content="noindex, follow">
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/styles_sub.css">
+    <link rel="stylesheet" href="/css/styles_sub2.css">
+
+    <style>
+        .not-found-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 60vh;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .not-found-code {
+            font-family: var(--font-heading);
+            font-size: clamp(4rem, 12vw, 7.5rem);
+            font-weight: 700;
+            line-height: 1;
+            margin: 0;
+            background: linear-gradient(135deg, var(--accent-pink) 0%, var(--accent-purple) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 10px 30px rgba(139, 92, 246, 0.3);
+        }
+
+        .not-found-title {
+            font-family: var(--font-heading);
+            font-size: clamp(1.3rem, 4vw, 1.8rem);
+            color: var(--text-primary);
+            margin: 16px 0 12px;
+        }
+
+        .not-found-desc {
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            max-width: 480px;
+            margin: 0 auto 28px;
+            line-height: 1.6;
+        }
+
+        .not-found-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 28px;
+            background: linear-gradient(135deg, var(--accent-pink) 0%, var(--accent-purple) 100%);
+            color: #ffffff;
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            font-weight: 600;
+            border-radius: var(--radius-full);
+            text-decoration: none;
+            box-shadow: 0 6px 20px rgba(139, 92, 246, 0.35);
+            transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+        }
+
+        .not-found-btn:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 10px 26px rgba(236, 72, 153, 0.45);
+            color: #ffffff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="header"></div>
+    <script src="/header/header.js"></script>
+
+    <main class="not-found-container">
+        <h1 class="not-found-code">404</h1>
+        <h2 class="not-found-title">Ups! Halaman Tidak Ditemukan</h2>
+        <p class="not-found-desc">
+            Konten dorama, movie, atau halaman yang kamu tuju mungkin sudah dipindahkan, dihapus, atau tautan yang kamu masukkan salah.
+        </p>
+        <a href="/index.html" class="not-found-btn">
+            Kembali ke Beranda
+        </a>
+    </main>
+
+    <script src="/js/henshin-tema.js"></script>
+
+    <div id="footer"></div>
+    <script src="/footer/footer.js"></script>
+
+</body>
+
+</html>
