@@ -8,6 +8,7 @@
     <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
     <link rel="canonical" href="https://ashamefansub.github.io/film/karada-sagashi-the-last-night.html">
     <meta name="description" content="Pada tengah malam, hari yang sama akan terus berulang sampai seluruh bagian tubuh ditemukan. Setelah Asuka dan Takahiro menyelesaikan pencarian tubuh, Asuka menghilang dari dunia tepat di hadapan T...">
+    <meta name="keywords" content="Karada Sagashi: The Last Night Subtitle Indonesia, Karada Sagashi: The Last Night Subtitle Indonesia sub indo, download Karada Sagashi: The Last Night Subtitle Indonesia subtitle indonesia, film jepang Karada Sagashi: The Last Night Subtitle Indonesia, movie Karada Sagashi: The Last Night Subtitle Indonesia sub indo, Ashame Fansub">
     <meta property="og:type" content="video.movie">
     <meta property="og:title" content="Karada Sagashi: The Last Night (2025) Subtitle Indonesia - Ashame">
     <meta property="og:description" content="Pada tengah malam, hari yang sama akan terus berulang sampai seluruh bagian tubuh ditemukan. Setelah Asuka dan Takahiro menyelesaikan pencarian tubuh, Asuka menghilang dari dunia tepat di hadapan T...">
@@ -124,6 +125,13 @@
                 <button class="btn-download-trakteer">Support Trakteer</button>
             </a>
         </div>
+
+        <div id="credit-subtitle-box"></div>
+        <script>
+            fetch('/attention/credit-subtitle.html')
+                .then(r => r.text())
+                .then(html => { document.getElementById('credit-subtitle-box').innerHTML = html; });
+        </script>
 
     </main>
 

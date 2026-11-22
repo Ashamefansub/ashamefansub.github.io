@@ -7,6 +7,7 @@
     <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
     <link rel="canonical" href="https://ashamefansub.github.io/series/momo-no-uta.html">
     <meta name="description" content="&quot;Momo no Uta&quot; lagu yang populer di kalangan siswa sekolah dasar dan menengah pertama di Prefektur Kanagawa pada awal era Heisei. Konon, menyanyikan lagu ini dapat membantu menemukan sesuatu yang hi...">
+    <meta name="keywords" content="Momo no Uta Subtitle Indonesia, Momo no Uta Subtitle Indonesia sub indo, download Momo no Uta Subtitle Indonesia subtitle indonesia, dorama Momo no Uta Subtitle Indonesia, drama jepang Momo no Uta Subtitle Indonesia, Ashame Fansub">
     <meta property="og:type" content="video.tv_show">
     <meta property="og:title" content="Momo no Uta (2025) Subtitle Indonesia - Ashame">
     <meta property="og:description" content="&quot;Momo no Uta&quot; lagu yang populer di kalangan siswa sekolah dasar dan menengah pertama di Prefektur Kanagawa pada awal era Heisei. Konon, menyanyikan lagu ini dapat membantu menemukan sesuatu yang hi...">
@@ -102,7 +103,7 @@
             <a href="https://sfl.gl/XWM5q1S" target="_blank" rel="noopener">
                 <button class="btn-download-series">04</button>
             </a>
-            <a href="https://sfl.gl/BN77" target="_blank" rel="noopener" title="Episode Final">
+            <a href="https://sfl.gl/BN77" target="_blank" rel="noopener" title="Episode 05 Final">
                 <button class="btn-download-series">05</button>
             </a>
         
@@ -110,9 +111,14 @@
              <a href="https://trakteer.id/ashame" target="_blank" rel="noopener">
                 <button class="btn-download-trakteer">Support Trakteer</button>
             </a>
-
         </div>
-        
+
+        <div id="credit-subtitle-box"></div>
+        <script>
+            fetch('/attention/credit-subtitle.html')
+                .then(r => r.text())
+                .then(html => { document.getElementById('credit-subtitle-box').innerHTML = html; });
+        </script>
 
     </main>
 

@@ -8,6 +8,7 @@
     <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
     <link rel="canonical" href="https://ashamefansub.github.io/film/yano-kun-no-futsuu-no-hibi.html">
     <meta name="description" content="Yoshida seorang perwakilan kelas yang rajin, tidak bisa menahan rasa khawatirnya terhadap Yano teman sekelasnya. Hari demi hari Yano datang ke sekolah dengan kondisi terluka membuat Yoshida khawati...">
+    <meta name="keywords" content="Yano-kun no Futsuu no Hibi Subtitle Indonesia, Yano-kun no Futsuu no Hibi Subtitle Indonesia sub indo, download Yano-kun no Futsuu no Hibi Subtitle Indonesia subtitle indonesia, film jepang Yano-kun no Futsuu no Hibi Subtitle Indonesia, movie Yano-kun no Futsuu no Hibi Subtitle Indonesia sub indo, Ashame Fansub">
     <meta property="og:type" content="video.movie">
     <meta property="og:title" content="Yano-kun no Futsuu no Hibi (2024) Subtitle Indonesia - Ashame">
     <meta property="og:description" content="Yoshida seorang perwakilan kelas yang rajin, tidak bisa menahan rasa khawatirnya terhadap Yano teman sekelasnya. Hari demi hari Yano datang ke sekolah dengan kondisi terluka membuat Yoshida khawati...">
@@ -126,6 +127,13 @@
                 <button class="btn-download-trakteer">Support Trakteer</button>
             </a>
         </div>
+
+        <div id="credit-subtitle-box"></div>
+        <script>
+            fetch('/attention/credit-subtitle.html')
+                .then(r => r.text())
+                .then(html => { document.getElementById('credit-subtitle-box').innerHTML = html; });
+        </script>
 
     </main>
 

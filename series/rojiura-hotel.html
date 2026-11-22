@@ -7,6 +7,7 @@
     <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
     <link rel="canonical" href="https://ashamefansub.github.io/series/rojiura-hotel.html">
     <meta name="description" content="Kisah ini berlatar di sebuah Hotel Rojiura yang tenang, terpencil jauh dari hiruk pikuk kota besar. Ini adalah drama fantasi remaja di mana para wanita yang dibebani masalah pribadi mengalami malam...">
+    <meta name="keywords" content="Rojiura Hotel Subtitle Indonesia, Rojiura Hotel Subtitle Indonesia sub indo, download Rojiura Hotel Subtitle Indonesia subtitle indonesia, dorama Rojiura Hotel Subtitle Indonesia, drama jepang Rojiura Hotel Subtitle Indonesia, Ashame Fansub">
     <meta property="og:type" content="video.tv_show">
     <meta property="og:title" content="Rojiura Hotel (2026) Subtitle Indonesia - Ashame">
     <meta property="og:description" content="Kisah ini berlatar di sebuah Hotel Rojiura yang tenang, terpencil jauh dari hiruk pikuk kota besar. Ini adalah drama fantasi remaja di mana para wanita yang dibebani masalah pribadi mengalami malam...">
@@ -117,16 +118,21 @@
             <a href="https://sfl.gl/rQEv" target="_blank" rel="noopener">
                 <button class="btn-download-series">09</button>
             </a>
-            <a href="https://sfl.gl/AsAApXJn" target="_blank" rel="noopener" title="Episode Final">
+            <a href="https://sfl.gl/AsAApXJn" target="_blank" rel="noopener" title="Episode 10 Final">
                 <button class="btn-download-series">10</button>
             </a>
             </div>
              <a href="https://trakteer.id/ashame" target="_blank" rel="noopener">
                 <button class="btn-download-trakteer">Support Trakteer</button>
             </a>
-
         </div>
-        
+
+        <div id="credit-subtitle-box"></div>
+        <script>
+            fetch('/attention/credit-subtitle.html')
+                .then(r => r.text())
+                .then(html => { document.getElementById('credit-subtitle-box').innerHTML = html; });
+        </script>
 
     </main>
 

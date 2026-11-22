@@ -7,6 +7,7 @@
     <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
     <link rel="canonical" href="https://ashamefansub.github.io/series/otto-wo-shakaiteki-ni-massatsu-suru-itsutsu-no-houhou-revenge.html">
     <meta name="description" content="Okuda Akane seorang ibu rumah tangga hidup dalam bayang ketakutan terhadap suaminya, Daisuke. Hari-harinya habis didominasi oleh makian tajam dan perilaku kasar sang suami yang seolah tak punya hat...">
+    <meta name="keywords" content="Otto wo Shakaitekini Massatsu suru Re:venge Subtitle Indonesia, Otto wo Shakaitekini Massatsu suru Re:venge Subtitle Indonesia sub indo, download Otto wo Shakaitekini Massatsu suru Re:venge Subtitle Indonesia subtitle indonesia, dorama Otto wo Shakaitekini Massatsu suru Re:venge Subtitle Indonesia, drama jepang Otto wo Shakaitekini Massatsu suru Re:venge Subtitle Indonesia, Ashame Fansub">
     <meta property="og:type" content="video.tv_show">
     <meta property="og:title" content="Otto wo Shakaitekini Massatsu suru Re:venge (2025) Subtitle Indonesia - Ashame">
     <meta property="og:description" content="Okuda Akane seorang ibu rumah tangga hidup dalam bayang ketakutan terhadap suaminya, Daisuke. Hari-harinya habis didominasi oleh makian tajam dan perilaku kasar sang suami yang seolah tak punya hat...">
@@ -99,16 +100,21 @@
             <a href="https://sfl.gl/dJxsCD" target="_blank" rel="noopener">
                 <button class="btn-download-series">01</button>
             </a>
-            <a href="https://sfl.gl/zZ5w" target="_blank" rel="noopener" title="Episode Final">
+            <a href="https://sfl.gl/zZ5w" target="_blank" rel="noopener" title="Episode 02 Final">
                 <button class="btn-download-series">02</button>
             </a>
             </div>
              <a href="https://trakteer.id/ashame" target="_blank" rel="noopener">
                 <button class="btn-download-trakteer">Support Trakteer</button>
             </a>
-
         </div>
-        
+
+        <div id="credit-subtitle-box"></div>
+        <script>
+            fetch('/attention/credit-subtitle.html')
+                .then(r => r.text())
+                .then(html => { document.getElementById('credit-subtitle-box').innerHTML = html; });
+        </script>
 
     </main>
 

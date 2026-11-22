@@ -7,6 +7,7 @@
     <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
     <link rel="canonical" href="https://ashamefansub.github.io/series/sukui-sukuware.html">
     <meta name="description" content="Seorang idol, Minase Ama, yang terus melakukan aktivitasnya sambil menanggung perlakuan buruk di sekitarnya, secara tak terduga diberi kesempatan untuk menjadi pemeran pengganti dalam sebuah drama ...">
+    <meta name="keywords" content="Sukui, sukuware Subtitle Indonesia, Sukui, sukuware Subtitle Indonesia sub indo, download Sukui, sukuware Subtitle Indonesia subtitle indonesia, dorama Sukui, sukuware Subtitle Indonesia, drama jepang Sukui, sukuware Subtitle Indonesia, Ashame Fansub">
     <meta property="og:type" content="video.tv_show">
     <meta property="og:title" content="Sukui, sukuware (2026) Subtitle Indonesia - Ashame">
     <meta property="og:description" content="Seorang idol, Minase Ama, yang terus melakukan aktivitasnya sambil menanggung perlakuan buruk di sekitarnya, secara tak terduga diberi kesempatan untuk menjadi pemeran pengganti dalam sebuah drama ...">
@@ -113,16 +114,21 @@
             <a href="https://sfl.gl/OOhyvbY6" target="_blank" rel="noopener">
                 <button class="btn-download-series">08</button>
             </a>
-            <a href="https://sfl.gl/MbHVa" target="_blank" rel="noopener" title="Episode Final">
+            <a href="https://sfl.gl/MbHVa" target="_blank" rel="noopener" title="Episode 09 Final">
                 <button class="btn-download-series">09</button>
             </a>
             </div>
              <a href="https://trakteer.id/ashame" target="_blank" rel="noopener">
                 <button class="btn-download-trakteer">Support Trakteer</button>
             </a>
-
         </div>
-        
+
+        <div id="credit-subtitle-box"></div>
+        <script>
+            fetch('/attention/credit-subtitle.html')
+                .then(r => r.text())
+                .then(html => { document.getElementById('credit-subtitle-box').innerHTML = html; });
+        </script>
 
     </main>
 

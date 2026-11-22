@@ -9,6 +9,8 @@
     <link rel="canonical" href="https://ashamefansub.github.io/series/dekiai-kareshi-no-tsukurikata.html">
     <meta name="description"
         content="Sakura, seorang pegawai balai kota, memendam rasa pada rekan kerjanya yang lebih senior, Keisuke. Suatu malam, karena serangkaian kejadian tak terduga, Keisuke akhirnya berada di rumah Sakura, dan ...">
+    <meta name="keywords"
+        content="Dekiai Kareshi no Tsukurikata Subtitle Indonesia, Dekiai Kareshi no Tsukurikata Subtitle Indonesia sub indo, download Dekiai Kareshi no Tsukurikata Subtitle Indonesia subtitle indonesia, dorama Dekiai Kareshi no Tsukurikata Subtitle Indonesia, drama jepang Dekiai Kareshi no Tsukurikata Subtitle Indonesia, Ashame Fansub">
     <meta property="og:type" content="video.tv_show">
     <meta property="og:title" content="Dekiai Kareshi no Tsukurikata (2026) Subtitle Indonesia - Ashame">
     <meta property="og:description"
@@ -148,9 +150,14 @@
             <a href="https://trakteer.id/ashame" target="_blank" rel="noopener">
                 <button class="btn-download-trakteer">Support Trakteer</button>
             </a>
-
         </div>
 
+        <div id="credit-subtitle-box"></div>
+        <script>
+            fetch('/attention/credit-subtitle.html')
+                .then(r => r.text())
+                .then(html => { document.getElementById('credit-subtitle-box').innerHTML = html; });
+        </script>
 
     </main>
 

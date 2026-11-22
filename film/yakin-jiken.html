@@ -8,6 +8,7 @@
     <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
     <link rel="canonical" href="https://ashamefansub.github.io/film/yakin-jiken.html">
     <meta name="description" content="Menceritakan tentang Tazuru Yukino, seorang pekerja paruh waktu yang harus menjalani shift malam di sebuah minimarket. Suasananya yang sepi perlahan berubah menjadi mencekam ketika ia mulai mengala...">
+    <meta name="keywords" content="Yakin Jiken The Convenience Store Subtitle Indonesia, Yakin Jiken The Convenience Store Subtitle Indonesia sub indo, download Yakin Jiken The Convenience Store Subtitle Indonesia subtitle indonesia, film jepang Yakin Jiken The Convenience Store Subtitle Indonesia, movie Yakin Jiken The Convenience Store Subtitle Indonesia sub indo, Ashame Fansub">
     <meta property="og:type" content="video.movie">
     <meta property="og:title" content="Yakin Jiken The Convenience Store (2026) Subtitle Indonesia - Ashame">
     <meta property="og:description" content="Menceritakan tentang Tazuru Yukino, seorang pekerja paruh waktu yang harus menjalani shift malam di sebuah minimarket. Suasananya yang sepi perlahan berubah menjadi mencekam ketika ia mulai mengala...">
@@ -111,6 +112,13 @@
                 <button class="btn-download-trakteer">Support Trakteer</button>
             </a>
         </div>
+
+        <div id="credit-subtitle-box"></div>
+        <script>
+            fetch('/attention/credit-subtitle.html')
+                .then(r => r.text())
+                .then(html => { document.getElementById('credit-subtitle-box').innerHTML = html; });
+        </script>
 
     </main>
 

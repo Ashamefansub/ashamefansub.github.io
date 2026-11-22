@@ -8,6 +8,7 @@
     <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
     <link rel="canonical" href="https://ashamefansub.github.io/film/isho-kokai.html">
     <meta name="description" content="Musim semi di awal semester baru, sebuah sistem peringkat dikirim ke kelas 2-D. Peringkat tersebut dengan jelas menunjukkan peringkat semua siswa dan guru wali kelas. Yang menduduki peringkat perta...">
+    <meta name="keywords" content="Isho, Kokai Subtitle Indonesia, Isho, Kokai Subtitle Indonesia sub indo, download Isho, Kokai Subtitle Indonesia subtitle indonesia, film jepang Isho, Kokai Subtitle Indonesia, movie Isho, Kokai Subtitle Indonesia sub indo, Ashame Fansub">
     <meta property="og:type" content="video.movie">
     <meta property="og:title" content="Isho, Kokai (2025) Subtitle Indonesia - Ashame">
     <meta property="og:description" content="Musim semi di awal semester baru, sebuah sistem peringkat dikirim ke kelas 2-D. Peringkat tersebut dengan jelas menunjukkan peringkat semua siswa dan guru wali kelas. Yang menduduki peringkat perta...">
@@ -120,6 +121,13 @@
                 <button class="btn-download-trakteer">Support Trakteer</button>
             </a>
         </div>
+
+        <div id="credit-subtitle-box"></div>
+        <script>
+            fetch('/attention/credit-subtitle.html')
+                .then(r => r.text())
+                .then(html => { document.getElementById('credit-subtitle-box').innerHTML = html; });
+        </script>
 
     </main>
 

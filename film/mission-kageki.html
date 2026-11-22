@@ -8,6 +8,7 @@
     <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
     <link rel="canonical" href="https://ashamefansub.github.io/film/mission-kageki.html">
     <meta name="description" content="Matsumi Kanata seorang detektif yang ditugaskan di Divisi Investigasi Ketiga Departemen Kepolisian Metropolitan Tokyo. Meskipun sangat cerdas dan atletis, ia kesulitan bergaul dengan orang lain dan...">
+    <meta name="keywords" content="MISSION Kageki na Senyuu Sousakan Subtitle Indonesia, MISSION Kageki na Senyuu Sousakan Subtitle Indonesia sub indo, download MISSION Kageki na Senyuu Sousakan Subtitle Indonesia subtitle indonesia, film jepang MISSION Kageki na Senyuu Sousakan Subtitle Indonesia, movie MISSION Kageki na Senyuu Sousakan Subtitle Indonesia sub indo, Ashame Fansub">
     <meta property="og:type" content="video.movie">
     <meta property="og:title" content="MISSION Kageki na Senyuu Sousakan (2026) Subtitle Indonesia - Ashame">
     <meta property="og:description" content="Matsumi Kanata seorang detektif yang ditugaskan di Divisi Investigasi Ketiga Departemen Kepolisian Metropolitan Tokyo. Meskipun sangat cerdas dan atletis, ia kesulitan bergaul dengan orang lain dan...">
@@ -135,6 +136,13 @@
                 <button class="btn-download-trakteer">Support Trakteer</button>
             </a>
         </div>
+
+        <div id="credit-subtitle-box"></div>
+        <script>
+            fetch('/attention/credit-subtitle.html')
+                .then(r => r.text())
+                .then(html => { document.getElementById('credit-subtitle-box').innerHTML = html; });
+        </script>
 
     </main>
 

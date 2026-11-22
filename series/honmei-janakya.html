@@ -7,6 +7,7 @@
     <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
     <link rel="canonical" href="https://ashamefansub.github.io/series/honmei-janakya.html">
     <meta name="description" content="Seorang pria dan wanita yang pernah menjalin hubungan fisik saat keduanya masih berpacaran dengan orang lain dan akhirnya bersatu kembali setelah 10 tahun berpisah. Oonuma Mihono yang bekerja di se...">
+    <meta name="keywords" content="Honmei Janakya Subtitle Indonesia, Honmei Janakya Subtitle Indonesia sub indo, download Honmei Janakya Subtitle Indonesia subtitle indonesia, dorama Honmei Janakya Subtitle Indonesia, drama jepang Honmei Janakya Subtitle Indonesia, Ashame Fansub">
     <meta property="og:type" content="video.tv_show">
     <meta property="og:title" content="Honmei Janakya (2026) Subtitle Indonesia - Ashame">
     <meta property="og:description" content="Seorang pria dan wanita yang pernah menjalin hubungan fisik saat keduanya masih berpacaran dengan orang lain dan akhirnya bersatu kembali setelah 10 tahun berpisah. Oonuma Mihono yang bekerja di se...">
@@ -116,7 +117,7 @@
             <a href="https://sfl.gl/C1sKD" target="_blank" rel="noopener">
                 <button class="btn-download-series">07</button>
             </a>
-            <a href="https://sfl.gl/ALtMJn" target="_blank" rel="noopener" title="Episode Final">
+            <a href="https://sfl.gl/ALtMJn" target="_blank" rel="noopener" title="Episode 08 Final">
                 <button class="btn-download-series">08</button>
             </a>
 
@@ -124,9 +125,14 @@
              <a href="https://trakteer.id/ashame" target="_blank" rel="noopener">
                 <button class="btn-download-trakteer">Support Trakteer</button>
             </a>
-
         </div>
-        
+
+        <div id="credit-subtitle-box"></div>
+        <script>
+            fetch('/attention/credit-subtitle.html')
+                .then(r => r.text())
+                .then(html => { document.getElementById('credit-subtitle-box').innerHTML = html; });
+        </script>
 
     </main>
 

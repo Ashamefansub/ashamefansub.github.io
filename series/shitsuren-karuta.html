@@ -7,6 +7,7 @@
     <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
     <link rel="canonical" href="https://ashamefansub.github.io/series/shitsuren-karuta.html">
     <meta name="description" content="Chinami, Hikaru, dan Ayase pertama kali bertemu melalui klub game board di universitas dan tetap berteman dekat sejak saat itu. Kini mereka berusia 27 tahun, menghabiskan waktu bersama dengan minum...">
+    <meta name="keywords" content="Shitsuren Karuta Subtitle Indonesia, Shitsuren Karuta Subtitle Indonesia sub indo, download Shitsuren Karuta Subtitle Indonesia subtitle indonesia, dorama Shitsuren Karuta Subtitle Indonesia, drama jepang Shitsuren Karuta Subtitle Indonesia, Ashame Fansub">
     <meta property="og:type" content="video.tv_show">
     <meta property="og:title" content="Shitsuren Karuta (2026) Subtitle Indonesia - Ashame">
     <meta property="og:description" content="Chinami, Hikaru, dan Ayase pertama kali bertemu melalui klub game board di universitas dan tetap berteman dekat sejak saat itu. Kini mereka berusia 27 tahun, menghabiskan waktu bersama dengan minum...">
@@ -120,16 +121,21 @@
             <a href="https://sfl.gl/44WvsN" target="_blank" rel="noopener">
                 <button class="btn-download-series">07</button>
             </a>
-            <a href="https://sfl.gl/pbaLT" target="_blank" rel="noopener" title="Episode Final">
+            <a href="https://sfl.gl/pbaLT" target="_blank" rel="noopener" title="Episode 08 Final">
                 <button class="btn-download-series">08</button>
             </a>
             </div>
              <a href="https://trakteer.id/ashame" target="_blank" rel="noopener">
                 <button class="btn-download-trakteer">Support Trakteer</button>
             </a>
-
         </div>
-        
+
+        <div id="credit-subtitle-box"></div>
+        <script>
+            fetch('/attention/credit-subtitle.html')
+                .then(r => r.text())
+                .then(html => { document.getElementById('credit-subtitle-box').innerHTML = html; });
+        </script>
 
     </main>
 

@@ -8,6 +8,7 @@
     <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
     <link rel="canonical" href="https://ashamefansub.github.io/film/deguchi-8.html">
     <meta name="description" content="Dirimu berjalan melalui lorong bawah tanah putih yang tak berwujud, diterangi lampu neon. Namun, kamu tidak bisa mencapai pintu keluar meskipun waktu terus berlalu. Kamu merasa ada yang aneh dengan...">
+    <meta name="keywords" content="Exit 8 Subtitle Indonesia, Exit 8 Subtitle Indonesia sub indo, download Exit 8 Subtitle Indonesia subtitle indonesia, film jepang Exit 8 Subtitle Indonesia, movie Exit 8 Subtitle Indonesia sub indo, Ashame Fansub">
     <meta property="og:type" content="video.movie">
     <meta property="og:title" content="Exit 8 (2025) Subtitle Indonesia - Ashame">
     <meta property="og:description" content="Dirimu berjalan melalui lorong bawah tanah putih yang tak berwujud, diterangi lampu neon. Namun, kamu tidak bisa mencapai pintu keluar meskipun waktu terus berlalu. Kamu merasa ada yang aneh dengan...">
@@ -124,6 +125,13 @@
                 <button class="btn-download-trakteer">Support Trakteer</button>
             </a>
         </div>
+
+        <div id="credit-subtitle-box"></div>
+        <script>
+            fetch('/attention/credit-subtitle.html')
+                .then(r => r.text())
+                .then(html => { document.getElementById('credit-subtitle-box').innerHTML = html; });
+        </script>
 
     </main>
 

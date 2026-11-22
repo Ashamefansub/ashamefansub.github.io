@@ -182,6 +182,10 @@ body.SwitchMode .genre-tag:hover {
     box-shadow: var(--card-shadow);
 }
 
+.media-section-attention:hover {
+    cursor: not-allowed;
+}
+
 .no-reupload {
     font-family: var(--font-body);
     text-align: center;
