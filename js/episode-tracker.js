@@ -31,6 +31,9 @@
         const episodeButtons = buttonSeriesContainer.querySelectorAll('.btn-download-series');
         if (!episodeButtons.length) return;
 
+        // Inisialisasi Counter & Status Episode di samping judul "Download"
+        setupDownloadSectionCounter(buttonSeriesContainer, episodeButtons);
+
         // Buat kontainer status bar jika belum ada
         let statusBar = document.querySelector('.tracker-status-bar');
         if (!statusBar) {
@@ -43,12 +46,20 @@
             // Update tampilan setiap tombol episode
             episodeButtons.forEach(btn => {
                 const epText = btn.textContent.trim();
+                const parentLink = btn.closest('a');
+                const isFinal = (parentLink && parentLink.getAttribute('title') && parentLink.getAttribute('title').toLowerCase().includes('final')) ||
+                    (btn.getAttribute('title') && btn.getAttribute('title').toLowerCase().includes('final'));
+                const baseLabel = isFinal ? `Episode ${epText} Final` : `Episode ${epText}`;
+
                 if (trackedData.episodes.includes(epText)) {
                     btn.classList.add('is-downloaded');
-                    btn.setAttribute('title', `Episode ${epText} (Sudah diunduh/diklik)`);
+                    const fullTitle = `${baseLabel} (Sudah diunduh/diklik)`;
+                    btn.setAttribute('title', fullTitle);
+                    if (parentLink) parentLink.setAttribute('title', fullTitle);
                 } else {
                     btn.classList.remove('is-downloaded');
-                    btn.setAttribute('title', `Episode ${epText}`);
+                    btn.setAttribute('title', baseLabel);
+                    if (parentLink) parentLink.setAttribute('title', baseLabel);
                 }
             });
 
@@ -107,6 +118,32 @@
 
         // Render pertama kali
         updateUI();
+    }
+
+    // Fungsi otomatis memasang counter & status episode di samping judul "Download"
+    function setupDownloadSectionCounter(container, buttons) {
+        // Cari elemen h3.section-label terdekat
+        const sectionLabel = container.parentNode?.querySelector('.section-label') ||
+            document.querySelector('.media-section-series .section-label');
+        if (!sectionLabel) return;
+
+        // Hindari duplikasi jika sudah pernah dipasang
+        if (sectionLabel.querySelector('.ep-counter-badge')) return;
+
+        const totalEps = buttons.length;
+        // Cek apakah episode terakhir memiliki tanda final
+        const lastBtn = buttons[buttons.length - 1];
+        const parentLink = lastBtn.closest('a');
+        const isFinal = (parentLink && parentLink.getAttribute('title') && parentLink.getAttribute('title').toLowerCase().includes('final')) ||
+            (lastBtn.getAttribute('title') && lastBtn.getAttribute('title').toLowerCase().includes('final'));
+
+        const badge = document.createElement('span');
+        badge.className = `ep-counter-badge ${isFinal ? 'is-tamat' : 'is-ongoing'}`;
+        badge.innerHTML = isFinal
+            ? `Tamat • ${totalEps} Episode`
+            : `<span class="ep-dot ongoing-dot"></span> On Going • Ep. ${totalEps}`;
+
+        sectionLabel.appendChild(badge);
     }
 
     if (document.readyState === 'loading') {

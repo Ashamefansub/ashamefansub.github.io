@@ -8,6 +8,7 @@
     <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
     <link rel="canonical" href="https://ashamefansub.github.io/film/sunset-sunrise.html">
     <meta name="description" content="Pada tahun 2020 dunia terpaksa melakukan lockdown karena pandemi Covid-19. Seiring dengan semakin populernya kerja jarak jauh untuk mengendalikan tingkat infeksi, seorang pemuda yang bekerja di seb...">
+    <meta name="keywords" content="Sunset Sunrise Subtitle Indonesia, Sunset Sunrise Subtitle Indonesia sub indo, download Sunset Sunrise Subtitle Indonesia subtitle indonesia, film jepang Sunset Sunrise Subtitle Indonesia, movie Sunset Sunrise Subtitle Indonesia sub indo, Ashame Fansub">
     <meta property="og:type" content="video.movie">
     <meta property="og:title" content="Sunset Sunrise (2024) Subtitle Indonesia - Ashame">
     <meta property="og:description" content="Pada tahun 2020 dunia terpaksa melakukan lockdown karena pandemi Covid-19. Seiring dengan semakin populernya kerja jarak jauh untuk mengendalikan tingkat infeksi, seorang pemuda yang bekerja di seb...">
@@ -117,6 +118,13 @@
                 <button class="btn-download-trakteer">Support Trakteer</button>
             </a>
         </div>
+
+        <div id="credit-subtitle-box"></div>
+        <script>
+            fetch('/attention/credit-subtitle.html')
+                .then(r => r.text())
+                .then(html => { document.getElementById('credit-subtitle-box').innerHTML = html; });
+        </script>
 
     </main>
 

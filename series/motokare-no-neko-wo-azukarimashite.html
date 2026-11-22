@@ -7,6 +7,7 @@
     <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
     <link rel="canonical" href="https://ashamefansub.github.io/series/motokare-no-neko-wo-azukarimashite.html">
     <meta name="description" content="Karya ini diadaptasi dari novel berjudul sama karya Ishida Shou. Tokoh utamanya adalah Shibata Masaki, seorang wanita karier ambisius yang sibuk bekerja sebagai kepala bagian di divisi penjualan. D...">
+    <meta name="keywords" content="Motokare no Neko wo, Azukarimashite Subtitle Indonesia, Motokare no Neko wo, Azukarimashite Subtitle Indonesia sub indo, download Motokare no Neko wo, Azukarimashite Subtitle Indonesia subtitle indonesia, dorama Motokare no Neko wo, Azukarimashite Subtitle Indonesia, drama jepang Motokare no Neko wo, Azukarimashite Subtitle Indonesia, Ashame Fansub">
     <meta property="og:type" content="video.tv_show">
     <meta property="og:title" content="Motokare no Neko wo, Azukarimashite (2026) Subtitle Indonesia - Ashame">
     <meta property="og:description" content="Karya ini diadaptasi dari novel berjudul sama karya Ishida Shou. Tokoh utamanya adalah Shibata Masaki, seorang wanita karier ambisius yang sibuk bekerja sebagai kepala bagian di divisi penjualan. D...">
@@ -98,16 +99,21 @@
             <a href="https://sfl.gl/R9v41" target="_blank" rel="noopener">
                 <button class="btn-download-series">01</button>
             </a>
-            <a href="https://sfl.gl/oohn2" target="_blank" rel="noopener" title="Episode Final">
+            <a href="https://sfl.gl/oohn2" target="_blank" rel="noopener" title="Episode 02 Final">
                 <button class="btn-download-series">02</button>
             </a>
             </div>
              <a href="https://trakteer.id/ashame" target="_blank" rel="noopener">
                 <button class="btn-download-trakteer">Support Trakteer</button>
             </a>
-
         </div>
-        
+
+        <div id="credit-subtitle-box"></div>
+        <script>
+            fetch('/attention/credit-subtitle.html')
+                .then(r => r.text())
+                .then(html => { document.getElementById('credit-subtitle-box').innerHTML = html; });
+        </script>
 
     </main>
 

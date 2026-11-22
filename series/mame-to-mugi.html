@@ -9,6 +9,7 @@
     <link rel="canonical" href="https://ashamefansub.github.io/series/mame-to-mugi.html">
     <meta name="description"
         content="Shimizu Mugi adalah mantan editor majalah mode berusia tiga puluh tahun yang telah kehilangan karier, impian, dan kehidupan cintanya, hingga membuatnya berada di titik terendah. Sementara itu, Yone...">
+    <meta name="keywords" content="Mame to Mugi Subtitle Indonesia, Mame to Mugi Subtitle Indonesia sub indo, download Mame to Mugi Subtitle Indonesia subtitle indonesia, dorama Mame to Mugi Subtitle Indonesia, drama jepang Mame to Mugi Subtitle Indonesia, Ashame Fansub">
     <meta property="og:type" content="video.tv_show">
     <meta property="og:title" content="Mame to Mugi (2026) Subtitle Indonesia - Ashame">
     <meta property="og:description"
@@ -134,9 +135,14 @@
             <a href="https://trakteer.id/ashame" target="_blank" rel="noopener">
                 <button class="btn-download-trakteer">Support Trakteer</button>
             </a>
-
         </div>
 
+        <div id="credit-subtitle-box"></div>
+        <script>
+            fetch('/attention/credit-subtitle.html')
+                .then(r => r.text())
+                .then(html => { document.getElementById('credit-subtitle-box').innerHTML = html; });
+        </script>
 
     </main>
 

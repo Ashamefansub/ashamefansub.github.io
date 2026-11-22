@@ -7,6 +7,7 @@
     <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
     <link rel="canonical" href="https://ashamefansub.github.io/series/toumei-na-yoru-ni.html">
     <meta name="description" content="Mahasiswa bernama Sorano Kakeru, yang memiliki trauma emosional terkait hubungan antarmanusia, memperhatikan seorang wanita yang membaca buku sendirian dengan tenang selama salah satu kelasnya. Sua...">
+    <meta name="keywords" content="Toumei na Yoru ni Subtitle Indonesia, Toumei na Yoru ni Subtitle Indonesia sub indo, download Toumei na Yoru ni Subtitle Indonesia subtitle indonesia, dorama Toumei na Yoru ni Subtitle Indonesia, drama jepang Toumei na Yoru ni Subtitle Indonesia, Ashame Fansub">
     <meta property="og:type" content="video.tv_show">
     <meta property="og:title" content="Toumei na Yoru ni (2025) Subtitle Indonesia - Ashame">
     <meta property="og:description" content="Mahasiswa bernama Sorano Kakeru, yang memiliki trauma emosional terkait hubungan antarmanusia, memperhatikan seorang wanita yang membaca buku sendirian dengan tenang selama salah satu kelasnya. Sua...">
@@ -120,16 +121,21 @@
             <a href="https://sfl.gl/ASBr" target="_blank" rel="noopener">
                 <button class="btn-download-series">07</button>
             </a>
-            <a href="https://sfl.gl/9LQSzPC" target="_blank" rel="noopener" title="Episode Final">
+            <a href="https://sfl.gl/9LQSzPC" target="_blank" rel="noopener" title="Episode 08 Final">
                 <button class="btn-download-series">08</button>
             </a>
             </div>
              <a href="https://trakteer.id/ashame" target="_blank" rel="noopener">
                 <button class="btn-download-trakteer">Support Trakteer</button>
             </a>
-
         </div>
-        
+
+        <div id="credit-subtitle-box"></div>
+        <script>
+            fetch('/attention/credit-subtitle.html')
+                .then(r => r.text())
+                .then(html => { document.getElementById('credit-subtitle-box').innerHTML = html; });
+        </script>
 
     </main>
 

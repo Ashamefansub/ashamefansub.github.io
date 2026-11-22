@@ -1445,3 +1445,532 @@ body.SwitchMode .showroom-member-tag.generation {
     pointer-events: none;
     transition: width 0.08s ease-out;
 }
+
+/* ========================================================
+   ✍️ Subtitle Credit Box (Single-Source Dynamic Fetch)
+   ======================================================== */
+.subtitle-credit-box {
+    margin: 20px 0 0 0;
+    width: 100%;
+}
+
+.subtitle-credit-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    padding: 12px 20px;
+    background: linear-gradient(135deg, rgba(236, 72, 153, 0.08) 0%, rgba(139, 92, 246, 0.12) 100%);
+    border: 1px solid rgba(236, 72, 153, 0.25);
+    border-radius: var(--radius-md);
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(8px);
+    transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.subtitle-credit-inner:hover {
+    transform: translateY(-2px);
+    border-color: rgba(236, 72, 153, 0.45);
+    box-shadow: 0 8px 24px rgba(236, 72, 153, 0.18);
+    cursor: default;
+}
+
+.credit-icon {
+    font-size: 1.4rem;
+    line-height: 1;
+    filter: drop-shadow(0 2px 6px rgba(236, 72, 153, 0.3));
+}
+
+.credit-content {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    flex: 1;
+}
+
+.credit-label {
+    font-family: var(--font-body);
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+}
+
+.credit-author {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    background: linear-gradient(135deg, #f472b6 0%, #c084fc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 0.03em;
+}
+
+.credit-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: #f9a8d4;
+    background: rgba(236, 72, 153, 0.15);
+    border: 1px solid rgba(236, 72, 153, 0.3);
+    border-radius: var(--radius-full);
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+}
+
+/* Light Mode Support */
+body.SwitchMode .subtitle-credit-inner {
+    background: linear-gradient(135deg, rgba(236, 72, 153, 0.05) 0%, rgba(139, 92, 246, 0.08) 100%);
+    border-color: rgba(139, 92, 246, 0.2);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+}
+
+body.SwitchMode .credit-author {
+    background: linear-gradient(135deg, #db2777 0%, #7c3aed 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+body.SwitchMode .credit-badge {
+    color: #be185d;
+    background: rgba(236, 72, 153, 0.08);
+    border-color: rgba(236, 72, 153, 0.25);
+}
+
+@media (max-width: 600px) {
+    .subtitle-credit-inner {
+        flex-direction: column;
+        text-align: center;
+        gap: 8px;
+        padding: 12px 14px;
+    }
+
+    .credit-content {
+        justify-content: center;
+    }
+}
+
+/* ========================================================
+   🏷️ Episode Counter Badge (In Download Section Label)
+   ======================================================== */
+.ep-counter-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 3px 10px;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    border-radius: 8px;
+    margin-left: 8px;
+    vertical-align: middle;
+    transition: all var(--transition-fast);
+}
+
+/* Status Ongoing (Emerald Glow) */
+.ep-counter-badge.is-ongoing {
+    background: rgba(16, 185, 129, 0.12);
+    border: 1px solid rgba(16, 185, 129, 0.35);
+    color: #34d399;
+}
+
+/* Status Tamat (Nogizaka46 Official Purple) */
+.ep-counter-badge.is-tamat {
+    background: #731e82;
+    border: 1px solid #8e2b9f;
+    color: #ffffff;
+    box-shadow: 0 2px 8px rgba(115, 30, 130, 0.4);
+}
+
+/* Mini indicator dot with pulse */
+.ep-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.ongoing-dot {
+    background: #10b981;
+    box-shadow: 0 0 8px rgba(16, 185, 129, 0.8);
+    animation: pulseOngoing 2s infinite ease-in-out;
+}
+
+.tamat-dot {
+    background: #a855f7;
+    box-shadow: 0 0 6px rgba(168, 85, 247, 0.6);
+}
+
+@keyframes pulseOngoing {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.4;
+        transform: scale(0.85);
+    }
+}
+
+/* Light Mode Overrides */
+body.SwitchMode .ep-counter-badge.is-ongoing {
+    background: rgba(16, 185, 129, 0.08);
+    border-color: rgba(16, 185, 129, 0.3);
+    color: #059669;
+}
+
+body.SwitchMode .ep-counter-badge.is-tamat {
+    background: #731e82;
+    border-color: #5c1868;
+    color: #ffffff;
+    box-shadow: 0 2px 8px rgba(115, 30, 130, 0.25);
+}
+
+/* ========================================================
+   🌸 Sakamichi Drama Hub (Special Page)
+   ======================================================== */
+
+.sakamichi-page-container {
+    width: 100%;
+    max-width: 1440px;
+    margin: 20px auto 60px;
+    padding: 0 40px;
+}
+
+/* Hero Section */
+.sakamichi-hero {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    margin: 10px 0 28px;
+    padding: 32px 24px;
+    text-align: center;
+    background: linear-gradient(135deg, #180928 0%, #290e3d 50%, #150624 100%);
+    border: 1px solid rgba(206, 147, 216, 0.25);
+    box-shadow: 0 8px 32px rgba(115, 30, 130, 0.25);
+}
+
+.sakamichi-hero h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.4rem, 4vw, 2.1rem);
+    color: #f0d6ff;
+    margin: 0 0 8px;
+    letter-spacing: 0.02em;
+}
+
+.sakamichi-hero p {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: rgba(220, 180, 255, 0.8);
+    margin: 0 auto;
+    max-width: 620px;
+    line-height: 1.6;
+}
+
+/* 3-Group Filter Pills */
+.sakamichi-filter-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin: 0 0 36px;
+    flex-wrap: wrap;
+}
+
+.sakamichi-tab-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 22px;
+    border-radius: var(--radius-full);
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    cursor: pointer;
+    background: var(--surface-color);
+    border: 2px solid var(--border-color);
+    color: var(--text-secondary);
+    transition: all var(--transition-fast);
+}
+
+.sakamichi-tab-btn:hover {
+    transform: translateY(-2px);
+    color: var(--text-primary);
+}
+
+/* Nogizaka46 Active State */
+.sakamichi-tab-btn[data-group="nogizaka"].active {
+    background: #731e82;
+    border-color: #8e2b9f;
+    color: #ffffff;
+    box-shadow: 0 4px 18px rgba(115, 30, 130, 0.45);
+}
+
+/* Hinatazaka46 Active State (Sky Blue) */
+.sakamichi-tab-btn[data-group="hinatazaka"].active {
+    background: #0ea5e9;
+    border-color: #38bdf8;
+    color: #ffffff;
+    box-shadow: 0 4px 18px rgba(14, 165, 233, 0.45);
+}
+
+/* Sakurazaka46 Active State (Cherry Pink) */
+.sakamichi-tab-btn[data-group="sakurazaka"].active {
+    background: #db2777;
+    border-color: #f472b6;
+    color: #ffffff;
+    box-shadow: 0 4px 18px rgba(219, 39, 119, 0.45);
+}
+
+/* 3-Column Grid Layout (Wide to Side of Screen) */
+.sakamichi-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px 24px;
+}
+
+.sakamichi-card {
+    display: flex;
+    flex-direction: column;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0;
+    transition: transform var(--transition-fast);
+}
+
+.sakamichi-card:hover {
+    transform: translateY(-4px);
+}
+
+/* Landscape 16:9 Thumbnail on Top */
+.sakamichi-poster-col {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    position: relative;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background: #0a0a0f;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    margin-bottom: 14px;
+}
+
+.sakamichi-poster-col img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.35s ease;
+}
+
+.sakamichi-card:hover .sakamichi-poster-col img {
+    transform: scale(1.05);
+}
+
+/* Details Info Below Thumbnail */
+.sakamichi-info-col {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 0;
+    min-height: auto;
+}
+
+.sakamichi-card-title {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    color: var(--text-primary);
+    margin: 0 0 8px;
+    line-height: 1.35;
+}
+
+.sakamichi-cast-row {
+    margin: 4px 0 16px;
+}
+
+.sakamichi-card-title {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    color: var(--text-primary);
+    margin: 0 0 10px;
+    line-height: 1.35;
+}
+
+.sakamichi-card-title a {
+    color: inherit;
+    transition: color var(--transition-fast);
+}
+
+.sakamichi-card-title a:hover {
+    color: var(--accent-pink);
+}
+
+/* Cast Section Inside Card */
+.sakamichi-cast-row {
+    margin: 6px 0 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.sakamichi-cast-label {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+}
+
+.sakamichi-cast-names {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+.sakamichi-cast-names strong {
+    font-weight: 600;
+}
+
+/* Group Tag Badge */
+.sakamichi-group-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 3px 10px;
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    font-weight: 700;
+    border-radius: var(--radius-full);
+    margin-bottom: 10px;
+    width: fit-content;
+}
+
+.sakamichi-group-badge.badge-nogizaka {
+    background: rgba(115, 30, 130, 0.2);
+    border: 1px solid rgba(142, 43, 159, 0.5);
+    color: #e9bbf5;
+}
+
+.sakamichi-group-badge.badge-hinatazaka {
+    background: rgba(14, 165, 233, 0.15);
+    border: 1px solid rgba(56, 189, 248, 0.45);
+    color: #7dd3fc;
+}
+
+.sakamichi-group-badge.badge-sakurazaka {
+    background: rgba(219, 39, 119, 0.18);
+    border: 1px solid rgba(244, 114, 182, 0.5);
+    color: #fbcfe8;
+}
+
+/* Action Button */
+.sakamichi-action-row {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.sakamichi-watch-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 18px;
+    border-radius: var(--radius-md);
+    font-family: var(--font-body);
+    font-size: 0.88rem;
+    font-weight: 600;
+    background: var(--surface-color-elevated);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: all var(--transition-fast);
+}
+
+.sakamichi-watch-btn:hover {
+    background: var(--border-color-hover);
+    color: #fff;
+    transform: translateX(3px);
+}
+
+/* Light Mode Overrides */
+body.SwitchMode .sakamichi-hero {
+    background: linear-gradient(135deg, #f7e8ff 0%, #ecd4fa 50%, #f6e8ff 100%);
+    border-color: rgba(115, 30, 130, 0.2);
+    box-shadow: 0 8px 32px rgba(115, 30, 130, 0.1);
+}
+
+body.SwitchMode .sakamichi-hero h1 {
+    color: #4c1157;
+}
+
+body.SwitchMode .sakamichi-hero p {
+    color: #6a2479;
+}
+
+body.SwitchMode .sakamichi-group-badge.badge-nogizaka {
+    background: rgba(115, 30, 130, 0.1);
+    color: #731e82;
+}
+
+body.SwitchMode .sakamichi-group-badge.badge-hinatazaka {
+    background: rgba(14, 165, 233, 0.1);
+    color: #0284c7;
+}
+
+body.SwitchMode .sakamichi-group-badge.badge-sakurazaka {
+    background: rgba(219, 39, 119, 0.1);
+    color: #be185d;
+}
+
+/* Responsive: Tablet & Mobile */
+@media (max-width: 1024px) {
+    .sakamichi-page-container {
+        padding: 0 24px;
+    }
+    .sakamichi-list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 28px 20px;
+    }
+}
+
+/* Tampilan Mobile: 1 Baris 1 Drama Penuh */
+@media (max-width: 768px) {
+    .sakamichi-page-container {
+        padding: 0 16px;
+        margin: 15px auto 40px;
+    }
+    .sakamichi-hero {
+        padding: 24px 16px;
+        margin-bottom: 20px;
+    }
+    .sakamichi-hero h1 {
+        font-size: 1.35rem;
+    }
+    .sakamichi-filter-bar {
+        gap: 8px;
+        margin-bottom: 24px;
+    }
+    .sakamichi-tab-btn {
+        padding: 8px 16px;
+        font-size: 0.8rem;
+    }
+    .sakamichi-list {
+        grid-template-columns: 1fr !important; /* 1 baris 1 drama */
+        gap: 32px;
+    }
+    .sakamichi-poster-col {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        margin-bottom: 12px;
+    }
+    .sakamichi-card-title {
+        font-size: 1.1rem;
+    }
+}

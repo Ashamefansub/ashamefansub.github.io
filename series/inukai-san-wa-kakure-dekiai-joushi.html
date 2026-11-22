@@ -7,6 +7,7 @@
     <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
     <link rel="canonical" href="https://ashamefansub.github.io/series/inukai-san-wa-kakure-dekiai-joushi.html">
     <meta name="description" content="Nagisa, yang merasa seperti tokoh sampingan karena selalu dibandingkan dengan adik perempuannya seorang influencer terkenal, diam-diam menyimpan perasaan kepada atasannya yang tampan, Inukai. Suatu...">
+    <meta name="keywords" content="Inukai-san wa Kakure Dekiai Joushi Subtitle Indonesia, Inukai-san wa Kakure Dekiai Joushi Subtitle Indonesia sub indo, download Inukai-san wa Kakure Dekiai Joushi Subtitle Indonesia subtitle indonesia, dorama Inukai-san wa Kakure Dekiai Joushi Subtitle Indonesia, drama jepang Inukai-san wa Kakure Dekiai Joushi Subtitle Indonesia, Ashame Fansub">
     <meta property="og:type" content="video.tv_show">
     <meta property="og:title" content="Inukai-san wa Kakure Dekiai Joushi (2026) Subtitle Indonesia - Ashame">
     <meta property="og:description" content="Nagisa, yang merasa seperti tokoh sampingan karena selalu dibandingkan dengan adik perempuannya seorang influencer terkenal, diam-diam menyimpan perasaan kepada atasannya yang tampan, Inukai. Suatu...">
@@ -121,8 +122,7 @@
             <a href="https://sfl.gl/GndcUC" target="_blank" rel="noopener">
                 <button class="btn-download-series">09</button>
             </a>
-            <a href="https://sfl.gl/JQCd3C6L" target="_blank" rel="noopener"
-                title="Episode Final">
+            <a href="https://sfl.gl/JQCd3C6L" target="_blank" rel="noopener" title="Episode 10 Final">
                 <button class="btn-download-series">10</button>
             </a>
             </div>
@@ -130,9 +130,14 @@
                 title="Yeay">
                 <button class="btn-download-trakteer">Support Trakteer</button>
             </a>
-
         </div>
-        
+
+        <div id="credit-subtitle-box"></div>
+        <script>
+            fetch('/attention/credit-subtitle.html')
+                .then(r => r.text())
+                .then(html => { document.getElementById('credit-subtitle-box').innerHTML = html; });
+        </script>
 
     </main>
 

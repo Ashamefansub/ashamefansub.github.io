@@ -7,6 +7,7 @@
     <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
     <link rel="canonical" href="https://ashamefansub.github.io/series/35-sai-ima-sara-koi-toka-arienai.html">
     <meta name="description" content="Kisah ini bermula ketika Kimoto Mariko, seorang penulis lepas berusia 35 tahun yang selalu mengatakan pada dirinya sendiri bahwa &quot;cinta dan pernikahan bisa menunggu,&quot; menghabiskan malam yang penuh ...">
+    <meta name="keywords" content="35 Sai, Ima sara Koi toka Arienai Subtitle Indonesia, 35 Sai, Ima sara Koi toka Arienai Subtitle Indonesia sub indo, download 35 Sai, Ima sara Koi toka Arienai Subtitle Indonesia subtitle indonesia, dorama 35 Sai, Ima sara Koi toka Arienai Subtitle Indonesia, drama jepang 35 Sai, Ima sara Koi toka Arienai Subtitle Indonesia, Ashame Fansub">
     <meta property="og:type" content="video.tv_show">
     <meta property="og:title" content="35 Sai, Ima sara Koi toka Arienai (2026) Subtitle Indonesia - Ashame">
     <meta property="og:description" content="Kisah ini bermula ketika Kimoto Mariko, seorang penulis lepas berusia 35 tahun yang selalu mengatakan pada dirinya sendiri bahwa &quot;cinta dan pernikahan bisa menunggu,&quot; menghabiskan malam yang penuh ...">
@@ -117,16 +118,21 @@
             <a href="https://sfl.gl/Od2xEq" target="_blank" rel="noopener">
                 <button class="btn-download-series">09</button>
             </a>
-            <a href="https://sfl.gl/AToLN" target="_blank" rel="noopener" title="Episode Final">
+            <a href="https://sfl.gl/AToLN" target="_blank" rel="noopener" title="Episode 10 Final">
                 <button class="btn-download-series">10</button>
             </a>
             </div>
              <a href="https://trakteer.id/ashame" target="_blank" rel="noopener">
                 <button class="btn-download-trakteer">Support Trakteer</button>
             </a>
-
         </div>
-        
+
+        <div id="credit-subtitle-box"></div>
+        <script>
+            fetch('/attention/credit-subtitle.html')
+                .then(r => r.text())
+                .then(html => { document.getElementById('credit-subtitle-box').innerHTML = html; });
+        </script>
 
     </main>
 
