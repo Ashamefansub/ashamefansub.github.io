@@ -28,12 +28,14 @@
             const header = document.querySelector(".header");
             if (!header) return;
 
-            // Mark active nav link
-            const currentPath = window.location.pathname;
+            // Mark active nav link (Support exact match & sub-pages)
+            const currentPath = window.location.pathname.toLowerCase();
             const navLinks = header.querySelectorAll(".nav-menu a");
             navLinks.forEach(link => {
-                const href = link.getAttribute("href");
-                if (href && currentPath.endsWith(href.replace(/^\//, ''))) {
+                const href = (link.getAttribute("href") || "").toLowerCase().replace(/^\//, '');
+                const cleanHref = href.replace(/\/index\.html$/, '');
+
+                if (cleanHref && (currentPath.includes('/' + cleanHref + '/') || currentPath.endsWith(href) || currentPath.endsWith(cleanHref))) {
                     link.classList.add("active");
                 }
             });
