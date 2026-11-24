@@ -637,8 +637,10 @@ body.SwitchMode .hero-content::before {
 .section-header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start; /* Sejajar ke kiri di samping judul */
+    margin-top: 14px;
     margin-bottom: 24px;
+    gap: 24px; /* Geser 10px lebih renggang dari sebelumnya (14px + 10px) */
 }
 
 .section-title {
@@ -649,6 +651,195 @@ body.SwitchMode .hero-content::before {
     align-items: center;
     gap: 10px;
     margin-left: 60px;
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 1;
+}
+
+/* ========================================================
+   🔲 COMPACT LIST VIEW TOGGLE (Grid vs List Switcher)
+   ======================================================== */
+.view-switcher-group {
+    display: inline-flex;
+    align-items: center;
+    background: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-full);
+    padding: 3px;
+    gap: 2px;
+}
+
+.view-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border: none;
+    background: transparent;
+    color: var(--text-secondary);
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    font-weight: 600;
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.view-btn svg {
+    width: 15px;
+    height: 15px;
+}
+
+.view-btn:hover {
+    color: var(--text-primary);
+}
+
+.view-btn.active {
+    background: var(--surface-color-elevated);
+    color: var(--text-primary);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    border: 1px solid var(--border-color);
+}
+
+body.SwitchMode .view-btn.active {
+    background: #ffffff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+/* ─── Compact List Layout ─── */
+.kotak-konten.is-list-view,
+.kotak-konten-beranda.is-list-view {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+}
+
+.is-list-view .card {
+    background: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 8px 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    transition: all var(--transition-fast);
+}
+
+.is-list-view .card:hover {
+    transform: translateY(-2px);
+    border-color: var(--border-color-hover);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+}
+
+.is-list-view .card > a {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 14px !important;
+    width: 100%;
+}
+
+.is-list-view .card-thumbnail-container {
+    width: 130px !important;
+    min-width: 130px !important;
+    max-width: 130px !important;
+    aspect-ratio: 16 / 9 !important;
+    margin-bottom: 0 !important;
+    border-radius: var(--radius-sm) !important;
+    flex-shrink: 0;
+}
+
+.is-list-view .card-badge-top,
+.is-list-view .card-badge-bottom {
+    display: none !important; /* Disembunyikan agar list tetap bersih */
+}
+
+.is-list-view .card-body {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    flex: 1 !important;
+    padding: 0 !important;
+    min-width: 0; /* Mencegah overflow flex child */
+}
+
+.is-list-view .card-title {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    margin: 0;
+    color: var(--text-primary);
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Biarkan 2 baris agar judul tidak terpotong */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-word;
+}
+
+@media (max-width: 768px) {
+    .main-wrapper {
+        padding: 0 14px; /* Kecilkan padding kanan-kiri dari layar */
+    }
+    .section-header {
+        display: flex;
+        align-items: center;
+        gap: 14px; /* Renggang bertambah 4px (10px + 4px) */
+        margin-top: 18px; /* Jarak aman di bawah floating header mobile */
+        margin-bottom: 18px;
+    }
+    .section-title {
+        margin-left: 4px;
+        margin-top: 0;
+        margin-bottom: 0;
+        font-size: 1.15rem;
+        line-height: 1;
+        display: flex;
+        align-items: center;
+    }
+    .view-switcher-group {
+        margin-right: 0;
+        display: inline-flex;
+        align-items: center;
+    }
+    .kotak-konten,
+    .kotak-konten-beranda {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .is-list-view .card {
+        padding: 6px 10px;
+    }
+    .is-list-view .card > a {
+        gap: 12px !important;
+    }
+    /* Ukuran poster di mobile: lebih besar dan jelas */
+    .is-list-view .card-thumbnail-container {
+        width: 140px !important;
+        min-width: 140px !important;
+        max-width: 140px !important;
+    }
+    /* Ukuran teks pas, MAKSIMAL 3 baris bersih dan tidak terpotong bawahnya */
+    .is-list-view .card-title,
+    .kotak-konten-beranda.is-list-view .card-title {
+        font-size: 0.72rem !important;
+        line-height: 1.4 !important;
+        display: -webkit-box !important;
+        -webkit-box-orient: vertical !important;
+        -webkit-line-clamp: 3 !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        word-break: break-word !important;
+        white-space: normal !important;
+        width: 100% !important;
+        max-height: none !important; /* Hapus max-height agar tidak memenggal separuh baris ketiga */
+        padding: 2px 0 !important;
+        margin: 0 !important;
+    }
+    .view-btn span {
+        display: none; /* Icon saja di layar kecil */
+    }
+    .view-btn {
+        padding: 6px 10px;
+    }
 }
 
 .section-title::before {
@@ -989,7 +1180,7 @@ body.SwitchMode .isi-footer a:hover {
     }
 
     .section-title {
-        margin-top: 20px;
+        margin-top: 0;
         margin-left: 35px;
     }
 
@@ -1210,8 +1401,8 @@ body.SwitchMode .scroll-top-btn:hover {
 
 @media (max-width: 768px) {
     .scroll-top-btn {
-        bottom: 22px;
-        right: 22px;
+        bottom: 114px; /* Tepat di atas tombol chat (chat button bottom 45px + height 58px + gap 11px) */
+        right: 32px;
         width: 42px;
         height: 42px;
     }
@@ -1219,15 +1410,15 @@ body.SwitchMode .scroll-top-btn:hover {
 
 @media (max-width: 480px) {
     .scroll-top-btn {
-        bottom: 18px;
-        right: 18px;
-        width: 38px;
-        height: 38px;
+        bottom: 84px; /* Tepat di atas tombol chat di HP (chat bottom 16px + height 58px + gap 10px) */
+        right: 25px; /* Sejajar dengan titik tengah tombol chat HP (16px + (58-40)/2 = 25px) */
+        width: 40px;
+        height: 40px;
     }
 
     .scroll-top-btn svg {
-        width: 19px;
-        height: 19px;
+        width: 20px;
+        height: 20px;
     }
 }
 
