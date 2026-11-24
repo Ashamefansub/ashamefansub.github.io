@@ -666,13 +666,9 @@ body.SwitchMode .hero-content::before {
 /* ========================================================
    📺 YOUTUBE-STYLE 16:9 GRID (kept for backward compat; real grid defined below)
    ======================================================== */
-.kotak-konten {
-    padding: 24px 36px 60px;
-}
-
+.kotak-konten,
 .kotak-konten-beranda {
-    padding: 20px 0 50px;
-    width: 100%;
+    padding: 24px 36px 60px;
 }
 
 
@@ -805,33 +801,11 @@ body.SwitchMode .card:hover .card-glow-backdrop {
 
 /* Card Body & Title (Umum / Default) */
 .card-body {
-    padding: 14px 14px 16px;
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-}
-
-/* ========================================================
-   ✨ KHUSUS KARTU BERANDA (Teks Tidak Terpotong & Pas)
-   ======================================================== */
-.kotak-konten-beranda .card-body {
-    padding: 10px 14px 14px;
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-}
-
-.kotak-konten-beranda .card-title {
     padding: 0;
-    line-height: 1.4;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
-
-
-
 
 /* Fallback & support for simple/legacy card markup */
 .card>a {
@@ -2090,11 +2064,6 @@ body.SwitchMode .sakamichi-group-badge.badge-sakurazaka {
     width: 100%;
     max-width: 1440px;
     margin: 0 auto;
-}
-
-.kotak-konten-beranda {
-    padding-left: 0;
-    padding-right: 0;
 }
 
 /* Remove box containers */
