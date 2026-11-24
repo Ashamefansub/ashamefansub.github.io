@@ -53,28 +53,27 @@
         <section class="hero-spotlight" aria-label="Rilis Terbaru">
             <div class="hero-banner-inner">
                 <div class="hero-thumbnail-wrap">
-                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjmiTPUuqGlf_e4HFM8oZEuRCUeX96RfF7Jks8KYDhm0oUn2dpkvl2dkixuqoo1A4sbxUm9xY4zAu-EaMw8od18Y4pORCTJScryrUp3wsuZBuNQa4SENptKOMmiF_g_ZbhR8OZ18HF3R98x5itHgQXTd30S-QlIpGv3QcS8GaDwdnWkbLRYCf96tJg6LTo/s1600/jigoku-wa-zeni.webp"
-                        alt="Jigoku" fetchpriority="high">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhICZXyB_39Lv1_PaKukfWqFYMgDAEk7RPjOn-pE2qjPNXzCYDeuhpiJQmV9wy4bvu99eBUjNjmWtnsE3PQTdj0Vw-nh1B5u2lnUiRLXU2pmRQPzgzXBzKaqcjKU_rmGYNwpYgezC7a5b1FuKw89W7mK2m-KRqkzuwVXzc6nMczWhB38GLkMhimR3SvFt8/s1600/dekiai-kareshi.webp"
+                        alt="Dekiai" fetchpriority="high">
                     <div class="hero-badge-overlay">
                         <span class="badge-featured">Rilis Terbaru</span>
-                        <span class="badge-episode">Eps 09</span>
+                        <span class="badge-episode">Eps 08</span>
                     </div>
                 </div>
                 <div class="hero-content">
                     <span class="hero-category">Series / Dorama • 2026</span>
-                    <h2 class="hero-title">Jigoku wa Zen'i de Dekiteiru (2026)</h2>
-                    <p class="hero-sub-title">地獄は善意で出来ている</p>
+                    <h2 class="hero-title">Dekiai Kareshi no Tsukurikata (2026)</h2>
+                    <p class="hero-sub-title">溺愛彼氏の作り方</p>
                     <p class="hero-synopsis">
-                        Sebuah "Program Dukungan Khusus Mantan Narapidana" mempertemukan orang-orang yang memiliki
-                        catatan
-                        kriminal. Mereka yang berhasil lolos dijanjikan bantuan penuh untuk kembali berintegrasi ke
-                        dalam
-                        masyarakat. Para peserta yang memandang ini sebagai kesempatan untuk mengubah hidup mereka pun
-                        memulai kehidupan bersama selama satu bulan di sebuah fasilitas tertentu.
+                        Sakura, seorang pegawai balai kota, memendam rasa pada rekan kerjanya yang lebih senior,
+                        Keisuke.
+                        Suatu malam, karena serangkaian kejadian tak terduga, Keisuke akhirnya berada di rumah Sakura,
+                        dan
+                        mereka pun menjalin ikatan—baik secara emosional maupun fisik... atau begitulah sangkaan Sakura.
                     </p>
                     <div class="hero-actions">
-                        <a href="/series/jigoku-wa-zeni-de-dekiteiru.html" class="btn-primary">
-                            ▶ Tonton / Download Ep. 09
+                        <a href="/series/dekiai-kareshi-no-tsukurikata.html" class="btn-primary">
+                            ▶ Tonton / Download Ep. 08
                         </a>
                         <a href="https://trakteer.id/ashame" target="_blank" rel="noopener" class="btn-secondary"
                             title="Streaming/download tanpa ribet tanpa iklan">
@@ -103,6 +102,23 @@
         <section aria-label="Katalog Konten">
             <div class="section-header">
                 <h3 class="section-title">Terbaru</h3>
+                <div class="view-switcher-group" role="group" aria-label="Pilihan Tampilan Katalog">
+                    <button type="button" class="view-btn active" id="btnGridView" aria-label="Tampilan Grid Poster"
+                        title="Tampilan Grid 16:9">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M4 4h7v7H4V4zm0 9h7v7H4v-7zm9-9h7v7h-7V4zm0 9h7v7h-7v-7z" />
+                        </svg>
+                        <span>Grid</span>
+                    </button>
+                    <button type="button" class="view-btn" id="btnListView" aria-label="Tampilan Daftar Ramping"
+                        title="Tampilan Daftar (Compact List)">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M4 6h2v2H4V6zm0 5h2v2H4v-2zm0 5h2v2H4v-2zm5-10h11v2H9V6zm0 5h11v2H9v-2zm0 5h11v2H9v-2z" />
+                        </svg>
+                        <span>List</span>
+                    </button>
+                </div>
             </div>
 
             <div class="kotak-konten-beranda" id="contentGrid">
@@ -544,12 +560,43 @@
     <!-- Theme Switcher Script -->
     <script src="/js/henshin-tema.js"></script>
 
-    <!-- Interactive Category Filter Script -->
+    <!-- Interactive Category Filter & View Switcher Script -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const filterChips = document.querySelectorAll(".filter-chip");
             const cards = document.querySelectorAll("#contentGrid .card");
+            const contentGrid = document.getElementById("contentGrid");
+            const btnGridView = document.getElementById("btnGridView");
+            const btnListView = document.getElementById("btnListView");
 
+            // --- 1. Mode Switcher (Grid vs Compact List) ---
+            function setViewMode(mode) {
+                if (!contentGrid || !btnGridView || !btnListView) return;
+                if (mode === "list") {
+                    contentGrid.classList.add("is-list-view");
+                    btnListView.classList.add("active");
+                    btnGridView.classList.remove("active");
+                    localStorage.setItem("ashame_view_mode", "list");
+                } else {
+                    contentGrid.classList.remove("is-list-view");
+                    btnGridView.classList.add("active");
+                    btnListView.classList.remove("active");
+                    localStorage.setItem("ashame_view_mode", "grid");
+                }
+            }
+
+            if (btnGridView && btnListView) {
+                btnGridView.addEventListener("click", () => setViewMode("grid"));
+                btnListView.addEventListener("click", () => setViewMode("list"));
+
+                // Load preferensi tersimpan
+                const savedView = localStorage.getItem("ashame_view_mode");
+                if (savedView === "list") {
+                    setViewMode("list");
+                }
+            }
+
+            // --- 2. Filter Kategori ---
             filterChips.forEach(chip => {
                 chip.addEventListener("click", () => {
                     filterChips.forEach(c => c.classList.remove("active"));

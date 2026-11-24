@@ -997,7 +997,8 @@ body.SwitchMode .cast-role.role-guest {
    ======================================================== */
 @media (max-width: 768px) {
     .movie-container {
-        padding: 0 12px;
+        padding: 0 32px;
+        /* Jarak batas kotak jauh lebih renggang dan lega dari sisi layar */
         width: 100%;
         max-width: 100vw;
         box-sizing: border-box;
@@ -1005,7 +1006,7 @@ body.SwitchMode .cast-role.role-guest {
     }
 
     .movie-content {
-        padding: 16px 12px;
+        padding: 18px 16px;
         width: 100%;
         box-sizing: border-box;
     }
@@ -1013,7 +1014,7 @@ body.SwitchMode .cast-role.role-guest {
     .media-section-series,
     .media-section-attention,
     .subtitle-credit-box {
-        padding: 18px 14px;
+        padding: 18px 16px;
         width: 100%;
         box-sizing: border-box;
     }
@@ -1053,6 +1054,6 @@ body.SwitchMode .cast-role.role-guest {
         width: 100%;
         max-width: 100%;
         box-sizing: border-box;
-        padding: 16px 12px;
+        padding: 18px 16px;
     }
 }

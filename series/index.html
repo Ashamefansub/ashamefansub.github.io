@@ -44,7 +44,19 @@
     <script src="/header/header.js"></script>
 
 
-    <h2 class="section-title">Daftar Series</h2>
+    <div class="section-header">
+        <h2 class="section-title">Daftar Series</h2>
+        <div class="view-switcher-group" role="group" aria-label="Pilihan Tampilan Katalog">
+            <button type="button" class="view-btn active" id="btnGridView" aria-label="Tampilan Grid Poster" title="Tampilan Grid 16:9">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 4h7v7H4V4zm0 9h7v7H4v-7zm9-9h7v7h-7V4zm0 9h7v7h-7v-7z"/></svg>
+                <span>Grid</span>
+            </button>
+            <button type="button" class="view-btn" id="btnListView" aria-label="Tampilan Daftar Ramping" title="Tampilan Daftar (Compact List)">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 6h2v2H4V6zm0 5h2v2H4v-2zm0 5h2v2H4v-2zm5-10h11v2H9V6zm0 5h11v2H9v-2zm0 5h11v2H9v-2z"/></svg>
+                <span>List</span>
+            </button>
+        </div>
+    </div>
 
     <div class="kotak-konten" id="contentGrid">
 
@@ -375,6 +387,41 @@
     </div>
 
     <script src="/js/henshin-tema.js"></script>
+
+    <!-- View Switcher Script (Grid vs Compact List) -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const contentGrid = document.getElementById("contentGrid");
+            const btnGridView = document.getElementById("btnGridView");
+            const btnListView = document.getElementById("btnListView");
+
+            function setViewMode(mode) {
+                if (!contentGrid || !btnGridView || !btnListView) return;
+                if (mode === "list") {
+                    contentGrid.classList.add("is-list-view");
+                    btnListView.classList.add("active");
+                    btnGridView.classList.remove("active");
+                    localStorage.setItem("ashame_view_mode", "list");
+                } else {
+                    contentGrid.classList.remove("is-list-view");
+                    btnGridView.classList.add("active");
+                    btnListView.classList.remove("active");
+                    localStorage.setItem("ashame_view_mode", "grid");
+                }
+            }
+
+            if (btnGridView && btnListView) {
+                btnGridView.addEventListener("click", () => setViewMode("grid"));
+                btnListView.addEventListener("click", () => setViewMode("list"));
+
+                // Load preferensi tersimpan
+                const savedView = localStorage.getItem("ashame_view_mode");
+                if (savedView === "list") {
+                    setViewMode("list");
+                }
+            }
+        });
+    </script>
 
     <div id="footer"></div>
     <script src="/footer/footer.js"></script>
