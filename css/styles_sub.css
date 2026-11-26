@@ -186,6 +186,10 @@ body.SwitchMode .genre-tag:hover {
     cursor: not-allowed;
 }
 
+body.SwitchMode .media-section-attention {
+    color: #ffffff;
+}
+
 .no-reupload {
     font-family: var(--font-body);
     text-align: center;
@@ -196,7 +200,7 @@ body.SwitchMode .genre-tag:hover {
 }
 
 body.SwitchMode .no-reupload {
-    color: #000000;
+    color: #ffffff;
     -webkit-text-stroke: 0.5px #000000;
 }
 
