@@ -85,8 +85,12 @@
             // Inisialisasi Ambient Glow Hero Spotlight (Beranda)
             initHeroAmbientGlow();
 
+            // Inisialisasi Mobile Hamburger Menu & Drawer
+            initMobileDrawer();
+
             // Inisialisasi Ambient Glow Card Grid (Tab Series & Movie di Beranda)
             initCardAmbientGlow();
+            window.__ashameInitCardGlow = initCardAmbientGlow;
         })
         .catch(err => console.error("Error loading header:", err));
 
@@ -457,5 +461,69 @@
         } else {
             setupCardGlow();
         }
+    }
+
+    // Inisialisasi Hamburger Menu & Drawer Mobile
+    function initMobileDrawer() {
+        const hamburgerBtn = document.getElementById("hamburgerBtn");
+        const drawer = document.getElementById("mobileDrawer");
+        const overlay = document.getElementById("mobileDrawerOverlay");
+        const closeBtn = document.getElementById("mobileDrawerClose");
+
+        if (!hamburgerBtn || !drawer || !overlay) return;
+
+        function openDrawer() {
+            hamburgerBtn.classList.add("is-open");
+            hamburgerBtn.setAttribute("aria-expanded", "true");
+            drawer.classList.add("is-open");
+            drawer.setAttribute("aria-hidden", "false");
+            overlay.classList.add("is-visible");
+            overlay.setAttribute("aria-hidden", "false");
+            document.body.classList.add("drawer-open");
+        }
+
+        function closeDrawer() {
+            hamburgerBtn.classList.remove("is-open");
+            hamburgerBtn.setAttribute("aria-expanded", "false");
+            drawer.classList.remove("is-open");
+            drawer.setAttribute("aria-hidden", "true");
+            overlay.classList.remove("is-visible");
+            overlay.setAttribute("aria-hidden", "true");
+            document.body.classList.remove("drawer-open");
+        }
+
+        hamburgerBtn.addEventListener("click", () => {
+            if (drawer.classList.contains("is-open")) {
+                closeDrawer();
+            } else {
+                openDrawer();
+            }
+        });
+
+        if (closeBtn) closeBtn.addEventListener("click", closeDrawer);
+        overlay.addEventListener("click", closeDrawer);
+
+        // Tutup saat tombol ESC ditekan
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape" && drawer.classList.contains("is-open")) {
+                closeDrawer();
+            }
+        });
+
+        // Tandai link aktif di dalam mobile drawer
+        const currentPath = window.location.pathname.toLowerCase();
+        const drawerLinks = drawer.querySelectorAll(".mobile-drawer-link");
+        drawerLinks.forEach(link => {
+            const href = (link.getAttribute("href") || "").toLowerCase().replace(/^\//, '');
+            const cleanHref = href.replace(/\/index\.html$/, '');
+
+            if (cleanHref && (currentPath.includes('/' + cleanHref + '/') || currentPath.endsWith(href) || currentPath.endsWith(cleanHref))) {
+                link.classList.add("active");
+            } else if (!cleanHref && (currentPath === '/' || currentPath.endsWith('/index.html') || currentPath === '')) {
+                if (href === 'index.html' || href === '') {
+                    link.classList.add("active");
+                }
+            }
+        });
     }
 })();
