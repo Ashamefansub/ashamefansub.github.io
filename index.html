@@ -102,24 +102,38 @@
         <!-- 📺 GRID KONTEN 16:9 YOUTUBE-STYLE -->
         <section aria-label="Katalog Konten">
             <div class="section-header">
-                <h3 class="section-title">Terbaru</h3>
-                <div class="view-switcher-group" role="group" aria-label="Pilihan Tampilan Katalog">
-                    <button type="button" class="view-btn active" id="btnGridView" aria-label="Tampilan Grid Poster"
-                        title="Tampilan Grid 16:9">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M4 4h7v7H4V4zm0 9h7v7H4v-7zm9-9h7v7h-7V4zm0 9h7v7h-7v-7z" />
-                        </svg>
-                        <span>Grid</span>
-                    </button>
-                    <button type="button" class="view-btn" id="btnListView" aria-label="Tampilan Daftar Ramping"
-                        title="Tampilan Daftar (Compact List)">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M4 6h2v2H4V6zm0 5h2v2H4v-2zm0 5h2v2H4v-2zm5-10h11v2H9V6zm0 5h11v2H9v-2zm0 5h11v2H9v-2z" />
-                        </svg>
-                        <span>List</span>
-                    </button>
+                <div class="section-header-left">
+                    <h3 class="section-title">Terbaru</h3>
+                    <div class="view-switcher-group" role="group" aria-label="Pilihan Tampilan Katalog">
+                        <button type="button" class="view-btn active" id="btnGridView" aria-label="Tampilan Grid Poster"
+                            title="Tampilan Grid 16:9">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M4 4h7v7H4V4zm0 9h7v7H4v-7zm9-9h7v7h-7V4zm0 9h7v7h-7v-7z" />
+                            </svg>
+                            <span>Grid</span>
+                        </button>
+                        <button type="button" class="view-btn" id="btnListView" aria-label="Tampilan Daftar Ramping"
+                            title="Tampilan Daftar (Compact List)">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M4 6h2v2H4V6zm0 5h2v2H4v-2zm0 5h2v2H4v-2zm5-10h11v2H9V6zm0 5h11v2H9v-2zm0 5h11v2H9v-2z" />
+                            </svg>
+                            <span>List</span>
+                        </button>
+                    </div>
                 </div>
+
+                <!-- 📊 Fansub Statistics Widgets (Dynamic Fetch) -->
+                <div id="fansub-stats-box"></div>
+                <script>
+                    fetch('/attention/statistik.html')
+                        .then(r => r.text())
+                        .then(html => {
+                            const el = document.getElementById('fansub-stats-box');
+                            if (el) el.innerHTML = html;
+                        })
+                        .catch(err => console.error('Gagal memuat statistik:', err));
+                </script>
             </div>
 
             <div class="kotak-konten-beranda" id="contentGrid">
