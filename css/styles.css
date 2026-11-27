@@ -637,8 +637,8 @@ body.SwitchMode .hero-content::before {
 .section-header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    /* Judul + switcher di kiri, statistik di kanan */
+    justify-content: flex-start;
+    /* Sejajar ke kiri di samping judul */
     margin-top: 14px;
     margin-bottom: 24px;
     gap: 20px;

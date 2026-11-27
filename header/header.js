@@ -90,6 +90,7 @@
 
             // Inisialisasi Ambient Glow Card Grid (Tab Series & Movie di Beranda)
             initCardAmbientGlow();
+            window.__ashameInitCardGlow = initCardAmbientGlow;
         })
         .catch(err => console.error("Error loading header:", err));
 
