@@ -877,9 +877,11 @@ body.SwitchMode .view-btn.active {
 
     .section-header {
         display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        gap: 14px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 12px;
         margin-top: 18px;
         /* Jarak aman di bawah floating header mobile */
         margin-bottom: 18px;
@@ -888,9 +890,9 @@ body.SwitchMode .view-btn.active {
     .section-header-left {
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: flex-start;
         gap: 12px;
-        width: 100%;
+        width: auto;
     }
 
     .fansub-stats-container {
@@ -933,6 +935,8 @@ body.SwitchMode .view-btn.active {
         margin-right: 0;
         display: inline-flex;
         align-items: center;
+        flex-shrink: 0;
+        width: auto;
     }
 
     .kotak-konten,
