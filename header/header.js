@@ -72,6 +72,7 @@
 
             // Inisialisasi Search Bar Reaktif
             initHeaderSearch();
+            window.__ashameInitSearch = initHeaderSearch;
 
             // Inisialisasi Tombol Scroll Up
             initScrollTopButton();
@@ -108,11 +109,10 @@
         const searchInput = document.getElementById("headerSearchInput");
         if (!searchInput) return;
 
-        // Cari kontainer kartu konten jika ada di halaman saat ini
-        const cardContainer = document.getElementById("contentGrid") ||
+        // Ambil elemen kontainer kartu dan hero spotlight
+        const getCardContainer = () => document.getElementById("contentGrid") ||
             document.querySelector(".kotak-konten-beranda") ||
             document.querySelector(".kotak-konten");
-        const cards = cardContainer ? cardContainer.querySelectorAll(".card") : [];
         const heroSpotlight = document.querySelector(".hero-spotlight");
 
         function executeFilter() {
@@ -120,6 +120,9 @@
             const activeChip = document.querySelector(".filter-chip.active");
             const chipFilter = activeChip ? activeChip.getAttribute("data-filter") : "all";
             const qTokens = rawQuery.split(/\s+/).filter(Boolean);
+
+            const cardContainer = getCardContainer();
+            const cards = cardContainer ? cardContainer.querySelectorAll(".card") : [];
 
             let visibleCount = 0;
 
@@ -260,43 +263,61 @@
             }[m]));
         }
 
-        // Jika halaman saat ini memiliki kartu katalog
-        if (cards.length > 0) {
+        // Simpan handler filter global agar bisa dipanggil kapan saja
+        window.__ashameApplyFilter = executeFilter;
+
+        // Pasang event listener pencarian ke input
+        if (!searchInput.dataset.listenerAttached) {
+            searchInput.dataset.listenerAttached = "true";
+
             // Reaktif: langsung jalan saat pengguna mengetik
-            searchInput.addEventListener("input", executeFilter);
+            searchInput.addEventListener("input", () => {
+                const cardContainer = getCardContainer();
+                const cards = cardContainer ? cardContainer.querySelectorAll(".card") : [];
+                if (cards.length > 0) {
+                    executeFilter();
+                }
+            });
+
             // Tangani tombol 'clear' (x) bawaan input type="search"
-            searchInput.addEventListener("search", executeFilter);
+            searchInput.addEventListener("search", () => {
+                const cardContainer = getCardContainer();
+                const cards = cardContainer ? cardContainer.querySelectorAll(".card") : [];
+                if (cards.length > 0) {
+                    executeFilter();
+                }
+            });
 
             if (searchForm) {
                 searchForm.addEventListener("submit", (e) => {
                     e.preventDefault();
-                    executeFilter();
+                    const cardContainer = getCardContainer();
+                    const cards = cardContainer ? cardContainer.querySelectorAll(".card") : [];
+                    if (cards.length > 0) {
+                        executeFilter();
+                    } else {
+                        // Halaman detail (tanpa katalog): submit form mengarahkan ke beranda
+                        const q = searchInput.value.trim();
+                        if (q) {
+                            window.location.href = `/index.html?q=${encodeURIComponent(q)}`;
+                        }
+                    }
                 });
             }
+        }
 
-            // Simpan handler ke window agar sinkron dengan filter chips
-            window.__ashameApplyFilter = executeFilter;
-
-            // Dukungan pencarian lewat URL param (misal dari halaman lain: index.html?q=keyword)
-            const urlParams = new URLSearchParams(window.location.search);
-            const initialQuery = urlParams.get("q") || urlParams.get("search");
-            if (initialQuery) {
-                searchInput.value = initialQuery;
+        // Dukungan pencarian lewat URL param (misal dari halaman lain: index.html?q=keyword)
+        const urlParams = new URLSearchParams(window.location.search);
+        const initialQuery = urlParams.get("q") || urlParams.get("search");
+        if (initialQuery) {
+            searchInput.value = initialQuery;
+            const cardContainer = getCardContainer();
+            const cards = cardContainer ? cardContainer.querySelectorAll(".card") : [];
+            if (cards.length > 0) {
                 executeFilter();
                 setTimeout(() => {
                     cardContainer.scrollIntoView({ behavior: "smooth", block: "start" });
                 }, 300);
-            }
-        } else {
-            // Halaman detail (tanpa katalog): submit form akan mengarahkan ke beranda dengan query pencarian
-            if (searchForm) {
-                searchForm.addEventListener("submit", (e) => {
-                    e.preventDefault();
-                    const q = searchInput.value.trim();
-                    if (q) {
-                        window.location.href = `/index.html?q=${encodeURIComponent(q)}`;
-                    }
-                });
             }
         }
     }

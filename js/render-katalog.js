@@ -1,14 +1,29 @@
 // ========================================================
-// 🌸 Ashame Fansub — Dynamic Catalog & Stats Renderer
+// 🌸 Ashame Fansub — Universal Catalog & Stats Renderer
+// Mendukung Beranda, Katalog Series, dan Katalog Movie
 // ========================================================
 
 (function () {
     const contentGrid = document.getElementById("contentGrid");
     if (!contentGrid) return;
 
-    fetch("/data/katalog.json")
+    // Tentukan file JSON yang akan dimuat berdasarkan atribut data-json atau path URL
+    let dataUrl = contentGrid.getAttribute("data-json");
+
+    if (!dataUrl) {
+        const path = window.location.pathname.toLowerCase();
+        if (path.includes("/series/")) {
+            dataUrl = "/data/katalog-data-series.json";
+        } else if (path.includes("/film/")) {
+            dataUrl = "/data/katalog-data-movie.json";
+        } else {
+            dataUrl = "/data/katalog.json";
+        }
+    }
+
+    fetch(dataUrl)
         .then(response => {
-            if (!response.ok) throw new Error("Gagal memuat katalog.json");
+            if (!response.ok) throw new Error("Gagal memuat " + dataUrl);
             return response.json();
         })
         .then(data => {
@@ -25,9 +40,25 @@
         items.forEach(item => {
             const tagClass = item.category === "series" ? "tag-series" : (item.category === "movie" ? "tag-movie" : "tag-showroom");
             const statusClass = item.status || "ongoing";
-            const badgeBottomHtml = item.badgeBottom
-                ? `<div class="card-badge-bottom"><span class="badge-status ${statusClass}">${escapeHtml(item.badgeBottom)}</span></div>`
-                : "";
+            const isCollab = item.collab === true || item.status === "collab" || (item.badgeBottom && item.badgeBottom.toLowerCase().includes("collab"));
+
+            let badgeBottomHtml = "";
+            if (item.badgeBottom) {
+                if (isCollab) {
+                    const mainStatusText = (item.status === "tamat" || item.badgeBottom.toLowerCase().includes("tamat")) ? "Tamat" : "On Going";
+                    const statusType = (item.status === "tamat" || item.badgeBottom.toLowerCase().includes("tamat")) ? "tamat" : "ongoing";
+                    badgeBottomHtml = `
+                        <div class="card-badge-bottom">
+                            <span class="badge-status badge-collab ${statusType}">
+                                <span class="collab-maintext">${escapeHtml(mainStatusText)}</span>
+                                <span class="collab-subtext">Collab</span>
+                            </span>
+                        </div>
+                    `;
+                } else {
+                    badgeBottomHtml = `<div class="card-badge-bottom"><span class="badge-status ${statusClass}">${escapeHtml(item.badgeBottom)}</span></div>`;
+                }
+            }
 
             html += `
                 <article class="card" data-category="${escapeHtml(item.category)}" data-status="${escapeHtml(item.status)}">
@@ -49,6 +80,11 @@
 
         contentGrid.innerHTML = html;
 
+        // Inisialisasi ulang search bar reaktif jika header sudah selesai dimuat
+        if (typeof window.__ashameInitSearch === "function") {
+            window.__ashameInitSearch();
+        }
+
         // Picu pencarian dan filter jika ada filter aktif
         if (typeof window.__ashameApplyFilter === "function") {
             window.__ashameApplyFilter();
@@ -61,21 +97,73 @@
     }
 
     function updateStatistikOtomatis(items) {
+        // Angka statistik dihormati sesuai yang kamu atur manual di /attention/statistik.html
+        // (Misalnya 17 series karena 1 series merupakan kolaborasi)
+        initStatsCounter();
+    }
+
+    // Animasi Count-Up Angka saat digulir / terlihat di layar
+    function initStatsCounter() {
         const statsBox = document.getElementById("fansub-stats-box");
         if (!statsBox) return;
 
-        // Hitung otomatis dari data JSON
-        const totalSeries = items.filter(i => i.category === "series").length;
-        const totalMovie = items.filter(i => i.category === "movie").length;
-
-        // Ambil elemen angka di statsBox jika sudah di-render oleh fetch statistik.html
         const nums = statsBox.querySelectorAll(".stats-num");
-        if (nums.length >= 3) {
-            nums[0].textContent = totalSeries;
-            // Episode tetap 133 (atau diambil dari kalkulasi)
-            nums[2].textContent = totalMovie;
+        if (!nums.length) return;
+
+        // Cegah pemicuan ganda jika animasi sudah berjalan
+        if (statsBox.dataset.counted === "true") return;
+
+        function startCounting() {
+            statsBox.dataset.counted = "true";
+
+            nums.forEach(numEl => {
+                const target = parseInt(numEl.getAttribute("data-target") || numEl.textContent, 10) || 0;
+                const duration = 4000; // durasi count-nya
+                const startTime = performance.now();
+
+                function update(currentTime) {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+
+                    // Easing out cubic: melambat dengan halus di akhir
+                    const easeOut = 1 - Math.pow(1 - progress, 3);
+                    const currentVal = Math.floor(easeOut * target);
+
+                    numEl.textContent = currentVal;
+
+                    if (progress < 1) {
+                        requestAnimationFrame(update);
+                    } else {
+                        numEl.textContent = target;
+                    }
+                }
+
+                requestAnimationFrame(update);
+            });
+        }
+
+        // Gunakan IntersectionObserver agar terpicu saat diperlihatkan / di-scroll mendekati viewport
+        if ("IntersectionObserver" in window) {
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        startCounting();
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.2 // Berjalan saat 20% bagian statistik terlihat di layar
+            });
+
+            observer.observe(statsBox);
+        } else {
+            // Fallback untuk browser lama
+            startCounting();
         }
     }
+
+    // Buka akses global agar bisa dipanggil saat fetch statistik.html selesai
+    window.__ashameInitStatsCounter = initStatsCounter;
 
     function escapeHtml(str) {
         if (!str) return "";

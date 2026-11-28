@@ -130,7 +130,12 @@
                         .then(r => r.text())
                         .then(html => {
                             const el = document.getElementById('fansub-stats-box');
-                            if (el) el.innerHTML = html;
+                            if (el) {
+                                el.innerHTML = html;
+                                if (typeof window.__ashameInitStatsCounter === 'function') {
+                                    window.__ashameInitStatsCounter();
+                                }
+                            }
                         })
                         .catch(err => console.error('Gagal memuat statistik:', err));
                 </script>
