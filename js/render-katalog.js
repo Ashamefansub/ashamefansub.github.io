@@ -40,9 +40,25 @@
         items.forEach(item => {
             const tagClass = item.category === "series" ? "tag-series" : (item.category === "movie" ? "tag-movie" : "tag-showroom");
             const statusClass = item.status || "ongoing";
-            const badgeBottomHtml = item.badgeBottom
-                ? `<div class="card-badge-bottom"><span class="badge-status ${statusClass}">${escapeHtml(item.badgeBottom)}</span></div>`
-                : "";
+            const isCollab = item.collab === true || item.status === "collab" || (item.badgeBottom && item.badgeBottom.toLowerCase().includes("collab"));
+
+            let badgeBottomHtml = "";
+            if (item.badgeBottom) {
+                if (isCollab) {
+                    const mainStatusText = (item.status === "tamat" || item.badgeBottom.toLowerCase().includes("tamat")) ? "Tamat" : "On Going";
+                    const statusType = (item.status === "tamat" || item.badgeBottom.toLowerCase().includes("tamat")) ? "tamat" : "ongoing";
+                    badgeBottomHtml = `
+                        <div class="card-badge-bottom">
+                            <span class="badge-status badge-collab ${statusType}">
+                                <span class="collab-maintext">${escapeHtml(mainStatusText)}</span>
+                                <span class="collab-subtext">Collab</span>
+                            </span>
+                        </div>
+                    `;
+                } else {
+                    badgeBottomHtml = `<div class="card-badge-bottom"><span class="badge-status ${statusClass}">${escapeHtml(item.badgeBottom)}</span></div>`;
+                }
+            }
 
             html += `
                 <article class="card" data-category="${escapeHtml(item.category)}" data-status="${escapeHtml(item.status)}">
